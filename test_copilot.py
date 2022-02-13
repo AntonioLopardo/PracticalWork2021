@@ -32,7 +32,7 @@ print(insects_per_day)
 
 
 ##GSM8k - Two different code suggestions for the same questions that get different parts of the answer wrong.
-#For example here the first code suggestion is missing the faction of the drinks that is supposd to be wateer and the second one is missing the spill. 
+##For example here the first code suggestion is missing the fraction of the drinks that is supposed to be water and the second one is missing the spill. 
 
 #I have 10 liters of orange drink that are two-thirds water and I wish to add it to 15 liters of pineapple drink that is three-fifths water. But as I pour it, I spill one liter of the orange drink. Write a program that prints how much water is  in the remaining 24 liters
 
