@@ -1,3 +1,5 @@
+##ASDIV
+
 #Sandra took six cups of coffee and Marcie took two cups of coffee. print the number of cups of coffee did Sandra and Marcie take in total?
 cups_sandra = 6
 cups_marcie = 2
@@ -22,12 +24,15 @@ nickel_value = 5
 total_nickels = nickels * nickel_value
 print(total_nickels)
 
-
 #Ducks nned to eat 3.5 pounds of insects each week to survive. If there is flock of ten ducks, write a program that prints how many pounds of insects do they need per day
 flock_ducks = 10
 pound_insects = 3.5
 insects_per_day = (flock_ducks * pound_insects) / 7
 print(insects_per_day)
+
+
+##GSM8k - Two different code suggestions for the same questions that get different parts of the answer wrong.
+#For example here the first code suggestion is missing the faction of the drinks that is supposd to be wateer and the second one is missing the spill. 
 
 #I have 10 liters of orange drink that are two-thirds water and I wish to add it to 15 liters of pineapple drink that is three-fifths water. But as I pour it, I spill one liter of the orange drink. Write a program that prints how much water is  in the remaining 24 liters
 
