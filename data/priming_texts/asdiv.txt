@@ -1,0 +1,23 @@
+#Sandra took six cups of coffee and Marcie took two cups of coffee. print the number of cups of coffee did Sandra and Marcie take in total?
+cups_sandra = 6
+cups_marcie = 2
+total_cups = cups_sandra + cups_marcie
+print(total_cups)
+
+#Mrs. Franklin had 58 Valentines. Mrs. Franklin gave some to her students. Now she has 16. Write a program that prints how many Valentines did Mrs. Franklin give to her students?
+valentines_franklin = 58
+valentines_students = 16
+total_valentines = valentines_franklin - valentines_students
+print(total_valentines)
+
+#Susie's father repaired the bookshelves in the reading room. If he has 210 books to be distributed equally on the 10 shelves he repaired, write a program that prints how many books will each shelf contain?
+books_susie = 210
+shelves_susie = 10
+books_per_shelf = books_susie / shelves_susie
+print(books_per_shelf)
+
+#Michelle likes to save money every now and then so that she has money to buy the things that she wants. One day, she decided to count her savings. She opened her piggy bank and sorted out the different coins and dollar bills. If she counted a total of 20 nickels (a nickel is equivalent to 5 cents), write a program that prints what is the total value of money does she have in nickels?
+nickels = 20
+nickel_value = 5
+total_nickels = nickels * nickel_value
+print(total_nickels)

@@ -1,0 +1,20 @@
+#Joan found 70 seashells on the beach. she gave Sam some of her seashells. She has 27 seashell left. How many seashells did she give to Sam ?
+joan_shells_before = 70
+joan_shells_after = 27
+sam_shells = Joan_shells_before - Joan_shells_after
+print(Sam_shells)
+
+#Zach wants to ride the Ferris wheel, the roller coaster, and the log ride. The Ferris wheel costs 2 tickets, the roller coaster costs 7 tickets and the log ride costs 1 ticket. Zach has 1 ticket. How many more tickets should Zach buy?
+cost_ferris_wheel = 2
+cost_roller_coaster = 7
+cost_log_ride = 1
+zach_tickets = 1
+total_cost = cost_ferris_wheel + cost_log_ride + cost_roller_coaster
+additional_tickets_needed = total_cost - zach_tickets
+print(additional_tickets_needed)
+
+#Melanie grew 139 turnips. Benny grew 113 turnips. How many turnips did they grow in all ?
+melanie_prod = 139
+benny_prod = 113
+total_prod = melanie_prod + benny_prod
+print(total_prod)
