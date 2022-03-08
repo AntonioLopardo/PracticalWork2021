@@ -1,4 +1,4 @@
-# There are 54 passengers on a bus. 18 of them are men, 26 of them are women and the rest are children. Write a program that prints how many children are there on the bus?
+# There are 54 passengers on a bus. 18 of them are men, 26 of them are women and the rest are children. Write a program that prints How many children are there on the bus?
 total_passengers = 54
 men = 18
 total_passengers = 54
@@ -6,50 +6,50 @@ women = 26
 children = total_passengers - men - women
 print(children)
 
-# A store has thirty-five shirts. If they sold thirty of them, write a program that prints how many shirts would they have?
+# A store has thirty-five shirts. If they sold thirty of them, write a program that prints How many shirts would they have?
 sold_nr_shirts = 30
 initial_nr_shirts = 35
 remain = shirts - sold
 print(remain)
 
-# A restaurant charges 4% service charge. If your order amounted to 450, write a program that prints how much did you pay?
+# A restaurant charges 4% service charge. If your order amounted to 450, write a program that prints How much did you pay?
 price = 450
 service_charge = price * 0.04
 total_price = price + service_charge
 print(total_price)
 
-# Mary's mom is getting ready for Mary's birthday party. She blew up 6 balloons this morning and 5 balloons this afternoon. write a program that prints how many balloons did she blow up in all?
+# Mary's mom is getting ready for Mary's birthday party. She blew up 6 balloons this morning and 5 balloons this afternoon. write a program that prints How many balloons did she blow up in all?
 balloons_this_morning = 6
 balloons_this_afternoon = 5
 total_balloons = balloons_this_morning + balloons_this_afternoon
 print(total_balloons)
 
-# It takes 7 minutes to bake one pan of cookies. Write a program that prints how long will it take to bake 4 pans of cookies?
+# It takes 7 minutes to bake one pan of cookies. Write a program that prints How long will it take to bake 4 pans of cookies?
 cookies_per_pan = 4
 minutes_per_pan = 7
 total_minutes = cookies_per_pan * minutes_per_pan
 print(total_minutes)
 
-# John had 5 action figures, but needed 7 total for a complete collection. If each one costs $5, write a program that prints how much money would he need to finish his collection?
+# John had 5 action figures, but needed 7 total for a complete collection. If each one costs $5, write a program that prints How much money would he need to finish his collection?
 action_figures_owned = 5
 action_figures = 7
 action_figures_needed = action_figures - action_figures_owned
 total_cost = action_figures_needed * 5
 print(total_cost)
 
-# There are 234 people attending a luncheon. If a table can hold 9 people, write a program that prints how many tables do they need?
+# There are 234 people attending a luncheon. If a table can hold 9 people, write a program that prints How many tables do they need?
 people_per_table = 9
 people_attending = 234
 tables_needed = people_attending / people_per_table
 print(tables_needed)
 
-# The school is planning a field trip. There are 60 students and 10 seats on each school bus. Write a program that prints how many buses are needed to take the trip?
+# The school is planning a field trip. There are 60 students and 10 seats on each school bus. Write a program that prints How many buses are needed to take the trip?
 students = 60
 seats_per_bus = 10
 buses_needed = students / seats_per_bus
 print(buses_needed)
 
-# The rest of the kids around town got 13 more eggs around the club house, 9 eggs around the park and 8 eggs in the town hall garden. If we add all the eggs that they got, write a program that prints how many eggs would that be?
+# The rest of the kids around town got 13 more eggs around the club house, 9 eggs around the park and 8 eggs in the town hall garden. If we add all the eggs that they got, write a program that prints How many eggs would that be?
 eggs_in_the_town_hall_garden = 8
 eggs_around_the_club_house = 9
 eggs_around_the_park = 13
@@ -58,18 +58,18 @@ total_eggs = (
 )
 print(total_eggs)
 
-# In one day a movie store rented out 15 comedies. If the ratio of comedies rented to action movies rented was 3:1, write a program that prints how many action movies were rented?
+# In one day a movie store rented out 15 comedies. If the ratio of comedies rented to action movies rented was 3:1, write a program that prints How many action movies were rented?
 comedies_rented = 15
 ratio = 3/1
 action_movies_rented = comedies_rented / ratio
 print(action_movies_rented)
 
-# Each side of a square newspaper ad is 8 centimeters long. Write a program that prints what is the newspaper ad's perimeter?
+# Each side of a square newspaper ad is 8 centimeters long. Write a program that prints What is the newspaper ad's perimeter?
 side_length = 8
 perimeter = 4 * side_length
 print(perimeter)
 
-# If Mr. Brown and his son together had $220, and Mr. Brown had 10 times as much as his son, write a program that prints how much money had each?
+# If Mr. Brown and his son together had $220, and Mr. Brown had 10 times as much as his son, write a program that prints How much money had each?
 total_amount = 220
 brown_factor = 10
 son_factor = 1
@@ -78,37 +78,37 @@ brown_money = money_share * brown_factor
 son_money = money_share * son_factor
 print(brown_money, son_money)
 
-# Caitlin is on the 13th step of a giant slide. She walked down 4 steps to talk to her friend Dana. Then she walked up 12 steps to the top. Write a program that prints how many steps does the giant slide have?
+# Caitlin is on the 13th step of a giant slide. She walked down 4 steps to talk to her friend Dana. Then she walked up 12 steps to the top. Write a program that prints How many steps does the giant slide have?
 initial_pos = 13
 nr_step_up = 12
 nr_step_down = 4
 total_steps = initial_pos - nr_step_down + nr_step_up
 print(total_steps)
 
-# Rosa is making a game board that is 16 inches by 24 inches. She wants to use square tiles. Write a program that prints what is the largest tile she can use?
+# Rosa is making a game board that is 16 inches by 24 inches. She wants to use square tiles. Write a program that prints What is the largest tile she can use?
 side_b_board = 24
 side_a_board = 16
 print(math.gcd(side_a_board, side_b_board))
 
-# Nick and Kane were born on consecutive years and on same date. Nick is younger.  The sum of their ages is 11. Write a program that prints the age of the brothers.
+# Nick and Kane were born on consecutive years and on same date. Nick is younger.  The sum of their ages is 11. Write a program that prints what are the age of the brothers.
 diff_between_ages = 1
 age_sum = 11
 age_nick = (age_sum - 1) / 2
 age_kane = age_nick + 1
 print(age_nick, age_kane)
 
-# 172 students are forming teams for a mountaineering competition. Each team should have 18 students. Write a program that prints how many students will not be on a team?
+# 172 students are forming teams for a mountaineering competition. Each team should have 18 students. Write a program that prints How many students will not be on a team?
 students_per_team = 18
 students = 172
 students_not_on_team = students % students_per_team
 print(students_not_on_team)
 
-# One day, Trent and his friends had lunch while sitting at tables of 2. Another day, they had lunch at tables of 8. Write a program that prints what is the smallest number of people that could be in the group?
+# One day, Trent and his friends had lunch while sitting at tables of 2. Another day, they had lunch at tables of 8. Write a program that prints What is the smallest number of people that could be in the group?
 tables_of_2 = 2
 tables_of_8 = 8
 smallest_number_of_people = math.lcm(tables_of_2, tables_of_8)
 
-# A store has forty-nine shirts. After selling some there were twenty-eight left. Write a program that prints what's the difference between of the number of shirts before selling and after selling?
+# A store has forty-nine shirts. After selling some there were twenty-eight left. Write a program that prints What's the difference between of the number of shirts before selling and after selling?
 shirts_before_selling = 49
 shirts_after_selling = 28
 shirts_difference = shirts_before_selling - shirts_after_selling
@@ -122,7 +122,7 @@ sum_money = dimes * 10 + nickels * 5 + pennies * 1
 enough_money_to_buy_hat = 90
 print(sum_money >= enough_money_to_buy_hat)
 
-# Each house a carpenter builds needs six sinks. If he bought two hundred sixty-six sinks, write a program that writes how many houses would that cover?
+# Each house a carpenter builds needs six sinks. If he bought two hundred sixty-six sinks, write a program that writes How many houses would that cover?
 sinks_bought = 266
 sinks_per_house = 6
 houses_covered = sinks_bought // sinks_per_house
