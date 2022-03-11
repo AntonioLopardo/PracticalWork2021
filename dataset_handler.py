@@ -2,6 +2,10 @@ from abc import ABC, abstractmethod
 from xml.etree import ElementTree
 import numpy as np
 from termcolor import colored
+from io import StringIO
+from contextlib import redirect_stdout
+import json
+import re
 
 
 class math_dataset(ABC):
@@ -30,6 +34,25 @@ class math_dataset(ABC):
     @abstractmethod
     def preprocess_sol(self, raw_sol):
         pass
+
+    def verify_pred_from_output(self, output, sample_q, sample_a):
+        f = StringIO()
+        with redirect_stdout(f):
+            try:
+                exec(output)
+            except Exception as e:
+                print("111111111111111")
+
+        s = f.getvalue()
+        try:
+            s = float(s)
+        except Exception as e:
+            s = 1111111111.0
+
+        print(s)
+        print(self.preprocess_sol(sample_a))
+        is_correct = s == self.preprocess_sol(sample_a)
+        return is_correct
 
     def generate_prompt(self, entry_q):
         return f"{self.priming_text}\n\n#{entry_q}"
@@ -86,6 +109,89 @@ class asdiv_dataset(math_dataset):
         sol = raw_sol.split(" ")[0]
         if ":" in sol:
             sol = int(sol.split(":")[0]) / int(sol.split(":")[1])
+        try:
+            sol = float(sol)
+        except ValueError:
+            sol = 22222222.0
+        return float(sol)
+
+
+class gsm8k_datatset(math_dataset):
+    def __init__(self, dataset_path, priming_text_pth, dataset_name):
+        super().__init__(dataset_path, priming_text_pth, dataset_name)
+
+    def load_dataset(self, dataset_path):
+        with open(dataset_path) as fh:
+            data = [json.loads(line) for line in fh.readlines() if line]
+        return data
+
+    def print_entry_from_idx(self, entry_idx):
+        problem = self.data[entry_idx]
+        print(colored(problem["question"], "yellow"))
+        print(colored(problem["answer"], "green"))
+        print(colored(re.findall(r"#### \w+", problem["answer"])[0][5:], "green"))
+        print("\n" + "-" * 100 + "\n")
+
+    def sample_n_for_prompting(self, nr_entries):
+        """
+        I still don't addthe 'Writing program that prints' part to the prompt
+        """
+        rand_indexes = np.random.randint(0, len(self.data), nr_entries)
+
+        sample_a_list = []
+        sample_q_list = []
+        for rand_index in rand_indexes:
+            sample_q_list.append(self.data[rand_index]["question"])
+            # sample_a_list.append(self.data[rand_index]["answer"])
+            sample_a_list.append(
+                re.findall(r"#### \w+", self.data[rand_index]["answer"])[0][5:]
+            )
+
+        return sample_q_list, sample_a_list
+
+    def preprocess_sol(self, raw_sol):
+        sol = raw_sol
+        try:
+            sol = float(sol)
+        except ValueError:
+            sol = 22222222.0
+        return float(sol)
+
+
+class singleEq_dataset(math_dataset):
+    def __init__(self, dataset_path, priming_text_pth, dataset_name):
+        super().__init__(dataset_path, priming_text_pth, dataset_name)
+
+    def load_dataset(self, dataset_path):
+        with open(dataset_path, "r") as f:
+            data = json.load(f)
+        return data
+
+    def print_entry_from_idx(self, entry_idx):
+        problem = self.data[entry_idx]
+        print(colored(problem["sQuestion"], "yellow"))
+        print(colored(problem["lSolutions"][0], "green"))
+        print("\n" + "-" * 100 + "\n")
+
+    def sample_n_for_prompting(self, nr_entries):
+        rand_indexes = np.random.randint(0, len(self.data), nr_entries)
+
+        sample_a_list = []
+        sample_q_list = []
+        for rand_index in rand_indexes:
+            question = self.data[rand_index]["sQuestion"]
+            proc_question = (
+                question[: question.rfind(".") + 1]
+                + " Write a program that prints"
+                + question[question.rfind(".") + 1 :]
+            )
+            sample_q_list.append(proc_question)
+            sample_a_list.append(self.data[rand_index]["lSolutions"][0])
+
+        return sample_q_list, sample_a_list
+
+    def preprocess_sol(self, raw_sol):
+        sol = raw_sol
         try:
             sol = float(sol)
         except ValueError:
