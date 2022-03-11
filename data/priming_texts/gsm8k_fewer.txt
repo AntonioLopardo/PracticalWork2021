@@ -1,0 +1,95 @@
+# Joan wants to visit her family who live 480 miles away.  If she drives at a rate of 60 mph and takes a lunch break taking 30 minutes, and 2 bathroom breaks taking 15 minutes each, write a program that prints how many hours did it take her to get there?
+distance_480_miles = 480
+speed = 60
+lunch_break = 30
+bathroom_break = 15
+nr_bathroom_breaks = 2
+nr_lunch_breaks = 1
+total_break_time = lunch_break + (bathroom_break * nr_bathroom_breaks)
+total_time = distance_480_miles / speed + total_break_time
+print(total_time)
+
+# The distance from Anthony’s apartment to work is 10 miles. Write a program that prints how far away is the gym from his apartment if it is 2 miles more than half the distance from his apartment to work?
+distance_to_work = 10
+distance_to_gym = 2 + (distance_to_work / 2)
+print(distance_to_gym)
+
+# The owner of a Turkish restaurant wanted to prepare traditional dishes for an upcoming celebration. She ordered ground beef, in four-pound packages, from three different butchers. The following morning, the first butcher delivered 10 packages. A couple of hours later, 7 packages arrived from the second butcher. Finally, the third butcher’s delivery arrived at dusk. If all the ground beef delivered by the three butchers weighed 100 pounds, write a program that prints how many packages did the third butcher deliver?
+pounds_beef_per_package = 4
+nr_first_butcher = 10
+nr_second_butcher = 7
+pounds = 100
+total_packages = pounds / pounds_beef_per_package
+nr_third_buthcer = total_packages - nr_first_butcher - nr_second_butcher
+print(nr_third_buthcer)
+
+# When Jason plays the video game, Duty for Ashes, his mission to slay the dragon hoard requires that he fire his weapon on average every 15 seconds.   And each time he fires his weapon, his power-fire setting allows him to shoot a flame for 5 seconds. Write a program that prints on average, how many seconds per minute does Jason shoot flames at the dragon hoard?
+rate_of_fire_per_second = 1 / 15
+duration_of_flame = 5
+rate_of_fire_per_minute = rate_of_fire_per_second * 60
+time_with_power_fire = duration_of_flame * rate_of_fire_per_minute
+print(time_with_power_fire)
+
+# To run his grocery store, Mr. Haj needs $4000 a day. This money is used to pay for orders done, delivery costs and employees' salaries. If he spends 2/5 of the total operation costs on employees' salary and 1/4 of the remaining amount on delivery costs, write a program that prints how much money he pays for the orders done?
+total_cost_per_day = 4000
+employees_cost = total_cost_per_day * 2 / 5
+delivery_costs = (total_cost_per_day - employees_cost) * 1 / 4
+orders_costs = total_cost_per_day - delivery_costs - employees_cost
+print(orders_costs)
+
+# In a stationery store, there are three kinds of pencils. A pencil with an eraser, which costs $0.8 each, a regular pencil for $0.5 each, and a short pencil for $0.4 each. This store was able to sell 200 pencils with an eraser, 40 regular pencils, and 35 short pencils. Write a program that prints how much money did the store make from these sales?
+pencils_eraser_cost = 0.8
+pencils_regular_cost = 0.5
+pencils_short_cost = 0.4
+nr_pencil_eraser = 200
+nr_pencil_regular = 40
+nr_pencil_short = 35
+total_pencils_cost = (
+    nr_pencil_eraser * pencils_eraser_cost
+    + nr_pencil_regular * pencils_regular_cost
+    + nr_pencil_short * pencils_short_cost
+)
+print(total_pencils_cost)
+
+# After complaints from the residents of Tatoosh about the number of cats on the island, the wildlife service carried out a relocation mission that saw the number of cats on the island drastically reduced. On the first relocation mission, 600 cats were relocated from the island to a neighboring island. On the second mission, half of the remaining cats were relocated to a rescue center inland. If the number of cats originally on the island was 1800, write a program that prints how many cats remained on the island after the rescue mission?
+total_cats_on_island = 1800
+nr_cats_relocated_first_mission = 600
+nr_cats_relocated_second_mission = (
+    total_cats_on_island - nr_cats_relocated_first_mission
+) / 2
+nr_cats_left = (
+    total_cats_on_island
+    - nr_cats_relocated_first_mission
+    - nr_cats_relocated_second_mission
+)
+print(nr_cats_left)
+
+# Mr. Rainwater has some goats, 9 cows and some chickens. He has 4 times as many goats as cows and 2 times as many goats as chickens. Write a program that prints how many chickens does he have?
+goats_cows_ratio = 4 / 1
+goats_chickens_ratio = 2 / 1
+nr_cows = 9
+nr_goats = 9 * goats_cows_ratio
+nr_chickens = nr_goats / goats_chickens_ratio
+print(nr_chickens)
+
+# A man is trying to maximize the amount of money he saves each month. In particular, he is trying to decide between two different apartments. The first apartment costs $800 per month in rent and will cost an additional $260 per month in utilities. The second apartment costs $900 per month and will cost an additional $200 per month in utilities. The first apartment is slightly further from the man's work, and the man would have to drive 31 miles per day to get to work. The second apartment is closer, and the man would only have to drive 21 miles to get to work. According to the IRS, each mile a person drives has an average cost of 58 cents. If the man must drive to work 20 days each month, write a program that prints what is the difference between the total monthly costs of these two apartments after factoring in utility and driving-related costs (to the nearest whole dollar)?
+rent_first_apartment = 800
+utilities_first_apartment = 260
+rent_second_apartment = 900
+utilities_second_apartment = 200
+distance_to_work_first_apartment = 31
+distance_to_work_second_apartment = 21
+cost_per_mile = 0.58
+work_days = 20
+cost_first_apartment = (
+    rent_first_apartment
+    + utilities_first_apartment
+    + (cost_per_mile * distance_to_work_first_apartment * work_days)
+)
+cost_second_apartment = (
+    rent_second_apartment
+    + utilities_second_apartment
+    + (cost_per_mile * distance_to_work_second_apartment * work_days)
+)
+difference = cost_first_apartment - cost_second_apartment
+print(difference)

@@ -1,83 +1,80 @@
-# Keith has 20 books. Jason has 21 books.  Write a program that prints how many books they have together ?
+# Keith has 20 books. Jason has 21 books.  Write a program that prints How many books they have together ?
 books_Jason = 21
 books_Keith = 20
 print(books_Keith + books_Jason)
 
-# Diane is a beekeeper. Last year, she harvested 2,479 pounds of honey. This year, she bought some new hives and increased her honey harvest by 6,085 pounds. Write a program that prints how many pounds of honey did Diane harvest this year?
+# Diane is a beekeeper. Last year, she harvested 2,479 pounds of honey. This year, she bought some new hives and increased her honey harvest by 6,085 pounds. Write a program that prints How many pounds of honey did Diane harvest this year?
 honey_last_year = 2479
 honey_this_year = 6085
 print(honey_last_year + honey_this_year)
 
-# The farmers reported that they harvest 45 sacks of apples from each of the 8 sections of the orchard daily. Write a program that prints how many sacks are harvested every day?
+# The farmers reported that they harvest 45 sacks of apples from each of the 8 sections of the orchard daily. Write a program that prints How many sacks are harvested every day?
 sacks_per_day = 45
 print(sacks_per_day * 8)
 
-# Joan has 8 orange balloons  but lost 2 of them. Write a program that prints how many orange balloons does Joan have now ?
+# Joan has 8 orange balloons  but lost 2 of them. Write a program that prints How many orange balloons does Joan have now ?
 balloons_lost = 2
 balloons_total = 8
 print(balloons_total - balloons_lost)
 
-# On Saturday, Sara spent $10.62 each on 2 tickets to a movie theater. Sara also rented a movie for $1.59, and bought a movie for $13.95. Write a program that prints how much money in total did Sara spend on movies?
+# On Saturday, Sara spent $10.62 each on 2 tickets to a movie theater. Sara also rented a movie for $1.59, and bought a movie for $13.95. Write a program that prints How much money in total did Sara spend on movies?
 ticket_price = 10.62
 nr_tickets = 2
 movie_rent = 1.59
 movie_buy = 13.95
 print(ticket_price * nr_tickets + movie_rent + movie_buy)
 
-# Bryan took a look at his books as well. If Bryan has 56 books in each of his 9 bookshelves, write a program that prints how many books does he have in total?
+# Bryan took a look at his books as well. If Bryan has 56 books in each of his 9 bookshelves, write a program that prints How many books does he have in total?
 nr_shelves = 9
 nr_books_per_shelf = 56
 total_books = nr_shelves * nr_books_per_shelf
 print(total_books)
 
-# There are 46 rulers in the drawer. Tim took 25  rulers from the drawer. Write a program tha tprints how many rulers are now in the drawer ?
+# There are 46 rulers in the drawer. Tim took 25  rulers from the drawer. Write a program that prints How many rulers are now in the drawer ?
 total_rulers = 46
 rulers_taken = 25
 rulers_left = total_rulers - rulers_taken
 print(rulers_left)
 
-# Jason had Pokemon cards. He gave 9 Pokemon cards to his friends. He now has 4 Pokemon cards left. Write a program that prints how many Pokemon cards did he have to start with ?
+# Jason had Pokemon cards. He gave 9 Pokemon cards to his friends. He now has 4 Pokemon cards left. Write a program that prints How many Pokemon cards did he have to start with ?
 cards_given = 9
 cards_left = 4
-
 cards_total = cards_left + cards_given
 print(cards_total)
 
-# Nina did a running drill to get in shape for soccer season. First, Nina ran 0.08333333333333333 of a mile. Then she ran 0.08333333333333333 of a mile and 0.6666666666666666 of a mile more. Write a program that prints how many miles did Nina run in total?
+# Nina did a running drill to get in shape for soccer season. First, Nina ran 0.08333333333333333 of a mile. Then she ran 0.08333333333333333 of a mile and 0.6666666666666666 of a mile more. Write a program that prints How many miles did Nina run in total?
 miles_run = 0.08333333333333333 + 0.08333333333333333 + 0.6666666666666666
 print(miles_run)
 
-# Paco had 93 cookies. Paco ate 15 of them. Write a program that prints how many cookies did Paco have left?
+# Paco had 93 cookies. Paco ate 15 of them. Write a program that prints How many cookies did Paco have left?
 cookies_eaten = 15
-
 cookies_total = 93
-
 print(cookies_total - cookies_eaten)
 
-# Joan bought 6 dozen eggs from the grocery store to bake some cakes. Write a program that prints how many eggs did Joan buy ?
+# Joan bought 6 dozen eggs from the grocery store to bake some cakes. Write a program that prints How many eggs did Joan buy ?
 eggs_bought = 6
+
 eggs_per_dozen = 12
 total_eggs = eggs_bought * eggs_per_dozen
 print(total_eggs)
 
-# Sam grew 4 watermelons, but the rabbits ate 3 watermelons. Write a program that prints how many watermelons does Sam have left ?
+# Sam grew 4 watermelons, but the rabbits ate 3 watermelons. Write a program that prints How many watermelons does Sam have left ?
 watermelons_eaten = 3
 watermelons_grown = 4
-
 watermelons_left = watermelons_grown - watermelons_eaten
 print(watermelons_grown - watermelons_eaten)
 
-# Mr. Guzman bought 48 doughnuts packed equally into 4 boxes. Write a program that prints how many doughnuts were in each box?
+# Mr. Guzman bought 48 doughnuts packed equally into 4 boxes. Write a program that prints How many doughnuts were in each box?
 doughnuts_per_box = 4
 doughnuts_bought = 48
 print(doughnuts_bought / doughnuts_per_box)
 
-# A restaurant served 6 cakes during lunch and 9 during dinner today. Write a program that prints how many cakes were served today ?
+# A restaurant served 6 cakes during lunch and 9 during dinner today. Write a program that prints How many cakes were served today ?
 cakes_lunch = 6
 cakes_dinner = 9
 print(cakes_lunch + cakes_dinner)
 
-# A car company produced 3,884 cars in North America and 2,871 cars in Europe. Write a program tha tprints how many cars is that in all?
+# A car company produced 3,884 cars in North America and 2,871 cars in Europe. Write a program that prints How many cars is that in all?
 cars_europe = 2871
 cars_north_america = 3884
 print(cars_north_america + cars_europe)
