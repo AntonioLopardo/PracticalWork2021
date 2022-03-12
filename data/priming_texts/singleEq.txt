@@ -53,7 +53,6 @@ print(cookies_total - cookies_eaten)
 
 # Joan bought 6 dozen eggs from the grocery store to bake some cakes. Write a program that prints How many eggs did Joan buy ?
 eggs_bought = 6
-
 eggs_per_dozen = 12
 total_eggs = eggs_bought * eggs_per_dozen
 print(total_eggs)

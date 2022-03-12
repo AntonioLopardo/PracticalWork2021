@@ -9,7 +9,7 @@ print(children)
 # A store has thirty-five shirts. If they sold thirty of them, write a program that prints How many shirts would they have?
 sold_nr_shirts = 30
 initial_nr_shirts = 35
-remain = shirts - sold
+remain = initial_nr_shirts - sold_nr_shirts
 print(remain)
 
 # A restaurant charges 4% service charge. If your order amounted to 450, write a program that prints How much did you pay?
@@ -76,7 +76,7 @@ son_factor = 1
 money_share = total_amount / (brown_factor + son_factor)
 brown_money = money_share * brown_factor
 son_money = money_share * son_factor
-print(brown_money, son_money)
+print(son_money, brown_money)
 
 # Caitlin is on the 13th step of a giant slide. She walked down 4 steps to talk to her friend Dana. Then she walked up 12 steps to the top. Write a program that prints How many steps does the giant slide have?
 initial_pos = 13
@@ -86,6 +86,7 @@ total_steps = initial_pos - nr_step_down + nr_step_up
 print(total_steps)
 
 # Rosa is making a game board that is 16 inches by 24 inches. She wants to use square tiles. Write a program that prints What is the largest tile she can use?
+import math
 side_b_board = 24
 side_a_board = 16
 print(math.gcd(side_a_board, side_b_board))
@@ -104,9 +105,13 @@ students_not_on_team = students % students_per_team
 print(students_not_on_team)
 
 # One day, Trent and his friends had lunch while sitting at tables of 2. Another day, they had lunch at tables of 8. Write a program that prints What is the smallest number of people that could be in the group?
+import math
 tables_of_2 = 2
 tables_of_8 = 8
-smallest_number_of_people = math.lcm(tables_of_2, tables_of_8)
+prod = tables_of_2 * tables_of_8
+gcd = math.gcd(tables_of_2, tables_of_8)
+smallest_number_of_people = prod // gcd
+print(smallest_number_of_people)
 
 # A store has forty-nine shirts. After selling some there were twenty-eight left. Write a program that prints What's the difference between of the number of shirts before selling and after selling?
 shirts_before_selling = 49

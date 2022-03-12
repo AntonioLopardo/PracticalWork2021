@@ -51,7 +51,7 @@ print(cans_per_8_hours)
 # On Friday, Markeesha sold 30 boxes of crackers for her scout troop's fundraiser. On Saturday, she sold twice as many as on Friday. On Sunday, she sold 15 fewer than Saturday. Write a program that prints how many boxes did she sell over the three days?
 friday_boxes = 30
 saturday_boxes = 2 * friday_boxes
-sunday_boxes = friday_boxes - 15
+sunday_boxes = saturday_boxes - 15
 total_boxes = saturday_boxes + sunday_boxes + friday_boxes
 print(total_boxes)
 
@@ -62,8 +62,8 @@ lunch_break = 30
 bathroom_break = 15
 nr_bathroom_breaks = 2
 nr_lunch_breaks = 1
-total_break_time = lunch_break + (bathroom_break * nr_bathroom_breaks)
-total_time = distance_480_miles / speed + total_break_time
+total_break_minutes = lunch_break + (bathroom_break * nr_bathroom_breaks)
+total_time = distance_480_miles / speed + total_break_minutes/60
 print(total_time)
 
 # The distance from Anthony’s apartment to work is 10 miles. Write a program that prints how far away is the gym from his apartment if it is 2 miles more than half the distance from his apartment to work?
