@@ -199,10 +199,23 @@ class singleEq_dataset(math_dataset):
         return float(sol)
 
 
-# asdiv_path = "data/nlu-asdiv-dataset/dataset/ASDiv.xml"
-# gsm8k_path = "data/grade-school-math/grade_school_math/data/train.jsonl"
-# singleEq_path = "data/TACL2015/questions.json"
+asdiv_path = "data/nlu-asdiv-dataset/dataset/ASDiv.xml"
+gsm8k_path = "data/grade-school-math/grade_school_math/data/train.jsonl"
+singleEq_path = "data/TACL2015/questions.json"
 
-# dataset = asdiv_dataset(asdiv_path, "data/priming_texts/asdiv.txt", "asdiv")
 
-# dataset.print_entry_from_idx(135)
+def init_dataset_from_name(datatset_name, primingtext_path):
+
+    if datatset_name == "asdiv":
+        dataset_path = asdiv_path
+        dataset = asdiv_dataset(dataset_path, primingtext_path, "asdiv")
+    elif datatset_name == "gsm8k":
+        dataset_path = gsm8k_path
+        dataset = gsm8k_datatset(dataset_path, primingtext_path, "gsm8k")
+    elif datatset_name == "singleEq":
+        dataset_path = singleEq_path
+        dataset = singleEq_dataset(dataset_path, primingtext_path, "singleEq")
+    else:
+        raise ValueError("dataset_name not recognized")
+
+    return dataset
