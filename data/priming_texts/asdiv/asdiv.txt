@@ -132,3 +132,5 @@ sinks_bought = 266
 sinks_per_house = 6
 houses_covered = sinks_bought // sinks_per_house
 print(houses_covered)
+
+# Tony had $20. He paid $8 for a ticket to a baseball game. At the game, he bought a hot dog for $3. Write a program that prints the amount of money Tony has then?

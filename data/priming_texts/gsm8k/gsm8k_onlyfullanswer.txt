@@ -1,0 +1,68 @@
+# Since he fires his weapon on average every 15 seconds, then in one minute he fires the flamethrower 60/15=<<60/15=4>>4 times. And since each time he fires his weapon, he shoots flame for 5 seconds, then Jason shoots flames at the dragon hoard a total of 4*5=<<4*5=20>>20 seconds of every minute.
+rate_of_fire_per_second = 1 / 15
+duration_of_flame = 5
+rate_of_fire_per_minute = rate_of_fire_per_second * 60
+time_with_power_fire = duration_of_flame * rate_of_fire_per_minute
+print(time_with_power_fire)
+
+# The total amount of money Mr. Haj used to pay for employee salary is 2/5*$4000 = $<<2/5*4000=1600>>1600 After paying the employee salaries, Mr. Haj remains with $4000-$1600 = $<<4000-1600=2400>>2400 He also uses 1/4*$2400= $<<2400/4=600>>600 on delivery costs. The remaining amount of money that he uses to pay for orders is $2400-$600 = $<<2400-600=1800>>1800
+total_cost_per_day = 4000
+employees_cost = total_cost_per_day * 2 / 5
+delivery_costs = (total_cost_per_day - employees_cost) * 1 / 4
+orders_costs = total_cost_per_day - delivery_costs - employees_cost
+print(orders_costs)
+
+# For pencils with erasers, the store received a total of 200 * 0.8 = $<<200*0.8=160>>160. For regular pencils, the store received 40 * 0.5 = $<<40*0.5=20>>20. And for short pencils only 35 * 0.4 = $<<35*0.4=14>>14. In total, the store made 160 + 20 + 14 = $<<160+20+14=194>>194 from selling these pencils.
+pencils_eraser_cost = 0.8
+pencils_regular_cost = 0.5
+pencils_short_cost = 0.4
+nr_pencil_eraser = 200
+nr_pencil_regular = 40
+nr_pencil_short = 35
+total_pencils_cost = nr_pencil_eraser * pencils_eraser_cost + nr_pencil_regular * pencils_regular_cost + nr_pencil_short * pencils_short_cost
+print(total_pencils_cost)
+
+# After the first mission, the number of cats remaining on the island was 1800-600 = <<1800-600=1200>>1200. If half of the remaining cats on the island were relocated to a rescue center inland, the number of cats taken by the wildlife service on the second mission is 1200/2 = <<1200/2=600>>600 cats. The number of cats remaining on the island is 1200-600 = <<1200-600=600>>600
+total_cats_on_island = 1800
+nr_cats_relocated_first_mission = 600
+nr_cats_relocated_second_mission = (
+    total_cats_on_island - nr_cats_relocated_first_mission
+) / 2
+nr_cats_left = (
+    total_cats_on_island
+    - nr_cats_relocated_first_mission
+    - nr_cats_relocated_second_mission
+)
+print(nr_cats_left)
+
+# Let X be the number of chickens Mr. Rainwater has. He has 4 goats/cow * 9 cows = <<4*9=36>>36 goats on his farm. So he has 36 goats / 2 goats/chicken = <<36/2=18>>18 chickens.
+goats_cows_ratio = 4 / 1
+goats_chickens_ratio = 2 / 1
+nr_cows = 9
+nr_goats = 9 * goats_cows_ratio
+nr_chickens = nr_goats / goats_chickens_ratio
+print(nr_chickens)
+
+# The mileage cost for the first apartment will be 31*20*0.58 = $<<31*20*0.58=359.60>>359.60 This makes the total monthly cost of the first apartment 359.60 + 800 + 260 = $<<359.60+800+260=1419.60>>1419.60 Similarly, the mileage cost for the second apartment will be 21*20*0.58 = $<<21*20*0.58=243.60>>243.60 Thus, the total monthly cost of the second apartment is 243.60 + 900 + 200 = <<243.60+900+200=1343.60>>1343.60 Therefore, the difference in total monthly costs is 1419.60 - 1343.60 = $<<1419.60-1343.60=76>>76
+rent_first_apartment = 800
+utilities_first_apartment = 260
+rent_second_apartment = 900
+utilities_second_apartment = 200
+distance_to_work_first_apartment = 31
+distance_to_work_second_apartment = 21
+cost_per_mile = 0.58
+work_days = 20
+cost_first_apartment = (
+    rent_first_apartment
+    + utilities_first_apartment
+    + (cost_per_mile * distance_to_work_first_apartment * work_days)
+)
+cost_second_apartment = (
+    rent_second_apartment
+    + utilities_second_apartment
+    + (cost_per_mile * distance_to_work_second_apartment * work_days)
+)
+difference = cost_first_apartment - cost_second_apartment
+print(difference)
+
+# If it takes 15 minutes for Dante to go to Hidden Lake and 7 minutes to walk back to the Park Office, he spends a total of 15+7=<<15+7=22>>22 minutes on the trip. When Dante arrives at the Park Office, he will have been gone from the Park Office 32 minutes altogether, and since he passed by the Lake Park restaurant from The Park Office, his walk from Park Office to the Lake Park restaurant took 32-22=<<32-22=10>>10 minutes.

@@ -1,0 +1,69 @@
+Damien jogs 5 miles per day on weekdays only.  How many miles does he run over three weeks?
+Three weeks at 5 days per week means Damien runs 3*5=<<3*5=15>>15 times in three weeks.
+If each time he runs 5 miles, then over 15 running days he covers 5*15=<<5*15=75>>75 miles.
+#### 75
+75
+
+The journey from Abel's house to Alice's house is 35 miles and is divided into 5 equal portions. Abel is driving at a speed of 40 miles per hour. After traveling for 0.7 hours, how many portions of the journey has he covered?
+35 miles into 5 equal portions will be 35/5 = <<35/5=7>>7 miles each
+Abel traveled at a speed of 40 miles per hour for 0.7 hours so he will cover 40*0.7 = <<40*0.7=28>>28 miles
+7 miles make a portion so 28 miles is equivalent to 28/7 = <<28/7=4>>4 portions
+#### 4
+4
+
+If eight liters is 20% the capacity of a container filled with water, calculate the total capacity of 40 such containers filled with water.
+If eight liters is 20% the capacity of a container filled with water, when the container is full, which is 100%, the container will contain 100%/20% * 8 liters= 40 liters.
+The total capacity of 40 such containers filled with water is 40*40 = <<40*40=1600>>1600 liters
+#### 1600
+1600
+
+The total cost of Olivia’s groceries was $42. The bananas cost her $12, the bread cost her $9, and the milk cost her $7. The only other groceries she bought were apples. In dollars, how much money did the apples cost her?
+The combined cost of the bananas, bread, and milk was 12 + 9 + 7 = $<<12+9+7=28>>28.
+The difference between this and the total is the cost of the apples, which must have therefore cost Olivia 42 – 28 = $<<42-28=14>>14.
+#### 14
+14
+
+In a school with 800 students, 5/8 of the students are girls. Seven-tenths of the girls and two-fifths of the boys are in the primary grades, while the rest are middle schoolers. How many middle schoolers are there?
+There are 800 x 5/8 = <<800*5/8=500>>500 girls.
+So, there are 800 - 500 = <<800-500=300>>300 boys.
+There are 500 x 7/10 = <<500*7/10=350>>350 girls that are in the primary grades.
+Hence, 500 - 350 = <<500-350=150>>150 girls are middle schoolers.
+There are 300 x 2/5 = <<300*2/5=120>>120 boys that are in the primary grades.
+Hence, 300 - 120 = <<300-120=180>>180 boy students are middle schoolers.
+Therefore, a total of 150 girls + 180 boys = <<150+180=330>>330 middle schoolers.
+#### 330
+330
+
+It takes Omar 12 minutes to raise his kite 240 feet into the air. Jasper can raise his kite at three times the rate of speed as Omar can raise his kite. If Jasper raises his kite to a height of 600 feet, how many minutes will it take?
+Jasper raises his kite at a rate of 240 feet in 12 minutes, or 240/12=<<240/12=20>>20 feet per minute.
+Jasper raises his kite at three times the speed Omar does, or 3*20=<<3*20=60>>60 feet per minute.
+To raise his kite 600 feet, it will take Jasper 600/60=<<600/60=10>>10 minutes.
+#### 10
+10
+
+Hugo's mountain has an elevation of 10,000 feet above sea level.  Boris' mountain has an elevation that is 2,500 feet shorter than  Hugo's mountain.  If Hugo climbed his mountain 3 times, how many times would Boris need to climb his mountain to have climbed the same number of feet as Hugo?
+Boris' mountain has an elevation 2,500 feet shorter than Hugo's mountain, or 10,000-2,500=<<10000-2500=7500>>7500 feet above sea level.
+If Hugo climbed his mountain 3 times, his total climbing distance would be 3*10,000=<<3*10000=30000>>30,000 feet.
+To climb a total of 30,000 feet, Boris would need to need to climb his mountain 30,000/7,500=<<30000/7500=4>>4 times.
+#### 4
+4
+
+A hot dog stand sells 10 hot dogs every hour, each one selling for $2.  How many hours does the stand need to run to make $200 in sales?
+First, we find out how much in sales the stand makes each hour by multiplying the number of hot dogs sold by the sales price, finding that 2*10=<<2*10=20>>20 dollars in sales each hour.
+Then we divide the sales goal for the day by the sales per hour, finding that the stand needs to be open for 200/20= <<200/20=10>>10 hours to hit its sales goal.
+#### 10
+10
+
+Bob bought 2 show dogs for $250.00 each to breed as a side business.  The female just had a litter of 6 puppies.  If he sells each puppy for $350.00, what is his total profit?
+He bought 2 dogs for $250.00 each so they costs 2*250 = $<<2*250=500.00>>500.00
+He sells each of the 6 puppies for $350.00 so he'll make 6*350 = $<<6*350=2100.00>>2,100.00
+He made $2,100 on the puppies but spent $500.00 to buy the dogs so his total profit is 2,100-500 = $<<2100-500=1600.00>>1,600.00
+#### 1600
+1600
+
+The average score on last week's Spanish test was 90.  Marco scored 10% less than the average test score and Margaret received 5 more points than Marco.  What score did Margaret receive on her test?
+The average test score was 90 and Marco scored 10% less so 90*.10 = <<90*.10=9>>9 points lower
+The average test score was 90 and Marco scored 9 points less so his test score was 90-9 = <<90-9=81>>81
+Margret received 5 more points than Marco whose test score was 81 so she made 5+81 = <<5+81=86>>86 on her test
+#### 86
+86

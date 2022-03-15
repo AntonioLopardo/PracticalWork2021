@@ -1,35 +1,3 @@
-# Joan wants to visit her family who live 480 miles away.  If she drives at a rate of 60 mph and takes a lunch break taking 30 minutes, and 2 bathroom breaks taking 15 minutes each, write a program that prints how many hours did it take her to get there?
-distance_480_miles = 480
-speed = 60
-lunch_break = 30
-bathroom_break = 15
-nr_bathroom_breaks = 2
-nr_lunch_breaks = 1
-total_break_time = lunch_break + (bathroom_break * nr_bathroom_breaks)
-total_time = distance_480_miles / speed + total_break_time
-print(total_time)
-
-# The distance from Anthony’s apartment to work is 10 miles. Write a program that prints how far away is the gym from his apartment if it is 2 miles more than half the distance from his apartment to work?
-distance_to_work = 10
-distance_to_gym = 2 + (distance_to_work / 2)
-print(distance_to_gym)
-
-# The owner of a Turkish restaurant wanted to prepare traditional dishes for an upcoming celebration. She ordered ground beef, in four-pound packages, from three different butchers. The following morning, the first butcher delivered 10 packages. A couple of hours later, 7 packages arrived from the second butcher. Finally, the third butcher’s delivery arrived at dusk. If all the ground beef delivered by the three butchers weighed 100 pounds, write a program that prints how many packages did the third butcher deliver?
-pounds_beef_per_package = 4
-nr_first_butcher = 10
-nr_second_butcher = 7
-pounds = 100
-total_packages = pounds / pounds_beef_per_package
-nr_third_buthcer = total_packages - nr_first_butcher - nr_second_butcher
-print(nr_third_buthcer)
-
-# When Jason plays the video game, Duty for Ashes, his mission to slay the dragon hoard requires that he fire his weapon on average every 15 seconds.   And each time he fires his weapon, his power-fire setting allows him to shoot a flame for 5 seconds. Write a program that prints on average, how many seconds per minute does Jason shoot flames at the dragon hoard?
-rate_of_fire_per_second = 1 / 15
-duration_of_flame = 5
-rate_of_fire_per_minute = rate_of_fire_per_second * 60
-time_with_power_fire = duration_of_flame * rate_of_fire_per_minute
-print(time_with_power_fire)
-
 # To run his grocery store, Mr. Haj needs $4000 a day. This money is used to pay for orders done, delivery costs and employees' salaries. If he spends 2/5 of the total operation costs on employees' salary and 1/4 of the remaining amount on delivery costs, write a program that prints how much money he pays for the orders done?
 total_cost_per_day = 4000
 employees_cost = total_cost_per_day * 2 / 5
@@ -93,3 +61,5 @@ cost_second_apartment = (
 )
 difference = cost_first_apartment - cost_second_apartment
 print(difference)
+
+# Damien jogs 5 miles per day on weekdays only. Write a program that prints How many miles he runs over three weeks

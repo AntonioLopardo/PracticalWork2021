@@ -1,0 +1,61 @@
+def return_answer():
+    """
+    There are 54 passengers on a bus. 18 of them are men, 26 of them are women and the rest are children. This program returns How many children are there on the bus?
+    """
+    total_passengers = 54
+    men = 18
+    total_passengers = 54
+    women = 26
+    children = total_passengers - men - women
+    return children
+
+def return_answer():
+    """
+    This program answers A store has thirty-five shirts. If they sold thirty of them, This program returns How many shirts would they have?
+    """
+    sold_nr_shirts = 30
+    initial_nr_shirts = 35
+    remain = initial_nr_shirts - sold_nr_shirts
+    return remain
+
+def return_answer():
+    """
+    This program answers A restaurant charges 4% service charge. If your order amounted to 450, This program returns How much did you pay?
+    """
+    price = 450
+    service_charge = price * 0.04
+    total_price = price + service_charge
+    return total_price
+
+def return_answer():
+    """
+    This program answers Mary's mom is getting ready for Mary's birthday party. She blew up 6 balloons this morning and 5 balloons this afternoon. This program returns How many balloons did she blow up in all?
+    """
+    balloons_this_morning = 6
+    balloons_this_afternoon = 5
+    total_balloons = balloons_this_morning + balloons_this_afternoon
+    return total_balloons
+
+def return_answer():
+    """
+    This program answers It takes 7 minutes to bake one pan of cookies. This program returns How long will it take to bake 4 pans of cookies?
+    """
+    cookies_per_pan = 4
+    minutes_per_pan = 7
+    total_minutes = cookies_per_pan * minutes_per_pan
+    return total_minutes
+
+def return_answer():
+    """
+    This program answers John had 5 action figures, but needed 7 total for a complete collection. This program returns If each one costs $5, How much money would he need to finish his collection?
+    """
+    action_figures_owned = 5
+    action_figures = 7
+    action_figures_needed = action_figures - action_figures_owned
+    total_cost = action_figures_needed * 5
+    return total_cost
+
+def return_answer():
+    """
+    There are 234 people attending a luncheon. This program returns If a table can hold 9 people, how many tables do they need?
+    """
