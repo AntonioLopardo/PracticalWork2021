@@ -41,7 +41,8 @@ class math_dataset(ABC):
             try:
                 exec(output)
             except Exception as e:
-                print("111111111111111")
+                # print("111111111111111")
+                pass
 
         s = f.getvalue()
         try:
@@ -49,8 +50,8 @@ class math_dataset(ABC):
         except Exception as e:
             s = 1111111111.0
 
-        print(s)
-        print(self.preprocess_sol(sample_a))
+        # print(s)
+        # print(self.preprocess_sol(sample_a))
         is_correct = s == self.preprocess_sol(sample_a)
         return is_correct
 
