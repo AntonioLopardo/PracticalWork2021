@@ -1,99 +1,89 @@
-from transformers import AutoTokenizer, AutoModelForCausalLM
+import os
 from xml.etree import ElementTree
 import numpy as np
+import torch
 import json
 import re
+from transformers import AutoTokenizer, AutoModelForCausalLM
+from io import StringIO
+from contextlib import redirect_stdout
+from termcolor import colored
 
-genji_model = ""
+import dataset_handler as dh
+import helper_func as hf
+
+torch.manual_seed(0)
+np.random.seed(8)
+
 gptj_model = "EleutherAI/gpt-j-6B"
-codeparrot_model = ""
-
-asdiv_path = "data/nlu-asdiv-dataset/dataset/ASDiv.xml"
-gsm8k_path = "data/grade-school-math/grade_school_math/data/train.jsonl"
-singleEq_path = "data/TACL2015/questions.json"
-
-
-def read_string_from_file(path):
-    with open(path, "r") as f:
-        return f.read()
-
-
-def sample_asdiv(dataset_path):
-    dom = ElementTree.parse(dataset_path)
-
-    # XML parsing
-    body_list = dom.findall("ProblemSet/Problem/Body")
-    answer_list = dom.findall("ProblemSet/Problem/Answer")
-    question_list = dom.findall("ProblemSet/Problem/Question")
-    formula_list = dom.findall("ProblemSet/Problem/Formula")
-    stype_list = dom.findall("ProblemSet/Problem/Solution-Type")
-
-    # Randomly choose a problem
-    rand_index = np.random.randint(0, len(body_list))
-
-    return (
-        f"{body_list[rand_index].text} {question_list[rand_index].text}",
-        formula_list[rand_index].text,
-    )
-
-
-def sample_gsm8k(dataset_path):
-    with open(dataset_path) as fh:
-        data = [json.loads(line) for line in fh.readlines() if line]
-
-    # Randomly choose a problem
-    rand_index = np.random.randint(0, len(data))
-    problem = data[rand_index]
-    return problem["question"], re.findall(r"#### \w+", problem["answer"])[0][5:]
-
-
-def sample_singleEq(dataset_path):
-    with open(dataset_path, "r") as f:
-        data = json.load(f)
-
-    # Randomly choose a problem
-    rand_index = np.random.randint(0, len(data))
-    problem = data[rand_index]
-    return problem["sQuestion"], problem["lSolutions"]
-
-
-"""Choose the dataset you want to test"""
-dataset_path = gsm8k_path
-# dataset_path = singleEq_path
-# dataset_path = asdiv_path
+codeparrot_model = "lvwerra/codeparrot"
 
 """Load the priming text to add to the prompt and sample a question"""
-priming_text = read_string_from_file("data/priming_texts/gsm8k.txt")
+# priming_text_path = "data/priming_texts/gsm8k_onlyfullanswer.txt"
 # priming_text = read_string_from_file("data/priming_texts/singleEq.txt")
-# priming_text = read_string_from_file("data/priming_texts/asdiv.txt")
+priming_text_path = "data/priming_texts/asdiv/asdiv.txt"
 
-sample_q, sample_a = sample_gsm8k(dataset_path)
-# sample_q, sample_a = sample_singleEq(dataset_path)
-# sample_q, sample_a = sample_asdiv(dataset_path)
+print(colored("Prompt from: " + priming_text_path + "\n", "yellow"))
 
-prompt = f"{priming_text}\n\n#{sample_q}"
-print(prompt)
-print("\n" + "-" * 100 + "\n")
+current_dataset = dh.init_dataset_from_name("asdiv", primingtext_path=priming_text_path)
 
+sample_q_list, sample_a_list = current_dataset.sample_n_for_prompting(500)
+
+print(colored(sample_q_list[0], "blue"))
+print(colored(sample_a_list[0], "white"))
+
+print(colored("\nMODEL LOADING (about 100 sec)", "yellow"))
 tokenizer = AutoTokenizer.from_pretrained(gptj_model)
-model = AutoModelForCausalLM.from_pretrained(gptj_model).eval().cuda()
+model = AutoModelForCausalLM.from_pretrained(gptj_model).half().eval().cuda()
 
-print("MODEL LOADED\n")
+print(colored("MODEL LOADED", "white"))
 
-tokens = tokenizer(prompt, return_tensors="pt").input_ids
-generated_tokens = model.generate(
-    tokens.long().cuda(),
-    use_cache=True,
-    do_sample=True,
-    top_k=50,
-    temperature=0.3,
-    top_p=0.9,
-    repetition_penalty=1.125,
-    min_length=1,
-    max_length=len(tokens[0]) + 100,
-    pad_token_id=tokenizer.eos_token_id,
-)
+torch.manual_seed(42)
+np.random.seed(42)
 
-last_tokens = generated_tokens[0][len(tokens[0]) :]
-generated_text = tokenizer.decode(last_tokens)
-print("Generation:\n" + generated_text)
+n = 4
+k = 3
+"""n = 3
+k = 3"""
+
+pass_k_list = []
+
+cnt = 0
+for sample_q, sample_a in zip(sample_q_list, sample_a_list):
+    print(colored("TESTING STARTED", "yellow"))
+    cnt += 1
+    prompt = f"{current_dataset.priming_text}\n\n#{sample_q}"
+    # print(colored(f"\n\nPrompt:\n{prompt}", "green"))
+
+    tokens = tokenizer(prompt, return_tensors="pt").input_ids
+    generated_tokens = model.generate(
+        tokens.long().cuda(),
+        use_cache=True,
+        do_sample=True,
+        top_k=50,
+        temperature=0.4,
+        top_p=0.9,
+        min_length=1,
+        max_length=len(tokens[0]) + 100,
+        num_return_sequences=n,
+        pad_token_id=tokenizer.eos_token_id,
+    )
+
+    list_outputs = hf.preproc_gen_toks(generated_tokens, len(tokens[0]), tokenizer)
+
+    is_correct_list = [
+        current_dataset.verify_pred_from_output(output, sample_q, sample_a)
+        for output in list_outputs
+    ]
+
+    c = is_correct_list.count(True)
+
+    pass_k = hf.pass_at_k(n, c, k)
+    pass_k_list.append(pass_k)
+
+    if cnt % 10 == 0:
+        print(
+            colored(
+                f"@sample {cnt} -> Pass@{k} = {np.mean(np.array(pass_k_list))}", "green"
+            )
+        )
