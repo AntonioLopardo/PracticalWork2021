@@ -138,15 +138,15 @@ class gsm8k_datatset(math_dataset):
         print("\n" + "-" * 100 + "\n")
 
     def sample_n_for_prompting(self, nr_entries):
-        """
-        I still don't addthe 'Writing program that prints' part to the prompt
-        """
         rand_indexes = np.random.randint(0, len(self.data), nr_entries)
 
         sample_a_list = []
         sample_q_list = []
         for rand_index in rand_indexes:
-            sample_q_list.append(self.data[rand_index]["question"])
+            sample_q_list.append(
+                "Write a program that prints the answer to the following question. "
+                + self.data[rand_index]["question"]
+            )
             # sample_a_list.append(self.data[rand_index]["answer"])
             sample_a_list.append(
                 re.findall(r"#### \w+", self.data[rand_index]["answer"])[0][5:]
