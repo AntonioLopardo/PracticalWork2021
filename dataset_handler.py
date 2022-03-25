@@ -35,7 +35,7 @@ class math_dataset(ABC):
     def preprocess_sol(self, raw_sol):
         pass
 
-    def verify_pred_from_output(self, output, sample_q, sample_a):
+    def verify_pred_from_output(self, output, sample_a):
         f = StringIO()
         with redirect_stdout(f):
             avoid_input = re.compile(r"input\(([^)]+)\)")

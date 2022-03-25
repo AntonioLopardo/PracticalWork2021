@@ -52,7 +52,7 @@ def testing_loop(n, k, current_dataset, tokenizer, model, sample_q_list, sample_
             list_outputs = preproc_gen_toks(generated_tokens, len(tokens[0]), tokenizer)
 
             is_correct_list = [
-                current_dataset.verify_pred_from_output(output, sample_q, sample_a)
+                current_dataset.verify_pred_from_output(output, sample_a)
                 for output in list_outputs
             ]
 
