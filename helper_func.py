@@ -61,10 +61,13 @@ def testing_loop(n, k, current_dataset, tokenizer, model, sample_q_list, sample_
             pass_k = pass_at_k(n, c, k)
             pass_k_list.append(pass_k)
 
-            if cnt % 10 == 0:
+            if cnt % 5 == 0:
                 print(
                     colored(
                         f"@sample {cnt} -> Pass@{k} = {np.mean(np.array(pass_k_list))}",
-                        "green",
+                        "white",
                     )
                 )
+    print(colored(f"\n\nPass@{k} = {np.mean(np.array(pass_k_list))}", "green"))
+
+    return np.mean(np.array(pass_k_list))
