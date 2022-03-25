@@ -38,11 +38,15 @@ class math_dataset(ABC):
     def verify_pred_from_output(self, output, sample_q, sample_a):
         f = StringIO()
         with redirect_stdout(f):
-            try:
-                exec(output)
-            except Exception as e:
-                # print("111111111111111")
+            avoid_input = re.compile(r"input\(([^)]+)\)")
+            if avoid_input.search(output):
                 pass
+            else:
+                try:
+                    exec(output)
+                except Exception as e:
+                    # print("111111111111111")
+                    pass
 
         s = f.getvalue()
         try:
