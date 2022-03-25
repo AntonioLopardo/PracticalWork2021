@@ -62,4 +62,4 @@ cost_second_apartment = (
 difference = cost_first_apartment - cost_second_apartment
 print(difference)
 
-# Damien jogs 5 miles per day on weekdays only. Write a program that prints How many miles he runs over three weeks
+# Write a program that prints the answer to the following question. Damien jogs 5 miles per day on weekdays only. How many miles does he run over three weeks?
