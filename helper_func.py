@@ -3,6 +3,13 @@ from termcolor import colored
 
 
 def preproc_gen_toks(gen_toks, input_len, tokenizer):
+    """Process generated tokens from model keeping only up to \n\n
+
+    :param list of list gen_toks: the output form the model
+    :param int input_len: input lenght used to ignore the prompt
+    :param HF_tokenizer tokenizer: tokenizer used for decoding
+    :return list of str : list of generated outputs
+    """
     list_out = []
     for gen_tok in gen_toks:
         last_tokens = gen_tok[input_len:]
@@ -13,10 +20,12 @@ def preproc_gen_toks(gen_toks, input_len, tokenizer):
 
 
 def pass_at_k(n, c, k):
-    """
-    :param n: total number of samples
-    :param c: number of correct samples
-    :param k: k in pass@$k$
+    """Implementaton of the pass at k metric
+
+    :param int n: total number of samples
+    :param int c: number of correct samples
+    :param int k: k in pass at k
+    :return float: result of the metric
     """
     if n - c < k:
         return 1.0
@@ -24,6 +33,17 @@ def pass_at_k(n, c, k):
 
 
 def testing_loop(n, k, current_dataset, tokenizer, model, sample_q_list, sample_a_list):
+    """Perform full testing loop avoiding question with non float solutions
+
+    :param int n: total number of samples in pass at k
+    :param int k: k in pass at k
+    :param math_dataset current_dataset: dataset to test
+    :param HF_tokenizer tokenizer: tokenizer used to encode
+    :param HF_model model: language model used to output solutions
+    :param list of str sample_q_list: list of questions with instructions for the LM
+    :param list of str sample_a_list: list of solutions
+    :return float: the pass at k metric
+    """
     pass_k_list = []
     cnt = 0
     print(colored("TESTING STARTED", "yellow"))
