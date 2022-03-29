@@ -1,41 +1,43 @@
-# To run his grocery store, Mr. Haj needs $4000 a day. This money is used to pay for orders done, delivery costs and employees' salaries. If he spends 2/5 of the total operation costs on employees' salary and 1/4 of the remaining amount on delivery costs, write a program that prints how much money he pays for the orders done?
-# 2 / 5 * 4000 = 1600 \\\ 4000 - 1600 = 2400 \\\ 2400 / 4 = 600 \\\ 2400 - 600 = 1800
+# Write a program that prints the answer to the following question executing the equations at the end. To run his grocery store, Mr. Haj needs $4000 a day. This money is used to pay for orders done, delivery costs and employees' salaries. If he spends 2/5 of the total operation costs on employees' salary and 1/4 of the remaining amount on delivery costs, how much money he pays for the orders done? 2/5*4000=1600 4000-1600=2400 2400/4=600 2400-600
 total_cost_per_day = 4000
-employees_cost = total_cost_per_day * 2 / 5
-delivery_costs = (total_cost_per_day - employees_cost) * 1 / 4
-orders_costs = total_cost_per_day - delivery_costs - employees_cost
+frac_employee_salary = 2/5
+employees_cost = total_cost_per_day * frac_employee_salary
+remaining_amount = total_cost_per_day - employees_cost
+frac_delivery_costs = 1/4
+delivery_costs = remaining_amount * frac_delivery_costs
+orders_costs = remaining_amount - delivery_costs 
 print(orders_costs)
 
-# In a stationery store, there are three kinds of pencils. A pencil with an eraser, which costs $0.8 each, a regular pencil for $0.5 each, and a short pencil for $0.4 each. This store was able to sell 200 pencils with an eraser, 40 regular pencils, and 35 short pencils. Write a program that prints how much money did the store make from these sales?
-# 200 * 0.8 = 160 \\\ 40 * 0.5 = 20 \\\ 35 * 0.4 = 14 \\\ 160 + 20 + 14 = 194 
+# Write a program that prints the answer to the following question executing the equations at the end. In a stationery store, there are three kinds of pencils. A pencil with an eraser, which costs $0.8 each, a regular pencil for $0.5 each, and a short pencil for $0.4 each. This store was able to sell 200 pencils with an eraser, 40 regular pencils, and 35 short pencils. How much money did the store make from these sales? 200*0.8=160 40*0.5=20 35*0.4=14 160+20+14
 pencils_eraser_cost = 0.8
 pencils_regular_cost = 0.5
 pencils_short_cost = 0.4
 nr_pencil_eraser = 200
 nr_pencil_regular = 40
 nr_pencil_short = 35
-total_pencils_cost = nr_pencil_eraser * pencils_eraser_cost + nr_pencil_regular * pencils_regular_cost + nr_pencil_short * pencils_short_cost
-print(total_pencils_cost)
+pencil_eraser_money = nr_pencil_eraser * pencils_eraser_cost
+pencil_regular_money = nr_pencil_regular * pencils_regular_cost
+pencil_short_money = nr_pencil_short * pencils_short_cost
+total_money = pencil_eraser_money + pencil_regular_money + pencil_short_money
+print(total_money)
 
-# After complaints from the residents of Tatoosh about the number of cats on the island, the wildlife service carried out a relocation mission that saw the number of cats on the island drastically reduced. On the first relocation mission, 600 cats were relocated from the island to a neighboring island. On the second mission, half of the remaining cats were relocated to a rescue center inland. If the number of cats originally on the island was 1800, write a program that prints how many cats remained on the island after the rescue mission?
-# 1800 - 600 = 1200 \\\ 1200 / 2 = 600 \\\ 1200 - 600 = 600 
+# Write a program that prints the answer to the following question executing the equations at the end. After complaints from the residents of Tatoosh about the number of cats on the island, the wildlife service carried out a relocation mission that saw the number of cats on the island drastically reduced. On the first relocation mission, 600 cats were relocated from the island to a neighboring island. On the second mission, half of the remaining cats were relocated to a rescue center inland. If the number of cats originally on the island was 1800, how many cats remained on the island after the rescue mission? 1800-600=1200 1200/2=600 1200-600 
 total_cats_on_island = 1800
 nr_cats_relocated_first_mission = 600
-nr_cats_relocated_second_mission = (total_cats_on_island - nr_cats_relocated_first_mission) / 2
-nr_cats_left = (total_cats_on_island - nr_cats_relocated_first_mission - nr_cats_relocated_second_mission)
+remaining_cats = total_cats_on_island - nr_cats_relocated_first_mission
+nr_cats_relocated_second_mission = remaining_cats / 2
+nr_cats_left = remaining_cats - nr_cats_relocated_second_mission
 print(nr_cats_left)
 
-# Mr. Rainwater has some goats, 9 cows and some chickens. He has 4 times as many goats as cows and 2 times as many goats as chickens. Write a program that prints how many chickens does he have?
-# 4 * 9 = 36 \\\ 36/2=18
+# Write a program that prints the answer to the following question executing the equations at the end. Mr. Rainwater has some goats, 9 cows and some chickens. He has 4 times as many goats as cows and 2 times as many goats as chickens. How many chickens does he have? 4*9=36 36/2
+nr_cows = 9
 goats_cows_ratio = 4 / 1
 goats_chickens_ratio = 2 / 1
-nr_cows = 9
-nr_goats = 9 * goats_cows_ratio
+nr_goats = nr_cows * goats_cows_ratio
 nr_chickens = nr_goats / goats_chickens_ratio
 print(nr_chickens)
 
-# A man is trying to maximize the amount of money he saves each month. In particular, he is trying to decide between two different apartments. The first apartment costs $800 per month in rent and will cost an additional $260 per month in utilities. The second apartment costs $900 per month and will cost an additional $200 per month in utilities. The first apartment is slightly further from the man's work, and the man would have to drive 31 miles per day to get to work. The second apartment is closer, and the man would only have to drive 21 miles to get to work. According to the IRS, each mile a person drives has an average cost of 58 cents. If the man must drive to work 20 days each month, write a program that prints what is the difference between the total monthly costs of these two apartments after factoring in utility and driving-related costs (to the nearest whole dollar)?
-# 31*20*0.58=359.60 \\\ 359.60+800+260=1419.60 \\\ 21*20*0.58=243.60 \\\ 243.60+900+200=1343.60 \\\ 1419.60-1343.60=76
+# Write a program that prints the answer to the following question executing the equations at the end. A man is trying to maximize the amount of money he saves each month. In particular, he is trying to decide between two different apartments. The first apartment costs $800 per month in rent and will cost an additional $260 per month in utilities. The second apartment costs $900 per month and will cost an additional $200 per month in utilities. The first apartment is slightly further from the man's work, and the man would have to drive 31 miles per day to get to work. The second apartment is closer, and the man would only have to drive 21 miles to get to work. According to the IRS, each mile a person drives has an average cost of 58 cents. If the man must drive to work 20 days each month, what is the difference between the total monthly costs of these two apartments after factoring in utility and driving-related costs (to the nearest whole dollar)? 31*20*0.58=359.60 359.60+800+260=1419.60 21*20*0.58=243.60 243.60+900+200=1343.60 1419.60-1343.60
 rent_first_apartment = 800
 utilities_first_apartment = 260
 rent_second_apartment = 900
@@ -44,10 +46,11 @@ distance_to_work_first_apartment = 31
 distance_to_work_second_apartment = 21
 cost_per_mile = 0.58
 work_days = 20
-cost_first_apartment = (rent_first_apartment + utilities_first_apartment + (cost_per_mile * distance_to_work_first_apartment * work_days))
-cost_second_apartment = (rent_second_apartment + utilities_second_apartment + (cost_per_mile * distance_to_work_second_apartment * work_days))
-difference = cost_first_apartment - cost_second_apartment
+driving_cost_first_apartment = distance_to_work_first_apartment * cost_per_mile * work_days
+total_cost_first_apartment = rent_first_apartment + utilities_first_apartment + driving_cost_first_apartment
+driving_cost_second_apartment = distance_to_work_second_apartment * cost_per_mile * work_days
+total_cost_second_apartment = rent_second_apartment + utilities_second_apartment + driving_cost_second_apartment
+difference = total_cost_first_apartment - total_cost_second_apartment
 print(difference)
 
-# Damien jogs 5 miles per day on weekdays only.  How many miles does he run over three weeks?
-# 3*5=15 \\\ 5*15=75
+# Write a program that prints the answer to the following question executing the equations at the end. Damien jogs 5 miles per day on weekdays only. How many miles does he run over three weeks? 3*5=15 5*15
