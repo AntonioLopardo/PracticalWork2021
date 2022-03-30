@@ -141,7 +141,7 @@ class asdiv_dataset(math_dataset):
         sample_q_list = []
         for rand_index in rand_indexes:
             sample_q_list.append(
-                f"{self.data['body_list'][rand_index].text} Write a program that prints {self.data['question_list'][rand_index].text}"
+                f"Write a program that prints the answer to the following question. {self.data['body_list'][rand_index].text} {self.data['question_list'][rand_index].text}"
             )
             sample_a_list.append(self.data["answer_list"][rand_index].text)
 

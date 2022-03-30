@@ -27,7 +27,7 @@ dataset_name = "asdiv"
 """Load the priming text to add to the prompt and sample a question"""
 # priming_text_path = "data/priming_texts/gsm8k/gsm8k_fewer_alt.txt"
 # priming_text = read_string_from_file("data/priming_texts/singleEq.txt")
-priming_text_path = "data/priming_texts/asdiv/asdiv.txt"
+priming_text_path = "data/priming_texts/asdiv/asdiv_prefix.txt"
 
 print(colored("Prompt from: " + priming_text_path + "\n", "yellow"))
 
@@ -68,7 +68,7 @@ wandb.init(
     project="PracticalWork",
     entity="antoniolopardo",
     config=config,
-    name="baseline_asdiv",
+    name="prefix_asdiv",
 )
 
 pass_at_k = hf.testing_loop(
