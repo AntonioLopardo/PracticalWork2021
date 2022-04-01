@@ -1,9 +1,11 @@
 import numpy as np
 import os
 from termcolor import colored
+
 curr_dir = os.getcwd()
-os.chdir(os.path.join(curr_dir, 'CodeGen'))
+os.chdir(os.path.join(curr_dir, "CodeGen"))
 from CodeGen.jaxformer.hf.sample import *
+
 os.chdir(curr_dir)
 
 
@@ -36,55 +38,84 @@ def pass_at_k(n, c, k):
         return 1.0
     return 1.0 - np.prod(1.0 - k / np.arange(n - c + 1, n + 1))
 
-def load_CodeGen():
+
+class model_args:
+    def __init__(self):
+        self.fp16 = True
+        self.model = "codegen-16B-mono"
+        self.device = "cuda:0"
+        self.rng_seed = 42
+        self.rng_deterministic = True
+        self.pad = 50256
+
+
+class codegen_gen_args:
+    def __init__(self):
+        self.k = 1
+        self.do_sample = True
+        self.top_k = 50
+        self.temperature = 0.4
+        self.top_p = 0.9
+        self.min_length = 1
+        self.max_length_after_input = 100
+        self.num_return_sequences = 1
+
+
+class gptj_gen_args:
+    def __init__(self):
+        self.k = 1
+        self.do_sample = True
+        self.top_k = 50
+        self.temperature = 0.4
+        self.top_p = 0.9
+        self.min_length = 1
+        self.max_length_after_input = 100
+        self.num_return_sequences = 1
+
+
+def load_CodeGen(args):
     """Load the CodeGen model and tokenizer
 
+    :param model_args args: arguments for the model
     :return HF_model: the model
     :return HF_tokenizer: the tokenizer
     """
     curr_dir = os.getcwd()
-    os.chdir(os.path.join(curr_dir, 'CodeGen'))
-    class args:
-        def __init__(self):
-            self.fp16 = True
-            self.model = 'codegen-16B-mono'
-            self.device = 'cuda:0'
-            self.rng_seed = 42
-            self.rng_deterministic = True
-            self.pad = 50256
-            self.context = 'def helloworld():'
-            self.batch_size = 1
-            self.max_length = 128
-
-    args = args()
+    os.chdir(os.path.join(curr_dir, "CodeGen"))
 
     models_nl = []
-    models_pl = ['codegen-350M-mono', 'codegen-2B-mono', 'codegen-6B-mono', 'codegen-16B-mono']
+    models_pl = [
+        "codegen-350M-mono",
+        "codegen-2B-mono",
+        "codegen-6B-mono",
+        "codegen-16B-mono",
+    ]
     models = models_nl + models_pl
 
     set_env()
     set_seed(args.rng_seed, deterministic=args.rng_deterministic)
 
     device = torch.device(args.device)
-    ckpt = f'./checkpoints/{args.model}'
+    ckpt = f"./checkpoints/{args.model}"
 
-    with print_time('loading parameters'):
+    with print_time("loading parameters"):
         model = create_model(ckpt=ckpt, fp16=args.fp16).to(device)
 
-
-    with print_time('loading tokenizer'):
+    with print_time("loading tokenizer"):
         if args.model in models_pl:
             tokenizer = create_custom_gpt2_tokenizer()
         else:
             tokenizer = create_tokenizer()
-        tokenizer.padding_side = 'left'
+        tokenizer.padding_side = "left"
         tokenizer.pad_token = args.pad
 
     os.chdir(curr_dir)
     return model, tokenizer
 
 
-def testing_loop(n, k, current_dataset, tokenizer, model, sample_q_list, sample_a_list):
+def testing_loop(
+    current_dataset, tokenizer, model, sample_q_list, sample_a_list, gen_args
+):
     """Perform full testing loop avoiding question with non float solutions
 
     :param int n: total number of samples in pass at k
@@ -112,12 +143,12 @@ def testing_loop(n, k, current_dataset, tokenizer, model, sample_q_list, sample_
                 tokens.long().cuda(),
                 use_cache=True,
                 do_sample=True,
-                top_k=50,
-                temperature=0.4,
-                top_p=0.9,
-                min_length=1,
-                max_length=len(tokens[0]) + 100,
-                num_return_sequences=n,
+                top_k=gen_args.top_k,
+                temperature=gen_args.temperature,
+                top_p=gen_args.top_p,
+                min_length=gen_args.min_length,
+                max_length=len(tokens[0]) + gen_args.max_length_after_input,
+                num_return_sequences=gen_args.num_return_sequences,
                 pad_token_id=tokenizer.eos_token_id,
             )
 
@@ -130,16 +161,16 @@ def testing_loop(n, k, current_dataset, tokenizer, model, sample_q_list, sample_
 
             c = is_correct_list.count(True)
 
-            pass_k = pass_at_k(n, c, k)
+            pass_k = pass_at_k(gen_args.num_return_sequences, c, gen_args.k)
             pass_k_list.append(pass_k)
 
             if cnt % 5 == 0:
                 print(
                     colored(
-                        f"@sample {cnt} -> Pass@{k} = {np.mean(np.array(pass_k_list))}",
+                        f"@sample {cnt} -> Pass@{gen_args.k} = {np.mean(np.array(pass_k_list))}",
                         "white",
                     )
                 )
-    print(colored(f"\n\nPass@{k} = {np.mean(np.array(pass_k_list))}", "green"))
+    print(colored(f"\n\nPass@{gen_args.k} = {np.mean(np.array(pass_k_list))}", "green"))
 
     return np.mean(np.array(pass_k_list))
