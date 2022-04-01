@@ -1,5 +1,10 @@
 import numpy as np
+import os
 from termcolor import colored
+curr_dir = os.getcwd()
+os.chdir(os.path.join(curr_dir, 'CodeGen'))
+from CodeGen.jaxformer.hf.sample import *
+os.chdir(curr_dir)
 
 
 def preproc_gen_toks(gen_toks, input_len, tokenizer):
@@ -30,6 +35,53 @@ def pass_at_k(n, c, k):
     if n - c < k:
         return 1.0
     return 1.0 - np.prod(1.0 - k / np.arange(n - c + 1, n + 1))
+
+def load_CodeGen():
+    """Load the CodeGen model and tokenizer
+
+    :return HF_model: the model
+    :return HF_tokenizer: the tokenizer
+    """
+    curr_dir = os.getcwd()
+    os.chdir(os.path.join(curr_dir, 'CodeGen'))
+    class args:
+        def __init__(self):
+            self.fp16 = True
+            self.model = 'codegen-16B-mono'
+            self.device = 'cuda:0'
+            self.rng_seed = 42
+            self.rng_deterministic = True
+            self.pad = 50256
+            self.context = 'def helloworld():'
+            self.batch_size = 1
+            self.max_length = 128
+
+    args = args()
+
+    models_nl = []
+    models_pl = ['codegen-350M-mono', 'codegen-2B-mono', 'codegen-6B-mono', 'codegen-16B-mono']
+    models = models_nl + models_pl
+
+    set_env()
+    set_seed(args.rng_seed, deterministic=args.rng_deterministic)
+
+    device = torch.device(args.device)
+    ckpt = f'./checkpoints/{args.model}'
+
+    with print_time('loading parameters'):
+        model = create_model(ckpt=ckpt, fp16=args.fp16).to(device)
+
+
+    with print_time('loading tokenizer'):
+        if args.model in models_pl:
+            tokenizer = create_custom_gpt2_tokenizer()
+        else:
+            tokenizer = create_tokenizer()
+        tokenizer.padding_side = 'left'
+        tokenizer.pad_token = args.pad
+
+    os.chdir(curr_dir)
+    return model, tokenizer
 
 
 def testing_loop(n, k, current_dataset, tokenizer, model, sample_q_list, sample_a_list):
