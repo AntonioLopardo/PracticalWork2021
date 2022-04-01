@@ -34,7 +34,9 @@ venv.bak/
 
 #nlu-asdiv-dataset
 .vscode
-TestiingNotebook.ipynb
 
 #wandb
 wandb/
+
+#CodeGen
+CodeGen/checkpoints
