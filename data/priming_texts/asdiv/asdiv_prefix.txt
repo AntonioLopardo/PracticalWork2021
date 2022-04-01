@@ -108,7 +108,4 @@ enough_money_to_buy_hat = 90
 print(sum_money >= enough_money_to_buy_hat)
 
 # Write a program that prints the answer to the following question. Each house a carpenter builds needs six sinks. If he bought two hundred sixty-six sinks, how many houses would that cover?
-sinks_bought = 266
-sinks_per_house = 6
-houses_covered = sinks_bought // sinks_per_house
-print(houses_covered)
+
