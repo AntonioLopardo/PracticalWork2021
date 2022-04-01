@@ -1,0 +1,60 @@
+# Write a program that prints the answer to the following question. If Mr. Brown and his son together had $220, and Mr. Brown had 10 times as much as his son, how much money had each?
+total_amount = 220
+brown_factor = 10
+son_factor = 1
+money_share = total_amount / (brown_factor + son_factor)
+brown_money = money_share * brown_factor
+son_money = money_share * son_factor
+print(son_money, brown_money)
+
+# Write a program that prints the answer to the following question. Caitlin is on the 13th step of a giant slide. She walked down 4 steps to talk to her friend Dana. Then she walked up 12 steps to the top. How many steps does the giant slide have?
+initial_pos = 13
+nr_step_up = 12
+nr_step_down = 4
+total_steps = initial_pos - nr_step_down + nr_step_up
+print(total_steps)
+
+# Write a program that prints the answer to the following question. Rosa is making a game board that is 16 inches by 24 inches. She wants to use square tiles. What is the largest tile she can use?
+import math
+side_b_board = 24
+side_a_board = 16
+print(math.gcd(side_a_board, side_b_board))
+
+# Write a program that prints the answer to the following question. Nick and Kane were born on consecutive years and on same date. Nick is younger.  The sum of their ages is 11. What are the age of the brothers.
+diff_between_ages = 1
+age_sum = 11
+age_nick = (age_sum - 1) / 2
+age_kane = age_nick + 1
+print(age_nick, age_kane)
+
+# Write a program that prints the answer to the following question. 172 students are forming teams for a mountaineering competition. Each team should have 18 students. How many students will not be on a team?
+students_per_team = 18
+students = 172
+students_not_on_team = students % students_per_team
+print(students_not_on_team)
+
+# Write a program that prints the answer to the following question. One day, Trent and his friends had lunch while sitting at tables of 2. Another day, they had lunch at tables of 8. What is the smallest number of people that could be in the group?
+import math
+tables_of_2 = 2
+tables_of_8 = 8
+prod = tables_of_2 * tables_of_8
+gcd = math.gcd(tables_of_2, tables_of_8)
+smallest_number_of_people = prod // gcd
+print(smallest_number_of_people)
+
+# Write a program that prints the answer to the following question. A store has forty-nine shirts. After selling some there were twenty-eight left. What's the difference between of the number of shirts before selling and after selling?
+shirts_before_selling = 49
+shirts_after_selling = 28
+shirts_difference = shirts_before_selling - shirts_after_selling
+print(shirts_difference)
+
+# Write a program that prints the answer to the following question. Alex has 5 dimes, 4 nickels and one penny. Does he have enough to buy a hat that costs 90 cents?
+pennies = 1
+dimes = 5
+nickels = 4
+sum_money = dimes * 10 + nickels * 5 + pennies * 1
+enough_money_to_buy_hat = 90
+print(sum_money >= enough_money_to_buy_hat)
+
+# Write a program that prints the answer to the following question. Each house a carpenter builds needs six sinks. If he bought two hundred sixty-six sinks, how many houses would that cover?
+
