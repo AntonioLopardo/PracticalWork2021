@@ -1,6 +1,7 @@
 import numpy as np
 import os
 from termcolor import colored
+import re
 
 curr_dir = os.getcwd()
 os.chdir(os.path.join(curr_dir, "CodeGen"))
@@ -31,7 +32,6 @@ def preproc_gen_toks(gen_toks, input_len, tokenizer):
         list_out.append(output)
     return list_out
 
-
 def pass_at_k(n, c, k):
     """Implementaton of the pass at k metric
 
@@ -44,7 +44,6 @@ def pass_at_k(n, c, k):
         return 1.0
     return 1.0 - np.prod(1.0 - k / np.arange(n - c + 1, n + 1))
 
-
 class model_args:
     def __init__(self):
         self.fp16 = True
@@ -53,7 +52,6 @@ class model_args:
         self.rng_seed = 42
         self.rng_deterministic = True
         self.pad = 50256
-
 
 class codegen_gen_args:
     def __init__(self):
@@ -66,7 +64,6 @@ class codegen_gen_args:
         self.max_length_after_input = 100
         self.num_return_sequences = 1
 
-
 class gptj_gen_args:
     def __init__(self):
         self.k = 3
@@ -74,10 +71,9 @@ class gptj_gen_args:
         self.top_k = 50
         self.temperature = 0.4
         self.top_p = 0.9
-        self.min_length = 10
+        self.min_length = 1
         self.max_length_after_input = 100
-        self.num_return_sequences = 5
-
+        self.num_return_sequences = 4
 
 def load_CodeGen(args):
     """Load the CodeGen model and tokenizer
@@ -118,7 +114,6 @@ def load_CodeGen(args):
     os.chdir(curr_dir)
     return model, tokenizer
 
-
 def testing_loop(
     current_dataset,
     tokenizer,
@@ -158,7 +153,7 @@ def testing_loop(
                 top_k=gen_args.top_k,
                 temperature=gen_args.temperature,
                 top_p=gen_args.top_p,
-                min_length=gen_args.min_length,
+                min_length=len(tokens[0]) + gen_args.min_length,
                 max_length=len(tokens[0]) + gen_args.max_length_after_input,
                 num_return_sequences=gen_args.num_return_sequences,
                 pad_token_id=tokenizer.eos_token_id,
