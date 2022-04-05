@@ -21,7 +21,13 @@ def preproc_gen_toks(gen_toks, input_len, tokenizer):
     for gen_tok in gen_toks:
         last_tokens = gen_tok[input_len:]
         generated_text = tokenizer.decode(last_tokens)
-        output = generated_text.split("\n\n")[0]
+        print_pattern = re.compile(r"print\(([^)]+)\)")
+        split_list = re.split(print_pattern, generated_text)
+        if len(split_list) > 1:
+            output = f"{split_list[0]}print({split_list[1]})\n"
+        else:
+            output = "INVALID OUTPUT"
+        # output = generated_text.split("\n\n")[0]
         list_out.append(output)
     return list_out
 
@@ -56,21 +62,21 @@ class codegen_gen_args:
         self.top_k = 50
         self.temperature = 0.4
         self.top_p = 0.9
-        self.min_length = 1
+        self.min_length = 10
         self.max_length_after_input = 100
         self.num_return_sequences = 1
 
 
 class gptj_gen_args:
     def __init__(self):
-        self.k = 1
+        self.k = 3
         self.do_sample = True
         self.top_k = 50
         self.temperature = 0.4
         self.top_p = 0.9
-        self.min_length = 1
+        self.min_length = 10
         self.max_length_after_input = 100
-        self.num_return_sequences = 1
+        self.num_return_sequences = 5
 
 
 def load_CodeGen(args):
@@ -114,7 +120,13 @@ def load_CodeGen(args):
 
 
 def testing_loop(
-    current_dataset, tokenizer, model, sample_q_list, sample_a_list, gen_args
+    current_dataset,
+    tokenizer,
+    model,
+    sample_q_list,
+    sample_a_list,
+    gen_args,
+    print_output=False,
 ):
     """Perform full testing loop avoiding question with non float solutions
 
@@ -154,8 +166,13 @@ def testing_loop(
 
             list_outputs = preproc_gen_toks(generated_tokens, len(tokens[0]), tokenizer)
 
+            if print_output:
+                [print(colored(f"{len(i)}", "green")) for i in list_outputs]
+
             is_correct_list = [
-                current_dataset.verify_pred_from_output(output, sample_a)
+                current_dataset.verify_pred_from_output(
+                    output, sample_a, print_output=print_output
+                )
                 for output in list_outputs
             ]
 
