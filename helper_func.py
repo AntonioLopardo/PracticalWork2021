@@ -4,7 +4,7 @@ from termcolor import colored
 import re
 import sys
 
-sys.path.append("CodeGen/")
+sys.path.append("/home/PracticalWork2021/CodeGen/")
 from jaxformer.hf.sample import *
 
 
@@ -85,8 +85,8 @@ def load_CodeGen(args):
     :return HF_model: the model
     :return HF_tokenizer: the tokenizer
     """
-    curr_dir = os.getcwd()
-    os.chdir(os.path.join(curr_dir, "CodeGen"))
+    # curr_dir = os.getcwd()
+    # os.chdir(os.path.join(curr_dir, "CodeGen"))
 
     models_nl = []
     models_pl = [
@@ -101,7 +101,7 @@ def load_CodeGen(args):
     set_seed(args.rng_seed, deterministic=args.rng_deterministic)
 
     device = torch.device(args.device)
-    ckpt = f"./checkpoints/{args.model}"
+    ckpt = f"/home/PracticalWork2021/CodeGen/checkpoints/{args.model}"
 
     with print_time("loading parameters"):
         model = create_model(ckpt=ckpt, fp16=args.fp16).to(device)
@@ -114,7 +114,7 @@ def load_CodeGen(args):
         tokenizer.padding_side = "left"
         tokenizer.pad_token = args.pad
 
-    os.chdir(curr_dir)
+    # os.chdir(curr_dir)
     return model, tokenizer
 
 

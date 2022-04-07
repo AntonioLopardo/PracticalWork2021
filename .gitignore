@@ -40,3 +40,4 @@ wandb/
 
 #CodeGen
 CodeGen/checkpoints
+data/MathQA/
