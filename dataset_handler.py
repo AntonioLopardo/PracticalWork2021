@@ -10,7 +10,14 @@ import re
 
 class math_dataset(ABC):
     @abstractmethod
-    def __init__(self, dataset_path, priming_text_pth, dataset_name):
+    def __init__(
+        self,
+        dataset_path,
+        priming_text_pth,
+        dataset_name,
+        sample_func=None,
+        preprocess_sol_func=None,
+    ):
         """Initialize the dataset, loading the dataset priming text and setting the dataset name
 
         :param str dataset_path: path to the dataset
@@ -20,6 +27,10 @@ class math_dataset(ABC):
         self.data = self.load_dataset(dataset_path)
         self.priming_text = self.load_priming_text(priming_text_pth)
         self.dataset_name = dataset_name
+        if sample_func is not None:
+            self.sample_n_for_prompting = sample_func
+        if preprocess_sol_func is not None:
+            self.preprocess_sol = preprocess_sol_func
 
     @abstractmethod
     def load_dataset(self, dataset_path):
@@ -47,7 +58,7 @@ class math_dataset(ABC):
         pass
 
     @abstractmethod
-    def sample_n_for_prompting(self, nr_entries):
+    def sample_n_for_prompting(self, nr_entries=1):
         """Sample nr_entries entries from the dataset, already adding the natural language instruction for the model
 
         :param int nr_entries: number of entries to return
@@ -106,8 +117,21 @@ class math_dataset(ABC):
 
 
 class asdiv_dataset(math_dataset):
-    def __init__(self, dataset_path, priming_text_pth, dataset_name):
-        super().__init__(dataset_path, priming_text_pth, dataset_name)
+    def __init__(
+        self,
+        dataset_path,
+        priming_text_pth,
+        dataset_name,
+        sample_func=None,
+        preprocess_sol_func=None,
+    ):
+        super().__init__(
+            dataset_path,
+            priming_text_pth,
+            dataset_name,
+            sample_func,
+            preprocess_sol_func,
+        )
 
     def load_dataset(self, dataset_path):
         data = {}
@@ -139,7 +163,7 @@ class asdiv_dataset(math_dataset):
         print(colored(f"{self.data['answer_list'][entry_idx].text}", "green"))
         print("\n" + "-" * 100 + "\n")
 
-    def sample_n_for_prompting(self, nr_entries):
+    def sample_n_for_prompting(self, nr_entries=1):
         rand_indexes = np.random.randint(0, len(self.data["body_list"]), nr_entries)
 
         sample_a_list = []
@@ -164,8 +188,21 @@ class asdiv_dataset(math_dataset):
 
 
 class gsm8k_datatset(math_dataset):
-    def __init__(self, dataset_path, priming_text_pth, dataset_name):
-        super().__init__(dataset_path, priming_text_pth, dataset_name)
+    def __init__(
+        self,
+        dataset_path,
+        priming_text_pth,
+        dataset_name,
+        sample_func=None,
+        preprocess_sol_func=None,
+    ):
+        super().__init__(
+            dataset_path,
+            priming_text_pth,
+            dataset_name,
+            sample_func,
+            preprocess_sol_func,
+        )
 
     def load_dataset(self, dataset_path):
         with open(dataset_path) as fh:
@@ -179,7 +216,7 @@ class gsm8k_datatset(math_dataset):
         print(colored(re.findall(r"#### \w+", problem["answer"])[0][5:], "green"))
         print("\n" + "-" * 100 + "\n")
 
-    def sample_n_for_prompting(self, nr_entries):
+    def sample_n_for_prompting(self, nr_entries=1):
         rand_indexes = np.random.randint(0, len(self.data), nr_entries)
 
         sample_a_list = []
@@ -206,8 +243,21 @@ class gsm8k_datatset(math_dataset):
 
 
 class singleEq_dataset(math_dataset):
-    def __init__(self, dataset_path, priming_text_pth, dataset_name):
-        super().__init__(dataset_path, priming_text_pth, dataset_name)
+    def __init__(
+        self,
+        dataset_path,
+        priming_text_pth,
+        dataset_name,
+        sample_func=None,
+        preprocess_sol_func=None,
+    ):
+        super().__init__(
+            dataset_path,
+            priming_text_pth,
+            dataset_name,
+            sample_func,
+            preprocess_sol_func,
+        )
 
     def load_dataset(self, dataset_path):
         with open(dataset_path, "r") as f:
@@ -220,7 +270,7 @@ class singleEq_dataset(math_dataset):
         print(colored(problem["lSolutions"][0], "green"))
         print("\n" + "-" * 100 + "\n")
 
-    def sample_n_for_prompting(self, nr_entries):
+    def sample_n_for_prompting(self, nr_entries=1):
 
         rand_indexes = np.random.randint(0, len(self.data), nr_entries)
 
@@ -252,7 +302,9 @@ gsm8k_path = "data/grade-school-math/grade_school_math/data/train.jsonl"
 singleEq_path = "data/TACL2015/questions.json"
 
 
-def init_dataset_from_name(datatset_name, primingtext_path):
+def init_dataset_from_name(
+    datatset_name, primingtext_path, sample_func=None, preprocess_sol_func=None
+):
     """General factory function for the math_dataset classes
 
     :param str datatset_name: name of the dataset
@@ -263,13 +315,19 @@ def init_dataset_from_name(datatset_name, primingtext_path):
 
     if datatset_name == "asdiv":
         dataset_path = asdiv_path
-        dataset = asdiv_dataset(dataset_path, primingtext_path, "asdiv")
+        dataset = asdiv_dataset(
+            dataset_path, primingtext_path, "asdiv", sample_func, preprocess_sol_func
+        )
     elif datatset_name == "gsm8k":
         dataset_path = gsm8k_path
-        dataset = gsm8k_datatset(dataset_path, primingtext_path, "gsm8k")
+        dataset = gsm8k_datatset(
+            dataset_path, primingtext_path, "gsm8k", sample_func, preprocess_sol_func
+        )
     elif datatset_name == "singleEq":
         dataset_path = singleEq_path
-        dataset = singleEq_dataset(dataset_path, primingtext_path, "singleEq")
+        dataset = singleEq_dataset(
+            dataset_path, primingtext_path, "singleEq", sample_func, preprocess_sol_func
+        )
     else:
         raise ValueError("dataset_name not recognized")
 
