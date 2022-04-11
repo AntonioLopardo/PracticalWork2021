@@ -47,3 +47,7 @@ def exercise5():
     total_break_minutes = lunch_break + (bathroom_break * nr_bathroom_breaks)
     total_time = distance_480_miles / speed + total_break_minutes / 60
     return float(total_time)
+
+
+def exercise6():
+    """Carol sells tickets for an exhibition. During three days she sold tickets worth $960. One ticket costs $4. How many tickets on average did she sell during one of these three days?"""
