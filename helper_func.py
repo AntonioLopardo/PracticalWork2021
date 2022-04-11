@@ -143,8 +143,10 @@ def testing_loop(
     print(colored("TESTING STARTED", "yellow"))
     for sample_q, sample_a in zip(sample_q_list, sample_a_list):
         cnt += 1
-        prompt = f"{current_dataset.priming_text}\n\n#{sample_q}"
+        # prompt = f"{current_dataset.priming_text}\n\n#{sample_q}"
         # print(colored(f"\n\nPrompt:\n{prompt}", "green"))
+        prompt = current_dataset.generate_prompt(current_dataset, sample_q)
+        # print(prompt)
 
         if current_dataset.preprocess_sol(sample_a) == 22222222.0:
             pass
