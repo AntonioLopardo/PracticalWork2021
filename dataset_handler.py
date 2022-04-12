@@ -6,6 +6,7 @@ from io import StringIO
 from contextlib import redirect_stdout
 import json
 import re
+import types
 
 
 class math_dataset(ABC):
@@ -15,6 +16,9 @@ class math_dataset(ABC):
         dataset_path,
         priming_text_pth,
         dataset_name,
+        sample_func=None,
+        preprocess_sol_func=None,
+        generate_prompt_func=None,
     ):
         """Initialize the dataset, loading the dataset priming text and setting the dataset name
 
@@ -25,6 +29,12 @@ class math_dataset(ABC):
         self.data = self.load_dataset(dataset_path)
         self.priming_text = self.load_priming_text(priming_text_pth)
         self.dataset_name = dataset_name
+        if sample_func is not None:
+            self.sample_n_for_prompting = types.MethodType(sample_func, self)
+        if preprocess_sol_func is not None:
+            self.preprocess_sol = types.MethodType(preprocess_sol_func, self)
+        if generate_prompt_func is not None:
+            self.generate_prompt = types.MethodType(generate_prompt_func, self)
 
     @abstractmethod
     def load_dataset(self, dataset_path):
@@ -79,8 +89,23 @@ class math_dataset(ABC):
 
 
 class asdiv_dataset(math_dataset):
-    def __init__(self, dataset_path, priming_text_pth, dataset_name):
-        super().__init__(dataset_path, priming_text_pth, dataset_name)
+    def __init__(
+        self,
+        dataset_path,
+        priming_text_pth,
+        dataset_name,
+        sample_func=None,
+        preprocess_sol_func=None,
+        generate_prompt_func=None,
+    ):
+        super().__init__(
+            dataset_path,
+            priming_text_pth,
+            dataset_name,
+            sample_func,
+            preprocess_sol_func,
+            generate_prompt_func,
+        )
 
     def load_dataset(self, dataset_path):
         data = {}
@@ -137,8 +162,23 @@ class asdiv_dataset(math_dataset):
 
 
 class gsm8k_datatset(math_dataset):
-    def __init__(self, dataset_path, priming_text_pth, dataset_name):
-        super().__init__(dataset_path, priming_text_pth, dataset_name)
+    def __init__(
+        self,
+        dataset_path,
+        priming_text_pth,
+        dataset_name,
+        sample_func=None,
+        preprocess_sol_func=None,
+        generate_prompt_func=None,
+    ):
+        super().__init__(
+            dataset_path,
+            priming_text_pth,
+            dataset_name,
+            sample_func,
+            preprocess_sol_func,
+            generate_prompt_func,
+        )
 
     def load_dataset(self, dataset_path):
         with open(dataset_path) as fh:
@@ -162,6 +202,7 @@ class gsm8k_datatset(math_dataset):
                 "Write a program that prints the answer to the following question. "
                 + self.data[rand_index]["question"]
             )
+            # sample_a_list.append(self.data[rand_index]["answer"])
             sample_a_list.append(
                 re.findall(r"#### \w+", self.data[rand_index]["answer"])[0][5:]
             )
@@ -178,13 +219,22 @@ class gsm8k_datatset(math_dataset):
 
 
 class singleEq_dataset(math_dataset):
-    def __init__(self, dataset_path, priming_text_pth, dataset_name):
+    def __init__(
+        self,
+        dataset_path,
+        priming_text_pth,
+        dataset_name,
+        sample_func=None,
+        preprocess_sol_func=None,
+        generate_prompt_func=None,
+    ):
         super().__init__(
             dataset_path,
             priming_text_pth,
             dataset_name,
             sample_func,
             preprocess_sol_func,
+            generate_prompt_func,
         )
 
     def load_dataset(self, dataset_path):
@@ -230,7 +280,13 @@ gsm8k_path = "data/grade-school-math/grade_school_math/data/train.jsonl"
 singleEq_path = "data/TACL2015/questions.json"
 
 
-def init_dataset_from_name(datatset_name, primingtext_path):
+def init_dataset_from_name(
+    datatset_name,
+    primingtext_path,
+    sample_func=None,
+    preprocess_sol_func=None,
+    generate_prompt_func=None,
+):
     """General factory function for the math_dataset classes
 
     :param str datatset_name: name of the dataset
@@ -241,13 +297,34 @@ def init_dataset_from_name(datatset_name, primingtext_path):
 
     if datatset_name == "asdiv":
         dataset_path = asdiv_path
-        dataset = asdiv_dataset(dataset_path, primingtext_path, "asdiv")
+        dataset = asdiv_dataset(
+            dataset_path,
+            primingtext_path,
+            "asdiv",
+            sample_func,
+            preprocess_sol_func,
+            generate_prompt_func,
+        )
     elif datatset_name == "gsm8k":
         dataset_path = gsm8k_path
-        dataset = gsm8k_datatset(dataset_path, primingtext_path, "gsm8k")
+        dataset = gsm8k_datatset(
+            dataset_path,
+            primingtext_path,
+            "gsm8k",
+            sample_func,
+            preprocess_sol_func,
+            generate_prompt_func,
+        )
     elif datatset_name == "singleEq":
         dataset_path = singleEq_path
-        dataset = singleEq_dataset(dataset_path, primingtext_path, "singleEq")
+        dataset = singleEq_dataset(
+            dataset_path,
+            primingtext_path,
+            "singleEq",
+            sample_func,
+            preprocess_sol_func,
+            generate_prompt_func,
+        )
     else:
         raise ValueError("dataset_name not recognized")
 
