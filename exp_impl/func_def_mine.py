@@ -8,10 +8,13 @@ def sample_n_for_prompting(self, nr_entries=1):
     sample_a_list = []
     sample_q_list = []
     for rand_index in rand_indexes:
-        # sample_q_list.append("def exercise6():\n"+ '    """Write a program that returns the answer to the following question. ' + self.data[rand_index]["question"]+ '"""')
         sample_q_list.append(
-            "def exercise6():\n" + '    """' + self.data[rand_index]["question"] + '"""'
+            "def exercise6():\n"
+            + '    """Write a program that returns the answer to the following question. '
+            + self.data[rand_index]["question"]
+            + '"""'
         )
+
         sample_a_list.append(
             re.findall(r"#### \w+", self.data[rand_index]["answer"])[0][5:]
         )

@@ -1,0 +1,49 @@
+def exercise1():
+    """To run his grocery store, Mr. Haj needs $4000 a day. This money is used to pay for orders done, delivery costs and employees' salaries. If he spends 2/5 of the total operation costs on employees' salary and 1/4 of the remaining amount on delivery costs, how much money he pays for the orders done? Hint: use these equations eq1: 2/5*4000=1600 eq2: 4000-1600=2400 eq3: 2400/4=600 eq4: 2400-600=1800"""
+    cost_per_day = 4000
+    employees_cost = total_cost_per_day * 2 / 5
+    delivery_costs = (cost_per_day - employees_cost) * 1 / 4
+    orders_costs = cost_per_day - delivery_costs - employees_cost
+    return float(orders_costs)
+
+
+def exercise2():
+    """Sue works in a factory and every 30 minutes, a machine she oversees produces 30 cans of soda. How many cans of soda can one machine produce in 8 hours? Hint: use these equations eq1: 8*2=16 eq2: 30*16=480"""
+    cans_per_30_minutes = 30
+    cans_per_minute = cans_per_30_minutes / 30
+    cans_per_hour = cans_per_minute * 60
+    cans_per_8_hours = cans_per_hour * 8
+    return float(cans_per_8_hours)
+
+
+def exercise3():
+    """Mr. Rainwater has some goats, 9 cows and some chickens. He has 4 times as many goats as cows and 2 times as many goats as chickens. How many chickens does he have? Hint: use these equations eq1: 4*9=36 eq2: 36/2=18"""
+    goats_cows_ratio = 4 / 1
+    goats_chickens_ratio = 2 / 1
+    nr_cows = 9
+    nr_goats = 9 * goats_cows_ratio
+    nr_chickens = nr_goats / goats_chickens_ratio
+    return float(nr_chickens)
+
+
+def exercise4():
+    """Max likes to collect model trains.  He asks for one for every birthday of his, and asks for two each Christmas.  Max always gets the gifts he asks for, and asks for these same gifts every year for 5 years.  At the end of the 5 years, his parents give him double the number of trains he already has. How many trains does Max have now? Hint: use these equations eq1: 1+2=3 eq2: 5*3=15 eq3: 15*2=30 eq4: 15+30=45"""
+    train_christmas = 2
+    train_birthday = 1
+    train_each_year = train_christmas + train_birthday
+    train_5_years = train_each_year * 5
+    train_total = (train_5_years * 2) + train_5_years
+    return float(train_total)
+
+
+def exercise5():
+    """Joan wants to visit her family who live 480 miles away.  If she drives at a rate of 60 mph and takes a lunch break taking 30 minutes, and 2 bathroom breaks taking 15 minutes each, how many hours did it take her to get there? Hint: use these equations eq1: 480/60=8 eq2: 30+15+15=60 eq3: 60/60=1 eq4: 8+1=9"""
+    distance_480_miles = 480
+    speed = 60
+    lunch_break = 30
+    bathroom_break = 15
+    nr_bathroom_breaks = 2
+    nr_lunch_breaks = 1
+    total_break_minutes = lunch_break + (bathroom_break * nr_bathroom_breaks)
+    total_time = distance_480_miles / speed + total_break_minutes / 60
+    return float(total_time)
