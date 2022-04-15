@@ -1,9 +1,10 @@
 def exercise1():
     """To run his grocery store, Mr. Haj needs $4000 a day. This money is used to pay for orders done, delivery costs and employees' salaries. If he spends 2/5 of the total operation costs on employees' salary and 1/4 of the remaining amount on delivery costs, how much money he pays for the orders done? Hint: use these equations eq1: 2/5*4000=1600 eq2: 4000-1600=2400 eq3: 2400/4=600 eq4: 2400-600=1800"""
-    cost_per_day = 4000
-    employees_cost = total_cost_per_day * 2 / 5
-    delivery_costs = (cost_per_day - employees_cost) * 1 / 4
-    orders_costs = cost_per_day - delivery_costs - employees_cost
+    total_op_cost = 4000
+    employees_cost = 2 / 5 * total_op_cost
+    total_minus_emp = total_op_cost - employees_cost
+    delivery_costs = total_minus_emp * 1 / 4
+    orders_costs = total_minus_emp - delivery_costs
     return float(orders_costs)
 
 
@@ -21,7 +22,7 @@ def exercise3():
     goats_cows_ratio = 4 / 1
     goats_chickens_ratio = 2 / 1
     nr_cows = 9
-    nr_goats = 9 * goats_cows_ratio
+    nr_goats = goats_cows_ratio * nr_cows
     nr_chickens = nr_goats / goats_chickens_ratio
     return float(nr_chickens)
 
@@ -32,22 +33,60 @@ def exercise4():
     train_birthday = 1
     train_each_year = train_christmas + train_birthday
     train_5_years = train_each_year * 5
-    train_total = (train_5_years * 2) + train_5_years
-    return float(train_total)
+    new_trains = (train_5_years * 2)
+    trains_total = train_5_years + new_trains
+    return float(trains_total)
 
 
 def exercise5():
     """Joan wants to visit her family who live 480 miles away.  If she drives at a rate of 60 mph and takes a lunch break taking 30 minutes, and 2 bathroom breaks taking 15 minutes each, how many hours did it take her to get there? Hint: use these equations eq1: 480/60=8 eq2: 30+15+15=60 eq3: 60/60=1 eq4: 8+1=9"""
-    distance_480_miles = 480
-    speed = 60
-    lunch_break = 30
-    bathroom_break = 15
+    distance_miles = 480
+    speed_miles_hours = 60
+    driving_hours = distance_miles / speed_miles_hours
+    lunch_break_minutes = 30
+    bathroom_break_minutes = 15
     nr_bathroom_breaks = 2
-    nr_lunch_breaks = 1
-    total_break_minutes = lunch_break + (bathroom_break * nr_bathroom_breaks)
-    total_time = distance_480_miles / speed + total_break_minutes / 60
-    return float(total_time)
+    total_break_minutes = lunch_break_minutes + (bathroom_break_minutes * nr_bathroom_breaks)
+    total_break_hours = total_break_minutes / 60
+    total_hours = driving_hours + total_break_hours
+    return float(total_hours)
 
 
 def exercise6():
+    """The distance from Anthony’s apartment to work is 10 miles. How far away is the gym from his apartment if it is 2 miles more than half the distance from his apartment to work? Hint: use these equations eq1: 10/2=5 eq2: 2+5=7"""
+    distance_to_work = 10
+    half_distance_to_work = distance_to_work / 2
+    distance_to_gym = 2 + half_distance_to_work
+    return float(distance_to_gym)
+
+
+def exercise7():
+    """The owner of a Turkish restaurant wanted to prepare traditional dishes for an upcoming celebration. She ordered ground beef, in four-pound packages, from three different butchers. The following morning, the first butcher delivered 10 packages. A couple of hours later, 7 packages arrived from the second butcher. Finally, the third butcher’s delivery arrived at dusk. If all the ground beef delivered by the three butchers weighed 100 pounds, how many packages did the third butcher deliver? Hint: use these equations eq1: 10*4=40 eq2: 7*4=28 eq3: 40+28=68 eq4: 100-68=32 eq5: 32/4=8"""
+    pounds_per_package = 4
+    packages_first_butcher = 10
+    pounds_first_butcher = packages_first_butcher * pounds_per_package
+    packages_second_butcher = 7
+    pounds_second_butcher = packages_second_butcher * pounds_per_package
+    total_pounds = 100
+    pounds_third_butcher = total_pounds - (pounds_first_butcher + pounds_second_butcher)
+    packages_third_butcher = pounds_third_butcher / pounds_per_package
+    return float(packages_third_butcher)
+
+
+def exercise8():
+    """In a stationery store, there are three kinds of pencils. A pencil with an eraser, which costs $0.8 each, a regular pencil for $0.5 each, and a short pencil for $0.4 each. This store was able to sell 200 pencils with an eraser, 40 regular pencils, and 35 short pencils. How much money did the store make from these sales? Hint: use these equations eq1: 200*0.8=160 eq2: 40*0.5=20 eq3: 35*0.4=14 eq4: 160+20+14=194"""
+    nr_eraser_pencils = 200
+    eraser_pencil_price = 0.8
+    money_one_eraser_pencil = nr_eraser_pencils * eraser_pencil_price
+    nr_regular_pencils = 40
+    regular_pencil_price = 0.5
+    money_one_regular_pencil = nr_regular_pencils * regular_pencil_price
+    nr_short_pencils = 35
+    short_pencil_price = 0.4
+    money_one_short_pencil = nr_short_pencils * short_pencil_price
+    total_money = money_one_eraser_pencil + money_one_regular_pencil + money_one_short_pencil
+    return float(total_money)
+
+
+def exercise9():
     """On Friday, Markeesha sold 30 boxes of crackers for her scout troop's fundraiser. On Saturday, she sold twice as many as on Friday. On Sunday, she sold 15 fewer than Saturday. How many boxes did she sell over the three days? Hint: use these equations eq1:2*30=60 eq2: 60-15=45 eq3: 30+60+45=135"""
