@@ -41,3 +41,5 @@ wandb/
 #CodeGen
 CodeGen/checkpoints
 data/MathQA/
+
+test_prompt.txt
