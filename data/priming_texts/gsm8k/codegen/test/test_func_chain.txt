@@ -1,0 +1,94 @@
+def exercise1():
+    """To run his grocery store, Mr. Haj needs $4000 a day. This money is used to pay for orders done, delivery costs and employees' salaries. If he spends 2/5 of the total operation costs on employees' salary and 1/4 of the remaining amount on delivery costs, how much money he pays for the orders done?"""
+
+    # The total amount of money Mr. Haj used to pay for employee salary is 2/5*$4000 = $<<2/5*4000=1600>>1600"""
+    cost_per_day = 4000
+    employees_cost = cost_per_day * 2 / 5
+
+    # After paying the employee salaries, Mr. Haj remains with $4000-$1600 = $<<4000-1600=2400>>2400 
+    remaining_cost = cost_per_day - employees_cost
+
+    # He also uses 1/4*$2400= $<<2400/4=600>>600 on delivery costs. 
+    delivery_cost = remaining_cost * 1 / 4
+
+    # The remaining amount of money that he uses to pay for orders is $2400-$600 = $<<2400-600=1800>>1800"""
+    orders_cost = remaining_cost - delivery_cost
+
+    return float(orders_costs)
+
+
+def exercise2():
+    """Sue works in a factory and every 30 minutes, a machine she oversees produces 30 cans of soda. How many cans of soda can one machine produce in 8 hours?"""
+    
+    # Since there are 2 sets of 30 minutes in an hour, then in 8 hours there are 8 x 2 = <<8*2=16>>16 sets of 30 minutes. 
+    cans_per_set_minutes = 30
+    sets_per_hour = 2
+    sets_per_8_hours = 8 * sets_per_hour
+
+    # Hence, a machine that Sue oversees can produce 30 cans x 16 = <<30*16=480>>480 cans of soda in 8 hours.
+    cans_per_8_hours = cans_per_set * sets_per_8_hours
+
+    return float(cans_per_8_hours)
+
+
+def exercise3():
+    """Mr. Rainwater has some goats, 9 cows and some chickens. He has 4 times as many goats as cows and 2 times as many goats as chickens. How many chickens does he have?"""
+    
+    # Let X be the number of chickens Mr. Rainwater has. He has 4 goats/cow * 9 cows = <<4*9=36>>36 goats on his farm. 
+    goats_cows_ratio = 4 / 1
+    nr_goats = goats_cows_ratio * 9
+    
+    # So he has 36 goats / 2 goats/chicken = <<36/2=18>>18 chickens.
+    goats_chickens_ratio = 2 / 1
+    nr_chickens = nr_goats / goats_chickens_ratio
+    
+    return float(nr_chickens)
+
+
+def exercise4():
+    """Max likes to collect model trains.  He asks for one for every birthday of his, and asks for two each Christmas.  Max always gets the gifts he asks for, and asks for these same gifts every year for 5 years.  At the end of the 5 years, his parents give him double the number of trains he already has. How many trains does Max have now?"""
+    
+    # Max gets 1+2=<<1+2=3>>3 trains per year.
+    train_christmas = 2
+    train_birthday = 1
+    train_each_year = train_christmas + train_birthday
+
+    # He repeats this for 5 years, meaning he gets 5*3 =<<5*3=15>>15 trains.
+    train_5_years = train_each_year * 5
+
+    # When this number is doubled by his parents, it becomes 15*2= <<15*2=30>>30 trains.
+    train_5_years_doubled = train_5_years * 2
+
+    # Since he already had 15 model trains, his total becomes 15+30= <<15+30=45>>45 trains.
+    train_total = train_5_years_doubled + train_5_years
+
+    return float(train_total)
+
+
+def exercise5():
+    """Joan wants to visit her family who live 480 miles away.  If she drives at a rate of 60 mph and takes a lunch break taking 30 minutes, and 2 bathroom breaks taking 15 minutes each, how many hours did it take her to get there?"""
+    
+    # The driving time is 480/60= <<480/60=8>>8 hours.
+    distance_480_miles = 480
+    speed = 60
+    driving_time = distance_480_miles / speed
+
+    # The time for breaks was 30+15+15=<<30+15+15=60>>60 minutes.
+    lunch_break = 30
+    bathroom_break = 15
+    time_for_breaks = lunch_break + bathroom_break * 2
+
+    # So she spent 60/60=<<60/60=1>>1 hour for rest stops.
+    minutes_in hour = 60
+    rest_stop_time = time_for_breaks / minutes_in_hour
+
+    # So it took her 8+1=<<8+1=9>>9 hours.
+    total_time = driving_time + rest_stop_time
+
+    return float(total_time)
+
+
+def exercise9():
+    """On Friday, Markeesha sold 30 boxes of crackers for her scout troop's fundraiser. On Saturday, she sold twice as many as on Friday. On Sunday, she sold 15 fewer than Saturday. How many boxes did she sell over the three days?"""
+    
+    # On Saturday, she sold 2*30=<<2*30=60>>60 boxes.
