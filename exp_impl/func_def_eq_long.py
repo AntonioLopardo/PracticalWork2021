@@ -11,7 +11,7 @@ def sample_n_for_prompting(self, nr_entries=1):
     for rand_index in rand_indexes:
         # sample_q_list.append("def exercise6():\n"+ '    """Write a program that returns the answer to the following question. ' + self.data[rand_index]["question"]+ '"""')
         sample_q_list.append(
-            "def exercise6():\n"
+            "def exercise9():\n"
             + '    """'
             + self.data[rand_index]["question"]
             + " Hint: use these equations"
