@@ -42,5 +42,6 @@ wandb/
 CodeGen/checkpoints
 data/MathQA/
 
-test_prompt.txt
 working_copilot.py
+test_prompt.txt
+sample_seqs.txt
