@@ -16,13 +16,14 @@ def set_all_seeds(model=None):
         torch.manual_seed(42)
         np.random.seed(42)
     elif model == "codegen":
-        torch.manual_seed(0)
-        np.random.seed(8)
+        # torch.manual_seed(0)
+        # np.random.seed(8)
         os.environ["PYTHONHASHSEED"] = str(0)
-        if torch.cuda.is_available():
-            torch.cuda.manual_seed(0)
-            torch.backends.cudnn.deterministic = True
-            torch.backends.cudnn.benchmark = not True
+        torch.backends.cudnn.deterministic = True
+        random.seed(hash("setting random seeds") % 2**32 - 1)
+        np.random.seed(hash("improves reproducibility") % 2**32 - 1)
+        torch.manual_seed(hash("by removing stochasticity") % 2**32 - 1)
+        torch.cuda.manual_seed_all(hash("so runs are repeatable") % 2**32 - 1)
     else:
         torch.manual_seed(0)
         np.random.seed(8)
@@ -69,14 +70,15 @@ def verify_pred_from_output(
     if print_output:
         print(colored(f"Return Sequence:", "yellow"))
 
+    s = 1111111111.0
     avoid_input = re.compile(r"input\(([^)]+)\)")
     if func_def_mod:
         if avoid_input.search(output):
             pass
         else:
             try:
-                exec(f"def exercise6():{output}\n", globals())
-                s = exercise6()
+                exec(f"def solve_exercise():{output}\n", globals())
+                s = solve_exercise()
                 if print_output:
                     print(colored(f"{s}", "yellow"))
             except Exception as e:
