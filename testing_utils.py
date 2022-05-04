@@ -198,4 +198,4 @@ def testing_loop(
                 )
     print(colored(f"\n\nPass@{gen_args.k} = {np.mean(np.array(pass_k_list))}", "green"))
 
-    return np.mean(np.array(pass_k_list))
+    return np.mean(np.array(pass_k_list)), pass_k_list
