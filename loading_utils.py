@@ -67,6 +67,9 @@ def load_CodeGen(args):
     device = torch.device(args.device)
     ckpt = f"/home/PracticalWork2021/CodeGen/checkpoints/{args.model}"
 
+    if "cluster" in os.getcwd():
+        ckpt = f"/cluster/scratch/alopardo/CodeGen/checkpoints/{args.model}"
+
     with print_time("loading parameters"):
         model = create_model(ckpt=ckpt, fp16=args.fp16).to(device)
 
