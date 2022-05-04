@@ -1,0 +1,39 @@
+1---------------------
+Weng earns $12 an hour for babysitting. Yesterday, she just did 50 minutes of babysitting. How much did she earn?
+------Classify the quesiton------
+2 - Sure
+
+4---------------------
+James writes a 3-page letter to 2 different friends twice a week.  How many pages does he write a year?
+------Classify the quesiton------
+2 - Sure
+
+15---------------------
+James creates a media empire.  He creates a movie for $2000.  Each DVD cost $6 to make.  He sells it for 2.5 times that much.  He sells 500 movies a day for 5 days a week.  How much profit does he make in 20 weeks?
+------Classify the quesiton------
+2 - End
+
+21---------------------
+Each bird eats 12 beetles per day, each snake eats 3 birds per day, and each jaguar eats 5 snakes per day. If there are 6 jaguars in a forest, how many beetles are eaten each day?
+------Classify the quesiton------
+2 - Sure
+
+26---------------------
+Jack is stranded on a desert island. He wants some salt to season his fish. He collects 2 liters of seawater in an old bucket. If the water is 20% salt, how many ml of salt will Jack get when all the water evaporates?
+------Classify the quesiton------
+2 - Sure
+
+39---------------------
+Anna goes trick-or-treating in a subdivision where she gets 14 pieces of candy per house. Her brother Billy goes trick-or-tricking in a neighboring subdivision where he gets 11 pieces of candy per house. If the first subdivision has 60 houses and the second subdivision has 75 houses, how many more pieces of candy does Anna get?
+------Classify the quesiton------
+2 - Sure
+
+46---------------------
+Carolyn practices the piano for 20 minutes a day and the violin for three times as long. If she practice six days a week, how many minutes does she spend practicing in a month with four weeks?
+------Classify the quesiton------
+2 - Sure
+
+47---------------------
+The file, 90 megabytes in size, downloads at the rate of 5 megabytes per second for its first 60 megabytes, and then 10 megabytes per second thereafter. How long, in seconds, does it take to download entirely?
+------Classify the quesiton------
+2 - Sure
