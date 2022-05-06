@@ -6,6 +6,9 @@ import sys
 from io import StringIO
 from contextlib import redirect_stdout
 
+if "cluster" in os.getcwd():
+    sys.path.append("/cluster/home/alopardo/PracticalWork2021/CodeGen")
+
 sys.path.append("/home/PracticalWork2021/CodeGen/")
 from jaxformer.hf.sample import *
 
