@@ -1,0 +1,10 @@
+def exercise1():
+    """Annie brought 20 brownies to school.  She gave half of them to the school administrator to put in the faculty lounge.  Of the remaining brownies, she gave half to her best friend, Carl, and another two to her friend, Simon.  How many brownies did she have left? Hint: use these equations eq1: 20/2=10 eq2: 20-10=10 eq3: 10/2=5 eq4: 10-5=5 eq5: 5-2=3"""
+
+
+def exercise2():
+    """Rachel solved 5 math problems each minute for 12 minutes before bed, but she didn't finish all of them. The next day, she finished the last 16 problems at lunch. How many math problems did she do in all? Hint: use these equations eq1: 5*12=60 eq2: 60+16=76"""
+
+
+def exercise3():
+    """Mary and her two friends came up with the idea of collecting marbles each day for their play on weekends. From Monday to Friday, Mary collected twice as many red marbles as Jenny and half the number of blue marbles collected by Anie, who collected 20 more red marbles than Mary and twice the number of blue marbles Jenny collected. If Jenny collected 30 red marbles and 25 blue marbles, what's the total number of blue marbles collected by the friends together? Hint: use these equations eq1: 2*30=60 eq2: 60+80+30=170 eq3: 2*25=50 eq4: 50+25+25=100"""

@@ -1,0 +1,10 @@
+def exercise1():
+    """Sandra has a box of apples that weighs 120 pounds.  She's going to use half the weight in apples to make applesauce.  The rest will be used to make apple pies.  She needs 4 pounds of apples per pie.  How many pies will she be able to make? Hint: use these equations eq1: 120/2=60 eq2: 120-60=60 eq3: 60/4=15"""
+
+
+def exercise2():
+    """Mary wants to bake 10 apple pies for a charity event. Each pie needs 8 apples and she already harvested 50 apples from the trees in her garden. How many more apples does she need to buy to make all 10 pies? Hint: use these equations eq1: 10*8=80 eq2: 80-50=30"""
+
+
+def exercise3():
+    """Pat is having a picnic with her family. She has 42 cookies. She also has 63 pieces of candy and 21 brownies. There are 7 people in her family. If each person gets the same number of each dessert, how much will each person get? Hint: use these equations eq1: 42/7=6 eq2: 63/7=9 eq3: 21/7=3 eq4: 6+9+3=18"""

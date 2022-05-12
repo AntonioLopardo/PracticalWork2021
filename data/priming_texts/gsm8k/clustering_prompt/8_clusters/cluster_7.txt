@@ -1,0 +1,10 @@
+def exercise1():
+    """Michael has two brothers. His oldest brother is 1 year older than twice Michael's age when Michael was a year younger. His younger brother is 5 years old, which is a third of the age of the older brother. What is their combined age? Hint: use these equations eq1: 3*5=15 eq2: 5+15+8=28"""
+
+
+def exercise2():
+    """The age of Gladys is equal to twice the sum of the ages of Billy and Lucas. Billy is 3 times younger than Gladys who is 30 years old now. How old will Lucas be three years from now? Hint: use these equations eq1: 30/3=10 eq2: 30/2=15 eq3: 15-10=5 eq4: 5+3=8"""
+
+
+def exercise3():
+    """Cindy was 5 years old.  Her sister Jan was 2 years older than Cindy.  Their oldest sister Marcia was twice as old as Jan.  Greg was two years older than Marcia.  How old was Greg? Hint: use these equations eq1: 2+5=7 eq2: 2*7=14 eq3: 2+14=16"""

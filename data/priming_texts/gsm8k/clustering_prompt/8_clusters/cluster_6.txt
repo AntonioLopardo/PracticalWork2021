@@ -1,0 +1,10 @@
+def exercise1():
+    """A pet store has six dogs for sale. They have half as many cats, twice as many birds, and thrice as many fish for sale. How many animals are for sale in the pet store? Hint: use these equations eq1: 6/2=3 eq2: 6*2=12 eq3: 6*3=18 eq4: 6+3+12+18=39"""
+
+
+def exercise2():
+    """Josie and her family went on a safari and had an exciting time watching different animals grazing and playing together. She decided to count each animal she saw and calculated their total number. She counted 80 antelopes, 34 more rabbits than antelopes, 42 fewer hyenas than the total number of antelopes and rabbits combined, 50 more wild dogs than hyenas, and the number of leopards was half the number of rabbits. What the total number of animals that Josie counted? Hint: use these equations eq1: 80+34=114 eq2: 114+80=194 eq3: 1/2*114=57 eq4: 57+202+152+114+80=605"""
+
+
+def exercise3():
+    """A pet store owner had 12 birds, 9 puppies, 5 cats, and 15 spiders. Half the birds were sold and 3 puppies were adopted. Then, someone left the spider enclosure open and 7 of them went loose. How many animals does the pet store owner have left? Hint: use these equations eq1: 12/2=6 eq2: 9-3=6 eq3: 15-7=8 eq4: 5+6+6+8=25"""

@@ -1,0 +1,10 @@
+def exercise1():
+    """Robert, a sales agent, earns a basic salary of $1250 per month and,  10% commission on his monthly sales. Last month, his total sales were $23600. He allocated 20% of his total earnings to savings and the rest of the money to his monthly expenses. How much were his monthly expenses last month? Hint: use these equations eq1: 23600*10/100=2360 eq2: 1250+2360=3610 eq3: 3610*20/100=722 eq4: 3610-722=2888"""
+
+
+def exercise2():
+    """Carrie works for $8 an hour and 35 hours a week at her job. It’s been a month since she started working there. She has saved up all of her money because she wants to buy a bike for $400. How much money will she have left over after she buys her bike? Hint: use these equations eq1: 8*35=280 eq2: 280*4=1120 eq3: 1120-400=720"""
+
+
+def exercise3():
+    """Andrea buys herself a pony for her 30th birthday. She pays $500/month to rent a pasture for it, $10 a day for food, and $60/lesson for two lessons a week. How much does she spend on her pony in a year? Hint: use these equations eq1: 10*365=3650 eq2: 60*2=120 eq3: 120*52=6240 eq4: 500*12=6000 eq5: 6000+6240+3650=15890"""

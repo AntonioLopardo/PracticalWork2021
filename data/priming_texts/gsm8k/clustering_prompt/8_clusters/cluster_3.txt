@@ -1,0 +1,10 @@
+def exercise1():
+    """There are 20 students in a class. Only one-fourth of the students stayed in the classroom while the rest went to the playground. Of those who went to the playground, one-third are boys. How many girls are there on the playground from this class? Hint: use these equations eq1: 20*1/4=5 eq2: 20-5=15 eq3: 15*1/3=5 eq4: 15-5=10"""
+
+
+def exercise2():
+    """Oxford High School has 48 teachers, 1 principal and 15 classes with each having 20 students. How many people are there in total in Oxford High School? Hint: use these equations eq1: 300+48+1=349"""
+
+
+def exercise3():
+    """Adam goes to a small school, which teaches 80 students in three classes. 40% of the students are in class A, and class B has 21 students fewer than class A. The rest are in class C. How many students are in this class? Hint: use these equations eq1: 40/100*80=32 eq2: 32-21=11 eq3: 80-32-11=37"""
