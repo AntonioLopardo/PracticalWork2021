@@ -2,7 +2,7 @@ import pickle
 import numpy as np
 from termcolor import colored
 
-pkl_dir = "pass_at_list/"
+pkl_dir = "pass_at_list_5_seq/"
 
 with open(f"{pkl_dir}transfer_pass_at_k.pkl", "rb") as f:
     transfer_pass_at_k = pickle.load(f)
@@ -41,7 +41,6 @@ diff_from_best_dict[3] = []
 diff_from_best_dict[4] = []
 
 agg_pass_at_k = []
-
 
 for i in range(len(general_pass_at_k)):
     cand_list = [
