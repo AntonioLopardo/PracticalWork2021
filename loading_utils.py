@@ -6,6 +6,9 @@ import sys
 from io import StringIO
 from contextlib import redirect_stdout
 
+if "cluster" in os.getcwd():
+    sys.path.append("/cluster/home/alopardo/PracticalWork2021/CodeGen")
+
 sys.path.append("/home/PracticalWork2021/CodeGen/")
 from jaxformer.hf.sample import *
 
@@ -66,6 +69,9 @@ def load_CodeGen(args):
 
     device = torch.device(args.device)
     ckpt = f"/home/PracticalWork2021/CodeGen/checkpoints/{args.model}"
+
+    if "cluster" in os.getcwd():
+        ckpt = f"/cluster/scratch/alopardo/CodeGen/checkpoints/{args.model}"
 
     with print_time("loading parameters"):
         model = create_model(ckpt=ckpt, fp16=args.fp16).to(device)
