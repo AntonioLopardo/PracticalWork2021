@@ -19,8 +19,8 @@ general_pass_at_k = [0.0 for _ in range(len(general_pass_at_k))]
 
 print(f"\ncluster_0 prompts - Pass@{3} = {np.mean(np.array(cluster_0_pass_at_k))}")
 print(f"cluster_1 prompts - Pass@{3} = {np.mean(np.array(cluster_1_pass_at_k))}")
-print(f"cluster_2 prompts - Pass@{3} = {np.mean(np.array(cluster_0_pass_at_k))}")
-print(f"cluster_3 prompts - Pass@{3} = {np.mean(np.array(cluster_0_pass_at_k))}")
+print(f"cluster_2 prompts - Pass@{3} = {np.mean(np.array(cluster_2_pass_at_k))}")
+print(f"cluster_3 prompts - Pass@{3} = {np.mean(np.array(cluster_3_pass_at_k))}")
 print(f"General prompts - Pass@{3} = {np.mean(np.array(general_pass_at_k))}")
 
 max_dict = {}
