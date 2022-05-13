@@ -1,5 +1,5 @@
 def exercise1():
-    """The number of math problems that Marvin practiced today is three times as many as the number of problems he solved yesterday. His friend, Arvin, has practiced twice as many math problems on each day. How many math problems have they practiced altogether if Marvin solved 40 math problems yesterday? Hint: use these equations eq1: 40*3=120 eq2: 120+40=160 eq3: 160*2=320 eq4: 320+160=480"""
+    """The number of math problems that Marvin practiced today is three times as many as the number of problems he solved yesterday. His friend, Arvin, has practiced twice as many math problems on each day. How many math problems have they practiced altogether if Marvin solved 40 math problems yesterday?"""
     problems_yesterday_marvin = 40
     problems_today_marvin = problems_yesterday_marvin * 3
     problems_marvin = problems_today_marvin * 2
@@ -9,15 +9,16 @@ def exercise1():
 
 
 def exercise2():
-    """Megan has read 32 books this year.  Kelcie has read 1/4 the amount of books that Megan has read.  Greg has read 9 more than twice the number of books that Kelcie has read.  How many books total have Megan, Kelcie, and Greg read? Hint: use these equations eq1: 32/4=8 eq2:9+2*8=25 eq3: 32+8+25=65"""
+    """Megan has read 32 books this year.  Kelcie has read 1/4 the amount of books that Megan has read.  Greg has read 9 more than twice the number of books that Kelcie has read.  How many books total have Megan, Kelcie, and Greg read?"""
     books_megan = 32
     books_kelcie = books_megan / 4
     books_greg = 9 + books_kelcie * 2
     books_total = books_megan + books_kelcie + books_greg
     return float(books_total)
 
+
 def exercise3():
-    """Eduardo is a teacher. He taught 3 classes last week while his colleague Frankie taught double what Eduardo teaches. How many classes did Eduardo and Frankie teach in total? Hint: use these equations eq1: 3*2=6 eq2: 3+6=9"""
+    """Eduardo is a teacher. He taught 3 classes last week while his colleague Frankie taught double what Eduardo teaches. How many classes did Eduardo and Frankie teach in total?"""
     classes_eduardo = 3
     classes_frankie = classes_eduardo * 2
     classes_total = classes_eduardo + classes_frankie
