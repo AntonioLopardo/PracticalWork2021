@@ -1,5 +1,7 @@
 def exercise1():
-    """Annie brought 20 brownies to school.  She gave half of them to the school administrator to put in the faculty lounge.  Of the remaining brownies, she gave half to her best friend, Carl, and another two to her friend, Simon.  How many brownies did she have left? Hint: use these equations eq1: 20/2=10 eq2: 20-10=10 eq3: 10/2=5 eq4: 10-5=5 eq5: 5-2=3"""
+    """
+    Annie brought 20 brownies to school.  She gave half of them to the school administrator to put in the faculty lounge.  Of the remaining brownies, she gave half to her best friend, Carl, and another two to her friend, Simon.  How many brownies did she have left? Hint: use these equations eq1: 20/2=10 eq2: 20-10=10 eq3: 10/2=5 eq4: 10-5=5 eq5: 5-2=3
+    """
     total_brownies = 20
     admin_brownies = total_brownies / 2
     carl_brownies = (total_brownies - admin_brownies) / 2
@@ -9,14 +11,18 @@ def exercise1():
 
 
 def exercise2():
-    """Rachel solved 5 math problems each minute for 12 minutes before bed, but she didn't finish all of them. The next day, she finished the last 16 problems at lunch. How many math problems did she do in all? Hint: use these equations eq1: 5*12=60 eq2: 60+16=76"""
+    """
+    Rachel solved 5 math problems each minute for 12 minutes before bed, but she didn't finish all of them. The next day, she finished the last 16 problems at lunch. How many math problems did she do in all? Hint: use these equations eq1: 5*12=60 eq2: 60+16=76
+    """
     math_problems_bed = 5 * 12
     math_problems_lunch = 16
     return float(math_problems_bed + math_problems_lunch)
 
 
 def exercise3():
-    """Merry had 50 boxes of apples on Saturday and 25 boxes on Sunday. There were 10 apples in each box. If she sold a total of 720 apples on Saturday and Sunday, how many boxes of apples are left? Hint: use these equations eq1: 50+25=75 eq2: 75*10=750 eq3: 750-720=30 eq4: 30/10=3"""
+    """
+    Merry had 50 boxes of apples on Saturday and 25 boxes on Sunday. There were 10 apples in each box. If she sold a total of 720 apples on Saturday and Sunday, how many boxes of apples are left? Hint: use these equations eq1: 50+25=75 eq2: 75*10=750 eq3: 750-720=30 eq4: 30/10=3
+    """
     boxes_saturday = 50
     boxes_sunday = 25
     apples_per_box = 10

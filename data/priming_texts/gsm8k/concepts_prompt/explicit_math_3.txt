@@ -1,5 +1,7 @@
 def exercise1():
-    """Julie is reading a 120-page book. Yesterday, she was able to read 12 pages and today, she read twice as many pages as yesterday. If she wants to read half of the remaining pages tomorrow, how many pages should she read? Hint: use these equations eq1: 12*2=24 eq2: 12+24=36 eq3: 120-36=84 eq4: 84/2=42"""
+    """
+    Julie is reading a 120-page book. Yesterday, she was able to read 12 pages and today, she read twice as many pages as yesterday. If she wants to read half of the remaining pages tomorrow, how many pages should she read? Hint: use these equations eq1: 12*2=24 eq2: 12+24=36 eq3: 120-36=84 eq4: 84/2=42
+    """
     book_size = 120
     pages_read_yesterday = 12
     pages_read_today = pages_read_yesterday * 2
@@ -9,7 +11,9 @@ def exercise1():
 
 
 def exercise2():
-    """Mark has a garden with flowers. He planted plants of three different colors in it. Ten of them are yellow, and there are 80% more of those in purple. There are only 25% as many green flowers as there are yellow and purple flowers. How many flowers does Mark have in his garden? Hint: use these equations eq1: 80/100*10=8 eq2: 10+8=18 eq3: 10+18=28 eq4: 25/100*28=7 eq5: 28+7=35"""
+    """
+    Mark has a garden with flowers. He planted plants of three different colors in it. Ten of them are yellow, and there are 80% more of those in purple. There are only 25% as many green flowers as there are yellow and purple flowers. How many flowers does Mark have in his garden? Hint: use these equations eq1: 80/100*10=8 eq2: 10+8=18 eq3: 10+18=28 eq4: 25/100*28=7 eq5: 28+7=35
+    """
     yellow_plants = 10
     purple_plants = 10 * 0.8
     green_plants = (yellow_plants + purple_plants) * 0.25
@@ -18,7 +22,9 @@ def exercise2():
 
 
 def exercise3():
-    """Samantha’s last name has three fewer letters than Bobbie’s last name. If Bobbie took two letters off her last name, she would have a last name twice the length of Jamie’s. Jamie’s full name is Jamie Grey. How many letters are in Samantha’s last name? Hint: use these equations eq1: 4*2+2=10 eq2: 10-3=7"""
+    """
+    Samantha’s last name has three fewer letters than Bobbie’s last name. If Bobbie took two letters off her last name, she would have a last name twice the length of Jamie’s. Jamie’s full name is Jamie Grey. How many letters are in Samantha’s last name? Hint: use these equations eq1: 4*2+2=10 eq2: 10-3=7
+    """
     jamie_last_name = "Grey"
     len_jamie_last_name = len(jamie_last_name)
     len_boobie_last_name = (len_jamie_last_name * 2) + 2

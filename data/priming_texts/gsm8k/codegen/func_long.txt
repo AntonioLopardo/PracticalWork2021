@@ -1,5 +1,7 @@
 def exercise1():
-    """To run his grocery store, Mr. Haj needs $4000 a day. This money is used to pay for orders done, delivery costs and employees' salaries. If he spends 2/5 of the total operation costs on employees' salary and 1/4 of the remaining amount on delivery costs, how much money he pays for the orders done?"""
+    """
+    To run his grocery store, Mr. Haj needs $4000 a day. This money is used to pay for orders done, delivery costs and employees' salaries. If he spends 2/5 of the total operation costs on employees' salary and 1/4 of the remaining amount on delivery costs, how much money he pays for the orders done?
+    """
     total_op_cost = 4000
     employees_cost = 2 / 5 * total_op_cost
     total_minus_emp = total_op_cost - employees_cost
@@ -9,7 +11,9 @@ def exercise1():
 
 
 def exercise2():
-    """Sue works in a factory and every 30 minutes, a machine she oversees produces 30 cans of soda. How many cans of soda can one machine produce in 8 hours?"""
+    """
+    Sue works in a factory and every 30 minutes, a machine she oversees produces 30 cans of soda. How many cans of soda can one machine produce in 8 hours?
+    """
     cans_per_30_minutes = 30
     cans_per_minute = cans_per_30_minutes / 30
     cans_per_hour = cans_per_minute * 60
@@ -18,7 +22,9 @@ def exercise2():
 
 
 def exercise3():
-    """Mr. Rainwater has some goats, 9 cows and some chickens. He has 4 times as many goats as cows and 2 times as many goats as chickens. How many chickens does he have?"""
+    """
+    Mr. Rainwater has some goats, 9 cows and some chickens. He has 4 times as many goats as cows and 2 times as many goats as chickens. How many chickens does he have?
+    """
     goats_cows_ratio = 4 / 1
     goats_chickens_ratio = 2 / 1
     nr_cows = 9
@@ -28,7 +34,9 @@ def exercise3():
 
 
 def exercise4():
-    """Max likes to collect model trains.  He asks for one for every birthday of his, and asks for two each Christmas.  Max always gets the gifts he asks for, and asks for these same gifts every year for 5 years.  At the end of the 5 years, his parents give him double the number of trains he already has. How many trains does Max have now?"""
+    """
+    Max likes to collect model trains.  He asks for one for every birthday of his, and asks for two each Christmas.  Max always gets the gifts he asks for, and asks for these same gifts every year for 5 years.  At the end of the 5 years, his parents give him double the number of trains he already has. How many trains does Max have now?
+    """
     train_christmas = 2
     train_birthday = 1
     train_each_year = train_christmas + train_birthday
@@ -39,7 +47,9 @@ def exercise4():
 
 
 def exercise5():
-    """Joan wants to visit her family who live 480 miles away.  If she drives at a rate of 60 mph and takes a lunch break taking 30 minutes, and 2 bathroom breaks taking 15 minutes each, how many hours did it take her to get there?"""
+    """
+    Joan wants to visit her family who live 480 miles away.  If she drives at a rate of 60 mph and takes a lunch break taking 30 minutes, and 2 bathroom breaks taking 15 minutes each, how many hours did it take her to get there?
+    """
     distance_miles = 480
     speed_miles_hours = 60
     driving_hours = distance_miles / speed_miles_hours
@@ -53,7 +63,9 @@ def exercise5():
 
 
 def exercise6():
-    """The distance from Anthony’s apartment to work is 10 miles. How far away is the gym from his apartment if it is 2 miles more than half the distance from his apartment to work?"""
+    """
+    The distance from Anthony’s apartment to work is 10 miles. How far away is the gym from his apartment if it is 2 miles more than half the distance from his apartment to work?
+    """
     distance_to_work = 10
     half_distance_to_work = distance_to_work / 2
     distance_to_gym = 2 + half_distance_to_work
@@ -61,7 +73,9 @@ def exercise6():
 
 
 def exercise7():
-    """The owner of a Turkish restaurant wanted to prepare traditional dishes for an upcoming celebration. She ordered ground beef, in four-pound packages, from three different butchers. The following morning, the first butcher delivered 10 packages. A couple of hours later, 7 packages arrived from the second butcher. Finally, the third butcher’s delivery arrived at dusk. If all the ground beef delivered by the three butchers weighed 100 pounds, how many packages did the third butcher deliver?"""
+    """
+    The owner of a Turkish restaurant wanted to prepare traditional dishes for an upcoming celebration. She ordered ground beef, in four-pound packages, from three different butchers. The following morning, the first butcher delivered 10 packages. A couple of hours later, 7 packages arrived from the second butcher. Finally, the third butcher’s delivery arrived at dusk. If all the ground beef delivered by the three butchers weighed 100 pounds, how many packages did the third butcher deliver?
+    """
     pounds_per_package = 4
     packages_first_butcher = 10
     pounds_first_butcher = packages_first_butcher * pounds_per_package
@@ -74,7 +88,9 @@ def exercise7():
 
 
 def exercise8():
-    """In a stationery store, there are three kinds of pencils. A pencil with an eraser, which costs $0.8 each, a regular pencil for $0.5 each, and a short pencil for $0.4 each. This store was able to sell 200 pencils with an eraser, 40 regular pencils, and 35 short pencils. How much money did the store make from these sales?"""
+    """
+    In a stationery store, there are three kinds of pencils. A pencil with an eraser, which costs $0.8 each, a regular pencil for $0.5 each, and a short pencil for $0.4 each. This store was able to sell 200 pencils with an eraser, 40 regular pencils, and 35 short pencils. How much money did the store make from these sales?
+    """
     nr_eraser_pencils = 200
     eraser_pencil_price = 0.8
     money_one_eraser_pencil = nr_eraser_pencils * eraser_pencil_price

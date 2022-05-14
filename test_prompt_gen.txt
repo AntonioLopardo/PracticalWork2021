@@ -30,3 +30,9 @@ def exercise3():
     nr_goats = 9 * goats_cows_ratio
     nr_chickens = nr_goats / goats_chickens_ratio
     return float(nr_chickens)
+
+
+def exercise4():
+    """
+    Carol sells tickets for an exhibition. During three days she sold tickets worth $960. One ticket costs $4. How many tickets on average did she sell during one of these three days? Hint: use these equations eq1: 960/4=240 eq2: 240/3=80
+    """

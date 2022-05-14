@@ -1,5 +1,7 @@
 def exercise1():
-    """To run his grocery store, Mr. Haj needs $4000 a day. This money is used to pay for orders done, delivery costs and employees' salaries. If he spends 2/5 of the total operation costs on employees' salary and 1/4 of the remaining amount on delivery costs, how much money he pays for the orders done? Hint: use these equations eq1: 2/5*4000=1600 eq2: 4000-1600=2400 eq3: 2400/4=600 eq4: 2400-600=1800"""
+    """
+    To run his grocery store, Mr. Haj needs $4000 a day. This money is used to pay for orders done, delivery costs and employees' salaries. If he spends 2/5 of the total operation costs on employees' salary and 1/4 of the remaining amount on delivery costs, how much money he pays for the orders done? Hint: use these equations eq1: 2/5*4000=1600 eq2: 4000-1600=2400 eq3: 2400/4=600 eq4: 2400-600=1800
+    """
     cost_per_day = 4000
     employees_cost = cost_per_day * 2 / 5
     delivery_costs = (cost_per_day - employees_cost) * 1 / 4
@@ -8,7 +10,9 @@ def exercise1():
 
 
 def exercise2():
-    """Sue works in a factory and every 30 minutes, a machine she oversees produces 30 cans of soda. How many cans of soda can one machine produce in 8 hours? Hint: use these equations eq1: 8*2=16 eq2: 30*16=480"""
+    """
+    Sue works in a factory and every 30 minutes, a machine she oversees produces 30 cans of soda. How many cans of soda can one machine produce in 8 hours? Hint: use these equations eq1: 8*2=16 eq2: 30*16=480
+    """
     cans_per_30_minutes = 30
     cans_per_minute = cans_per_30_minutes / 30
     cans_per_hour = cans_per_minute * 60
@@ -17,7 +21,9 @@ def exercise2():
 
 
 def exercise3():
-    """Mr. Rainwater has some goats, 9 cows and some chickens. He has 4 times as many goats as cows and 2 times as many goats as chickens. How many chickens does he have? Hint: use these equations eq1: 4*9=36 eq2: 36/2=18"""
+    """
+    Mr. Rainwater has some goats, 9 cows and some chickens. He has 4 times as many goats as cows and 2 times as many goats as chickens. How many chickens does he have? Hint: use these equations eq1: 4*9=36 eq2: 36/2=18
+    """
     goats_cows_ratio = 4 / 1
     goats_chickens_ratio = 2 / 1
     nr_cows = 9
@@ -27,4 +33,6 @@ def exercise3():
 
 
 def exercise4():
-    """On Friday, Markeesha sold 30 boxes of crackers for her scout troop's fundraiser. On Saturday, she sold twice as many as on Friday. On Sunday, she sold 15 fewer than Saturday. How many boxes did she sell over the three days? Hint: use these equations eq1:2*30=60 eq2: 60-15=45 eq3: 30+60+45=135"""
+    """
+    On Friday, Markeesha sold 30 boxes of crackers for her scout troop's fundraiser. On Saturday, she sold twice as many as on Friday. On Sunday, she sold 15 fewer than Saturday. How many boxes did she sell over the three days? Hint: use these equations eq1:2*30=60 eq2: 60-15=45 eq3: 30+60+45=135
+    """

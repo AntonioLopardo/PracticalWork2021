@@ -1,5 +1,7 @@
 def exercise1():
-    """Albert is wondering how much pizza he can eat in one day. He buys 2 large pizzas and 2 small pizzas. A large pizza has 16 slices and a small pizza has 8 slices. If he eats it all, how many pieces does he eat that day? Hint: use these equations eq1: 2*16=32 eq2: 2*8=16 eq3: 32+16=48"""
+    """
+    Albert is wondering how much pizza he can eat in one day. He buys 2 large pizzas and 2 small pizzas. A large pizza has 16 slices and a small pizza has 8 slices. If he eats it all, how many pieces does he eat that day? Hint: use these equations eq1: 2*16=32 eq2: 2*8=16 eq3: 32+16=48
+    """
     size_large = 16
     size_small = 8
     total_large = 2
@@ -9,7 +11,9 @@ def exercise1():
 
 
 def exercise2():
-    """Ken created a care package to send to his brother, who was away at boarding school.  Ken placed a box on a scale, and then he poured into the box enough jelly beans to bring the weight to 2 pounds.  Then, he added enough brownies to cause the weight to triple.  Next, he added another 2 pounds of jelly beans.  And finally, he added enough gummy worms to double the weight once again.  What was the final weight of the box of goodies, in pounds? Hint: use these equations eq1: 2*3=6 eq2: 6+2=8 eq3: 8*2=16"""
+    """
+    Ken created a care package to send to his brother, who was away at boarding school.  Ken placed a box on a scale, and then he poured into the box enough jelly beans to bring the weight to 2 pounds.  Then, he added enough brownies to cause the weight to triple.  Next, he added another 2 pounds of jelly beans.  And finally, he added enough gummy worms to double the weight once again.  What was the final weight of the box of goodies, in pounds? Hint: use these equations eq1: 2*3=6 eq2: 6+2=8 eq3: 8*2=16
+    """
     weight_after_first_jelly_beans = 2
     weight_after_brownies = weight_after_first_jelly_beans * 3
     weight_after_second_jelly_beans = weight_after_brownies + 2
@@ -18,7 +22,9 @@ def exercise2():
 
 
 def exercise3():
-    """Randy has 60 mango trees on his farm. He also has 5 less than half as many coconut trees as mango trees. How many trees does Randy have in all on his farm? Hint: use these equations eq1: 60/2=30 eq2: 30-5=25 eq3: 60+25=85"""
+    """
+    Randy has 60 mango trees on his farm. He also has 5 less than half as many coconut trees as mango trees. How many trees does Randy have in all on his farm? Hint: use these equations eq1: 60/2=30 eq2: 30-5=25 eq3: 60+25=85
+    """
     mango_trees = 60
     coconut_trees = mango_trees / 2 - 5
     total_trees = mango_trees + coconut_trees

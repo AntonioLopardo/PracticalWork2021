@@ -1,5 +1,7 @@
 def exercise1():
-    """Mary does her grocery shopping on Saturday. She does her shopping only at a specific store where she is allowed a credit of $100, which must be paid in full before her next shopping trip. That week she spent the full credit limit and paid $15 of it on Tuesday and $23 of it on Thursday. How much credit will Mary need to pay before her next shopping trip? Hint: use these equations eq1: 15+23=38 eq2: 100-38=62"""
+    """
+    Mary does her grocery shopping on Saturday. She does her shopping only at a specific store where she is allowed a credit of $100, which must be paid in full before her next shopping trip. That week she spent the full credit limit and paid $15 of it on Tuesday and $23 of it on Thursday. How much credit will Mary need to pay before her next shopping trip? Hint: use these equations eq1: 15+23=38 eq2: 100-38=62
+    """
     full_credit_spent = 100
     credit_payed_on_tues = 15
     credit_payed_on_thurs = 23
@@ -8,7 +10,9 @@ def exercise1():
 
 
 def exercise2():
-    """In a truck, there are 26 pink hard hats, 15 green hard hats, and 24 yellow hard hats.  If Carl takes away 4 pink hard hats, and John takes away 6 pink hard hats and twice as many green hard hats as the number of pink hard hats that he removed, then calculate the total number of hard hats that remained in the truck. Hint: use these equations eq1: 26-4=22 eq2: 22-6=16 eq3: 6*2=12 eq4: 15-12=3 eq5: 3+16=19 eq6:19+24=43"""
+    """
+    In a truck, there are 26 pink hard hats, 15 green hard hats, and 24 yellow hard hats.  If Carl takes away 4 pink hard hats, and John takes away 6 pink hard hats and twice as many green hard hats as the number of pink hard hats that he removed, then calculate the total number of hard hats that remained in the truck. Hint: use these equations eq1: 26-4=22 eq2: 22-6=16 eq3: 6*2=12 eq4: 15-12=3 eq5: 3+16=19 eq6:19+24=43
+    """
     pink_hats = 26
     green_hats = 15
     yellow_hats = 24
@@ -22,7 +26,9 @@ def exercise2():
 
 
 def exercise3():
-    """Brennan was researching his school project and had to download files from the internet to his computer to use for reference. After downloading 800 files, he deleted 70% of them because they were not helpful. He downloaded 400 more files but again realized that 3/5 of them were irrelevant. How many valuable files was he left with after deleting the unrelated files he downloaded in the second round? Hint: use these equations eq1: 70/100*800=560 eq2: 800-560=240 eq3: 3/5*400=240 eq4: 400-240=160 eq5: 160+240=400"""
+    """
+    Brennan was researching his school project and had to download files from the internet to his computer to use for reference. After downloading 800 files, he deleted 70% of them because they were not helpful. He downloaded 400 more files but again realized that 3/5 of them were irrelevant. How many valuable files was he left with after deleting the unrelated files he downloaded in the second round? Hint: use these equations eq1: 70/100*800=560 eq2: 800-560=240 eq3: 3/5*400=240 eq4: 400-240=160 eq5: 160+240=400
+    """
     files_first_download = 800
     files_deleted_first_round = files_first_download * 0.7
     files_second_download = 400

@@ -30,30 +30,3 @@ def exercise3():
     nr_goats = 9 * goats_cows_ratio
     nr_chickens = nr_goats / goats_chickens_ratio
     return float(nr_chickens)
-
-
-def exercise4():
-    """
-    Max likes to collect model trains.  He asks for one for every birthday of his, and asks for two each Christmas.  Max always gets the gifts he asks for, and asks for these same gifts every year for 5 years.  At the end of the 5 years, his parents give him double the number of trains he already has. How many trains does Max have now?
-    """
-    train_christmas = 2
-    train_birthday = 1
-    train_each_year = train_christmas + train_birthday
-    train_5_years = train_each_year * 5
-    train_total = (train_5_years * 2) + train_5_years
-    return float(train_total)
-
-
-def exercise5():
-    """
-    Joan wants to visit her family who live 480 miles away.  If she drives at a rate of 60 mph and takes a lunch break taking 30 minutes, and 2 bathroom breaks taking 15 minutes each, how many hours did it take her to get there?
-    """
-    distance_480_miles = 480
-    speed = 60
-    lunch_break = 30
-    bathroom_break = 15
-    nr_bathroom_breaks = 2
-    nr_lunch_breaks = 1
-    total_break_minutes = lunch_break + (bathroom_break * nr_bathroom_breaks)
-    total_time = distance_480_miles / speed + total_break_minutes / 60
-    return float(total_time)

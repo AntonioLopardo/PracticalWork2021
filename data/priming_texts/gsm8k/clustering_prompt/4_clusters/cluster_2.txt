@@ -1,5 +1,7 @@
 def exercise1():
-    """Adam goes to school every day. On Monday he had 6 lessons of 30 minutes each, and on Tuesday he had 3 lessons of 1 hour each. On Wednesday, Adam spent twice as much time at school as on Tuesday. How much time in total did Adam spend at school during these 3 days, in hours?"""
+    """
+    Adam goes to school every day. On Monday he had 6 lessons of 30 minutes each, and on Tuesday he had 3 lessons of 1 hour each. On Wednesday, Adam spent twice as much time at school as on Tuesday. How much time in total did Adam spend at school during these 3 days, in hours?
+    """
     minutes_monday = 6 * 30
     minutes_tuesday = 3 * 60
     minutes_wednesday = 2 * minutes_tuesday
@@ -8,7 +10,9 @@ def exercise1():
 
 
 def exercise2():
-    """To get to work, Ryan bikes one day a week takes the bus three times a week and gets a ride from a friend once a week. It takes him thirty minutes to bike to work. The bus takes ten minutes longer since it stops at every bus stop for other passengers. His friend driving him is the fastest and cuts two-thirds off his biking time. How many minutes does he spend every week commuting to work?"""
+    """
+    To get to work, Ryan bikes one day a week takes the bus three times a week and gets a ride from a friend once a week. It takes him thirty minutes to bike to work. The bus takes ten minutes longer since it stops at every bus stop for other passengers. His friend driving him is the fastest and cuts two-thirds off his biking time. How many minutes does he spend every week commuting to work?
+    """
     biking_time = 30
     bus_time = 10 + biking_time
     friend_time = biking_time * 2 / 3
@@ -20,7 +24,9 @@ def exercise2():
 
 
 def exercise3():
-    """Jeff committed to run for an hour a day during weekdays. On Thursday, he cut short his run by 20 minutes but was able to jog 10 minutes more on Friday. How many minutes was he able to run for that week?"""
+    """
+    Jeff committed to run for an hour a day during weekdays. On Thursday, he cut short his run by 20 minutes but was able to jog 10 minutes more on Friday. How many minutes was he able to run for that week?
+    """
     minutes_per_day = 60
     minutes_thursday = minutes_per_day - 20
     minutes_friday = minutes_per_day + 10

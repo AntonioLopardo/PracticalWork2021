@@ -1,5 +1,7 @@
 def exercise1():
-    """Amelia has $60 to spend on her dinner at a restaurant. The first course costs $15 and the second course $5 more. The cost of the dessert is 25% of the price of the second course. How much money will Amelia have left after buying all those meals? Hint: use these equations eq1: 15+5=20 eq2: 25/100*20=5 eq3: 60-15-20-5=20"""
+    """
+    Amelia has $60 to spend on her dinner at a restaurant. The first course costs $15 and the second course $5 more. The cost of the dessert is 25% of the price of the second course. How much money will Amelia have left after buying all those meals? Hint: use these equations eq1: 15+5=20 eq2: 25/100*20=5 eq3: 60-15-20-5=20
+    """
     total_money = 60
     first_course = 15
     second_course = 20
@@ -9,7 +11,9 @@ def exercise1():
 
 
 def exercise2():
-    """Christian and Sue wanted to get a $50.00 bottle of perfume for their mom for her birthday.  Christian had $5.00 saved up and Sue had $7.00.  Christian then mowed 4 of his neighbors' yards, charging $5.00 each, while Sue walked 6 dogs for her neighbors, charging $2.00 per dog.  How much more money will Christian and Sue need to make in order to buy the bottle of perfume for their mom? Hint: use these equations eq1: 4*5=20.00 eq2: 6*2=12.00 eq3: 5+20+7+12=44 eq4: 50-44=6.00"""
+    """
+    Christian and Sue wanted to get a $50.00 bottle of perfume for their mom for her birthday.  Christian had $5.00 saved up and Sue had $7.00.  Christian then mowed 4 of his neighbors' yards, charging $5.00 each, while Sue walked 6 dogs for her neighbors, charging $2.00 per dog.  How much more money will Christian and Sue need to make in order to buy the bottle of perfume for their mom? Hint: use these equations eq1: 4*5=20.00 eq2: 6*2=12.00 eq3: 5+20+7+12=44 eq4: 50-44=6.00
+    """
     perfume_cost = 50
     christian_saved = 5
     sue_saved = 7
@@ -20,7 +24,9 @@ def exercise2():
 
 
 def exercise3():
-    """Carrie works for $8 an hour and 35 hours a week at her job. It’s been a month since she started working there. She has saved up all of her money because she wants to buy a bike for $400. How much money will she have left over after she buys her bike? Hint: use these equations eq1: 8*35=280 eq2: 280*4=1120 eq3: 1120-400=720"""
+    """
+    Carrie works for $8 an hour and 35 hours a week at her job. It’s been a month since she started working there. She has saved up all of her money because she wants to buy a bike for $400. How much money will she have left over after she buys her bike? Hint: use these equations eq1: 8*35=280 eq2: 280*4=1120 eq3: 1120-400=720
+    """
     money_per_week = 8 * 35
     money_per_month = money_per_week * 4
     cost_of_bike = 400

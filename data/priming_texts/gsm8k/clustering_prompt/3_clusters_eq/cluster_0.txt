@@ -1,5 +1,7 @@
 def exercise1():
-    """Adam goes to school every day. On Monday he had 6 lessons of 30 minutes each, and on Tuesday he had 3 lessons of 1 hour each. On Wednesday, Adam spent twice as much time at school as on Tuesday. How much time in total did Adam spend at school during these 3 days, in hours? Hint: use these equations eq1: 6*30=180 eq2: 2*3=6 eq3: 3+3+6=12"""
+    """
+    Adam goes to school every day. On Monday he had 6 lessons of 30 minutes each, and on Tuesday he had 3 lessons of 1 hour each. On Wednesday, Adam spent twice as much time at school as on Tuesday. How much time in total did Adam spend at school during these 3 days, in hours? Hint: use these equations eq1: 6*30=180 eq2: 2*3=6 eq3: 3+3+6=12
+    """
     minutes_monday = 6 * 30
     minutes_tuesday = 3 * 60
     minutes_wednesday = 2 * minutes_tuesday
@@ -8,7 +10,9 @@ def exercise1():
 
 
 def exercise2():
-    """Jeff committed to run for an hour a day during weekdays. On Thursday, he cut short his run by 20 minutes but was able to jog 10 minutes more on Friday. How many minutes was he able to run for that week? Hint: use these equations eq1: 60*3=180 eq2: 60-20=40 eq3: 60+10=70 eq4: 180+40+70=290"""
+    """
+    Jeff committed to run for an hour a day during weekdays. On Thursday, he cut short his run by 20 minutes but was able to jog 10 minutes more on Friday. How many minutes was he able to run for that week? Hint: use these equations eq1: 60*3=180 eq2: 60-20=40 eq3: 60+10=70 eq4: 180+40+70=290
+    """
     minutes_per_day = 60
     minutes_thursday = minutes_per_day - 20
     minutes_friday = minutes_per_day + 10
@@ -17,7 +21,9 @@ def exercise2():
 
 
 def exercise3():
-    """Jill spends time every day talking to her boyfriend on the phone.  The first day of the week she spends 5 minutes on the phone with her boyfriend.  Each of the following days she spends twice as much time talking on the phone as the day before. After the 5th day her parents take the phone away from her because she was on it too long.  How much time did Jill spend talking to her boyfriend that week? Hint: use these equations eq1: 5+5=10 eq2: 10*2=20 eq3: 20*2=40 eq4: 40*2=80 eq5: 5+10+20+40+80=155"""
+    """
+    Jill spends time every day talking to her boyfriend on the phone.  The first day of the week she spends 5 minutes on the phone with her boyfriend.  Each of the following days she spends twice as much time talking on the phone as the day before. After the 5th day her parents take the phone away from her because she was on it too long.  How much time did Jill spend talking to her boyfriend that week? Hint: use these equations eq1: 5+5=10 eq2: 10*2=20 eq3: 20*2=40 eq4: 40*2=80 eq5: 5+10+20+40+80=155
+    """
     first_day = 5
     second_day = first_day * 2
     third_day = second_day * 2
