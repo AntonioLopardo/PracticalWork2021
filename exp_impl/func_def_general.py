@@ -3,21 +3,28 @@ import re
 from termcolor import colored
 
 
-def sample_n_for_prompting(self, nr_entries=1):
+def sample_n_for_prompting(self, nr_entries=1, ex_number=4, inc_eq=False):
     rand_indexes = np.random.randint(0, len(self.data), nr_entries)
 
     sample_a_list = []
     sample_q_list = []
     for rand_index in rand_indexes:
-        # sample_q_list.append("def exercise6():\n"+ '    """Write a program that returns the answer to the following question. ' + self.data[rand_index]["question"]+ '"""')
-        sample_q_list.append(
-            "def exercise6():\n"
-            + '    """'
-            + self.data[rand_index]["question"]
-            + " Hint: use these equations"
-            + extract_eq(self.data[rand_index]["answer"])
-            + '"""'
-        )
+        if inc_eq:
+            sample_q_list.append(
+                f"def exercise{ex_number}():\n"
+                + '    """\n    '
+                + self.data[rand_index]["question"]
+                + " Hint: use these equations"
+                + extract_eq(self.data[rand_index]["answer"])
+                + '\n    """'
+            )
+        else:
+            sample_q_list.append(
+                f"def exercise{ex_number}():\n"
+                + '    """\n    '
+                + self.data[rand_index]["question"]
+                + '\n    """'
+            )
         sample_a_list.append(
             re.findall(r"#### \w+", self.data[rand_index]["answer"])[0][5:]
         )

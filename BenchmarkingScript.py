@@ -1,4 +1,5 @@
 import os
+from pyexpat import model
 import numpy as np
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
@@ -16,27 +17,17 @@ gptj_model = "EleutherAI/gpt-j-6B"
 codeparrot_model = "lvwerra/codeparrot"
 
 
-def run_benchmark(model_name, func_impl_path, priming_text):
+def run_benchmark(
+    model_name, func_impl_path, priming_text, results_path, model=None, tokenizer=None
+):
 
     # priming_text_path = "data/priming_texts/gsm8k/codegen/func_eq_short.txt"  # for codegen
     # wandb_run_name = "@100-codegen-0"
     # import exp_impl.func_def_eq_short as exp_impl
 
-    priming_text_path = f"data/priming_texts/gsm8k/{model_name}/{priming_text}"
+    priming_text_path = f"data/priming_texts/gsm8k/{model_name}/{priming_text}.txt"
 
     exp_impl = importlib.import_module(f"exp_impl.{func_impl_path}")
-
-    if model_name == "gpt-j":
-        """GPT-J and codeparrot models run in HFTest venv"""
-        tokenizer = AutoTokenizer.from_pretrained(gptj_model)
-        model = AutoModelForCausalLM.from_pretrained(gptj_model).half().eval().cuda()
-    elif model_name == "codegen":
-        """CodeGen runs in the venv venv"""
-        model_args = lu.model_args()
-        # model_args.model = "codegen-350M-mono"
-        model, tokenizer = lu.load_CodeGen(model_args)
-
-    """Load gsm8k"""
 
     if model_name == "gpt-j":
         priming_text_path = (
@@ -56,7 +47,12 @@ def run_benchmark(model_name, func_impl_path, priming_text):
     tu.set_all_seeds()
     # tu.set_all_seeds_alt()
 
-    sample_q_list, sample_a_list = current_dataset.sample_n_for_prompting(10)
+    if "_eq_" in priming_text:
+        sample_q_list, sample_a_list = current_dataset.sample_n_for_prompting(
+            100, inc_eq=True
+        )
+    else:
+        sample_q_list, sample_a_list = current_dataset.sample_n_for_prompting(100)
 
     with open("test_prompt.txt", "w") as f:
         f.write(current_dataset.generate_prompt(sample_q_list[0]))
@@ -64,39 +60,52 @@ def run_benchmark(model_name, func_impl_path, priming_text):
     print(colored(sample_q_list[0], "blue"))
     print(colored(sample_a_list[0], "green"))
 
-    # Set up for CodeGen
-    config = lu.codegen_gen_args()
-    config.num_return_sequences = 4  # 4 for cluster
-    # config.num_return_sequences = 6
-    config.k = 3
-    config.max_lenght_after_input = 250
-    # config.top_p = 0.95
-    config.top_p = 0.95
-    config.top_k = 50
-    # config.temperature = 0.7
-    config.temperature = 0.61
-    config.min_length = 3
+    if model:
+        # Set up for CodeGen
+        config = lu.codegen_gen_args()
+        config.num_return_sequences = 4  # 4 for cluster
+        # config.num_return_sequences = 6
+        config.k = 3
+        config.max_lenght_after_input = 250
+        # config.top_p = 0.95
+        config.top_p = 0.95
+        config.top_k = 50
+        # config.temperature = 0.7
+        config.temperature = 0.61
+        config.min_length = 3
 
-    tu.set_all_seeds(model_name)
-    _, general_pass_at_k = tu.testing_loop(
-        current_dataset,
-        tokenizer,
-        model,
-        sample_q_list,
-        sample_a_list,
-        config,
-        func_def_mod=True,
-        print_output=False,
-    )
+        config.priming_text = priming_text
+        config.func_impl_path = func_impl_path
 
-    with open(f"results_list/{priming_text}_{func_impl_path}.pkl", "wb") as f:
-        pickle.dump(general_pass_at_k, f)
+        with wandb.init(
+            project="PracticalWork",
+            entity="antoniolopardo",
+            config=config,
+            name=f"{priming_text}_{func_impl_path}",
+        ):
+
+            tu.set_all_seeds(model_name)
+            pass_at_k, pass_at_k_list = tu.testing_loop(
+                current_dataset,
+                tokenizer,
+                model,
+                sample_q_list,
+                sample_a_list,
+                config,
+                func_def_mod=True,
+                print_output=False,
+            )
+
+            with open(f"{results_path}/{priming_text}_{func_impl_path}.pkl", "wb") as f:
+                pickle.dump(pass_at_k_list, f)
+
+            wandb.log({"pass_at_k": pass_at_k})
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--model",
+        "--model_name",
         type=str,
         default="codegen",
         nargs="?",
@@ -105,21 +114,37 @@ if __name__ == "__main__":
     parser.add_argument(
         "--func_impl_path",
         type=str,
-        default="func_def_eq_short",
+        default="func_def_general",
         nargs="?",
         help="Which func_def_impl to use: func_def_eq_short",
     )
     parser.add_argument(
         "--priming_text",
         type=str,
-        default="func_eq_short.txt",
+        default="func_eq_short",
         nargs="?",
         help="Which priming text to use: func_def_eq_short",
     )
+    parser.add_argument(
+        "--results_path",
+        type=str,
+        default="results_lists",
+        nargs="?",
+        help="Where to save the results",
+    )
 
     args = parser.parse_args()
-    run_benchmark(
-        args.model,
-        args.func_impl_path,
-        args.priming_text,
-    )
+
+    ''' if args.model_name == "codegen":
+        """CodeGen runs in the venv venv"""
+        model_args = lu.model_args()
+        # model_args.model = "codegen-350M-mono"
+        model, tokenizer = lu.load_CodeGen(model_args) '''
+
+    print(colored("Running Benchmark", "green"))
+
+    priming_text_list = ["func_eq_short", "func_short"]
+    func_impl_list = ["func_def_general", "func_def_general"]
+
+    for priming_text, func_impl in zip(priming_text_list, func_impl_list):
+        run_benchmark(args.model_name, func_impl, priming_text, args.results_path)
