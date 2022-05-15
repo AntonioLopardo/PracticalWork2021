@@ -1,0 +1,34 @@
+def exercise1():
+    """
+    Weng earns $12 an hour for babysitting. Yesterday, she just did 50 minutes of babysitting. How much did she earn?
+    """
+    min_per_hour = 60
+    earnings_per_hour = 12
+    minutes_worked = 50
+    earnings = (minutes_worked / min_per_hour) * earnings_per_hour
+    return float(earnings)
+
+
+def exercise2():
+    """
+    Each bird eats 12 beetles per day, each snake eats 3 birds per day, and each jaguar eats 5 snakes per day. If there are 6 jaguars in a forest, how many beetles are eaten each day?
+    """
+    num_beetles_per_bird = 12
+    num_birds_per_snake = 3
+    num_snakes_per_jaguar = 5
+    num_jaguars = 6
+    num_beetles_eaten_per_day = (
+        num_beetles_per_bird * num_birds_per_snake * num_snakes_per_jaguar * num_jaguars
+    )
+    return float(num_beetles_eaten_per_day)
+
+
+def exercise3():
+    """
+    Jack is stranded on a desert island. He wants some salt to season his fish. He collects 2 liters of seawater in an old bucket. If the water is 20% salt, how many ml of salt will Jack get when all the water evaporates?
+    """
+    liters_of_water = 2
+    percent_salt = 20
+    liters_of_salt = liters_of_water * percent_salt / 100
+    ml_of_salt = liters_of_salt * 1000
+    return float(ml_of_salt)

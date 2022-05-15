@@ -1,0 +1,32 @@
+def exercise1():
+    """
+    Julie is reading a 120-page book. Yesterday, she was able to read 12 pages and today, she read twice as many pages as yesterday. If she wants to read half of the remaining pages tomorrow, how many pages should she read?
+    """
+    book_size = 120
+    pages_read_yesterday = 12
+    pages_read_today = pages_read_yesterday * 2
+    pages_read_so_far = pages_read_today + pages_read_yesterday
+    pages_to_read_tomorrow = (book_size - pages_read_so_far) / 2
+    return float(pages_to_read_tomorrow)
+
+
+def exercise2():
+    """
+    Mark has a garden with flowers. He planted plants of three different colors in it. Ten of them are yellow, and there are 80% more of those in purple. There are only 25% as many green flowers as there are yellow and purple flowers. How many flowers does Mark have in his garden?
+    """
+    yellow_plants = 10
+    purple_plants = 10 * 0.8
+    green_plants = (yellow_plants + purple_plants) * 0.25
+    total_plants = yellow_plants + purple_plants + green_plants
+    return float(total_plants)
+
+
+def exercise3():
+    """
+    Samantha’s last name has three fewer letters than Bobbie’s last name. If Bobbie took two letters off her last name, she would have a last name twice the length of Jamie’s. Jamie’s full name is Jamie Grey. How many letters are in Samantha’s last name?
+    """
+    jamie_last_name = "Grey"
+    len_jamie_last_name = len(jamie_last_name)
+    len_boobie_last_name = (len_jamie_last_name * 2) + 2
+    len_samantha_last_name = len_boobie_last_name - 3
+    return float(len_samantha_last_name)
