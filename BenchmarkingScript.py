@@ -3,6 +3,7 @@ from pyexpat import model
 import numpy as np
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
+import transformers
 from termcolor import colored
 import wandb
 import importlib
@@ -18,14 +19,17 @@ codeparrot_model = "lvwerra/codeparrot"
 
 
 def run_benchmark(
-    model_name, func_impl_path, priming_text, results_path, model=None, tokenizer=None
+    model_name,
+    func_impl_path,
+    priming_text_path,
+    results_path,
+    model=None,
+    tokenizer=None,
 ):
 
     # priming_text_path = "data/priming_texts/gsm8k/codegen/func_eq_short.txt"  # for codegen
     # wandb_run_name = "@100-codegen-0"
     # import exp_impl.func_def_eq_short as exp_impl
-
-    priming_text_path = f"data/priming_texts/gsm8k/{model_name}/{priming_text}.txt"
 
     exp_impl = importlib.import_module(f"exp_impl.{func_impl_path}")
 
@@ -47,7 +51,7 @@ def run_benchmark(
     tu.set_all_seeds()
     # tu.set_all_seeds_alt()
 
-    if "_eq_" in priming_text:
+    if "_eq" in priming_text_path:
         sample_q_list, sample_a_list = current_dataset.sample_n_for_prompting(
             100, inc_eq=True
         )
@@ -74,7 +78,7 @@ def run_benchmark(
         config.temperature = 0.61
         config.min_length = 3
 
-        config.priming_text = priming_text
+        config.priming_text = priming_text_path
         config.func_impl_path = func_impl_path
 
         with wandb.init(
@@ -85,21 +89,28 @@ def run_benchmark(
         ):
 
             tu.set_all_seeds(model_name)
+            transformers.set_seed(5)
             pass_at_k, pass_at_k_list = tu.testing_loop(
                 current_dataset,
                 tokenizer,
                 model,
-                sample_q_list,
-                sample_a_list,
+                sample_q_list[90:],
+                sample_a_list[90:],
                 config,
                 func_def_mod=True,
-                print_output=False,
+                print_output=True,
             )
 
-            with open(f"{results_path}/{priming_text}_{func_impl_path}.pkl", "wb") as f:
-                pickle.dump(pass_at_k_list, f)
+            priming_text_save = priming_text_path.split("/")[-1]
 
-            wandb.log({"pass_at_k": pass_at_k})
+            with open(
+                f"{results_path}/{priming_text_save}_{func_impl_path}.pkl", "wb"
+            ) as f:
+                pickle.dump(pass_at_k_list, f)
+            with open(
+                f"{results_path}/{priming_text_save}_{func_impl_path}_config.pkl", "wb"
+            ) as f:
+                pickle.dump(config, f)
 
 
 if __name__ == "__main__":
@@ -135,16 +146,72 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    ''' if args.model_name == "codegen":
+    tu.set_all_seeds(args.model_name)
+    transformers.set_seed(5)
+
+    if args.model_name == "codegen":
         """CodeGen runs in the venv venv"""
         model_args = lu.model_args()
         # model_args.model = "codegen-350M-mono"
-        model, tokenizer = lu.load_CodeGen(model_args) '''
+        model, tokenizer = lu.load_CodeGen(model_args)
 
     print(colored("Running Benchmark", "green"))
 
-    priming_text_list = ["func_eq_short", "func_short"]
-    func_impl_list = ["func_def_general", "func_def_general"]
+    """ priming_text_list = [
+        "data/priming_texts/gsm8k/codegen/func_eq_short.txt",
+        "data/priming_texts/gsm8k/codegen/func_short.txt",
+    ] """
 
-    for priming_text, func_impl in zip(priming_text_list, func_impl_list):
-        run_benchmark(args.model_name, func_impl, priming_text, args.results_path)
+    priming_text_list = []
+
+    """ priming_text_list.extend(
+        os.path.join("data/priming_texts/gsm8k/clustering_prompt/3_clusters_eq", pr_txt)
+        for pr_txt in os.listdir(
+            "data/priming_texts/gsm8k/clustering_prompt/3_clusters_eq"
+        )
+    )
+    priming_text_list.extend(
+        os.path.join("data/priming_texts/gsm8k/clustering_prompt/3_clusters", pr_txt)
+        for pr_txt in os.listdir(
+            "data/priming_texts/gsm8k/clustering_prompt/3_clusters"
+        )
+    ) """
+
+    """ priming_text_list.extend(
+        os.path.join("data/priming_texts/gsm8k/clustering_prompt/4_clusters_eq", pr_txt)
+        for pr_txt in os.listdir(
+            "data/priming_texts/gsm8k/clustering_prompt/4_clusters_eq"
+        )
+    )
+    priming_text_list.extend(
+        os.path.join("data/priming_texts/gsm8k/clustering_prompt/4_clusters", pr_txt)
+        for pr_txt in os.listdir(
+            "data/priming_texts/gsm8k/clustering_prompt/4_clusters"
+        )
+    )
+    priming_text_list.extend(
+        os.path.join("data/priming_texts/gsm8k/concepts_prompt/concepts_eq", pr_txt)
+        for pr_txt in os.listdir("data/priming_texts/gsm8k/concepts_prompt/concepts_eq")
+    ) """
+    priming_text_list.extend(
+        os.path.join("data/priming_texts/gsm8k/concepts_prompt/concepts", pr_txt)
+        for pr_txt in os.listdir("data/priming_texts/gsm8k/concepts_prompt/concepts")
+    )
+
+    func_impl_list = ["func_def_general" for _ in range(len(priming_text_list))]
+    results_path_list = [
+        os.path.join("results_lists", pt_dir.split("/")[-2])
+        for pt_dir in priming_text_list
+    ]
+
+    for priming_text, func_impl, results_path in zip(
+        priming_text_list, func_impl_list, results_path_list
+    ):
+        run_benchmark(
+            args.model_name,
+            func_impl,
+            priming_text,
+            results_path,
+            model=model,
+            tokenizer=tokenizer,
+        )
