@@ -94,11 +94,11 @@ def run_benchmark(
                 current_dataset,
                 tokenizer,
                 model,
-                sample_q_list[90:],
-                sample_a_list[90:],
+                sample_q_list,
+                sample_a_list,
                 config,
                 func_def_mod=True,
-                print_output=True,
+                print_output=False,
             )
 
             priming_text_save = priming_text_path.split("/")[-1]
@@ -111,6 +111,8 @@ def run_benchmark(
                 f"{results_path}/{priming_text_save}_{func_impl_path}_config.pkl", "wb"
             ) as f:
                 pickle.dump(config, f)
+
+            wandb.log({"pass_at_k": pass_at_k})
 
 
 if __name__ == "__main__":
@@ -157,14 +159,12 @@ if __name__ == "__main__":
 
     print(colored("Running Benchmark", "green"))
 
-    """ priming_text_list = [
+    priming_text_list = [
         "data/priming_texts/gsm8k/codegen/func_eq_short.txt",
         "data/priming_texts/gsm8k/codegen/func_short.txt",
-    ] """
+    ]
 
-    priming_text_list = []
-
-    """ priming_text_list.extend(
+    priming_text_list.extend(
         os.path.join("data/priming_texts/gsm8k/clustering_prompt/3_clusters_eq", pr_txt)
         for pr_txt in os.listdir(
             "data/priming_texts/gsm8k/clustering_prompt/3_clusters_eq"
@@ -175,9 +175,8 @@ if __name__ == "__main__":
         for pr_txt in os.listdir(
             "data/priming_texts/gsm8k/clustering_prompt/3_clusters"
         )
-    ) """
-
-    """ priming_text_list.extend(
+    )
+    priming_text_list.extend(
         os.path.join("data/priming_texts/gsm8k/clustering_prompt/4_clusters_eq", pr_txt)
         for pr_txt in os.listdir(
             "data/priming_texts/gsm8k/clustering_prompt/4_clusters_eq"
@@ -192,7 +191,7 @@ if __name__ == "__main__":
     priming_text_list.extend(
         os.path.join("data/priming_texts/gsm8k/concepts_prompt/concepts_eq", pr_txt)
         for pr_txt in os.listdir("data/priming_texts/gsm8k/concepts_prompt/concepts_eq")
-    ) """
+    )
     priming_text_list.extend(
         os.path.join("data/priming_texts/gsm8k/concepts_prompt/concepts", pr_txt)
         for pr_txt in os.listdir("data/priming_texts/gsm8k/concepts_prompt/concepts")

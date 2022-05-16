@@ -5,9 +5,20 @@ import re
 import sys
 from io import StringIO
 from contextlib import redirect_stdout
+from wrapt_timeout_decorator import *
 
 sys.path.append("/home/PracticalWork2021/CodeGen/")
 from jaxformer.hf.sample import *
+
+
+@timeout(45)
+def execute(c):
+    exec(c, globals())
+
+
+@timeout(45)
+def solve_timeout(func):
+    return func()
 
 
 def set_all_seeds(model=None):
@@ -77,12 +88,19 @@ def verify_pred_from_output(
             pass
         else:
             try:
-                exec(f"def solve_exercise():{output}\n", globals())
-                s = solve_exercise()
+                # exec(f"def solve_exercise():{output}\n", globals())
+                execute(f"def solve_exercise():{output}\n")
+                # s = solve_exercise()
+                s = solve_timeout(solve_exercise)
                 if print_output:
                     print(colored(f"{s}", "yellow"))
+            except TimeoutError as e:
+                print(colored(f"TimeoutError: {e}", "red"))
+                print(f"def solve_exercise():{output}\n")
+                s = 1111111111.0
             except Exception as e:
                 s = 1111111111.0
+
     else:
         f = StringIO()
         with redirect_stdout(f):
