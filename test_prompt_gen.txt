@@ -1,6 +1,6 @@
 def exercise1():
     """
-    To run his grocery store, Mr. Haj needs $4000 a day. This money is used to pay for orders done, delivery costs and employees' salaries. If he spends 2/5 of the total operation costs on employees' salary and 1/4 of the remaining amount on delivery costs, how much money he pays for the orders done? Hint: use these equations eq1: 2/5*4000=1600 eq2: 4000-1600=2400 eq3: 2400/4=600 eq4: 2400-600=1800
+    To run his grocery store, Mr. Haj needs $4000 a day. This money is used to pay for orders done, delivery costs and employees' salaries. If he spends 2/5 of the total operation costs on employees' salary and 1/4 of the remaining amount on delivery costs, how much money he pays for the orders done?
     """
     cost_per_day = 4000
     employees_cost = cost_per_day * 2 / 5
@@ -11,7 +11,7 @@ def exercise1():
 
 def exercise2():
     """
-    Sue works in a factory and every 30 minutes, a machine she oversees produces 30 cans of soda. How many cans of soda can one machine produce in 8 hours? Hint: use these equations eq1: 8*2=16 eq2: 30*16=480
+    Sue works in a factory and every 30 minutes, a machine she oversees produces 30 cans of soda. How many cans of soda can one machine produce in 8 hours?
     """
     cans_per_30_minutes = 30
     cans_per_minute = cans_per_30_minutes / 30
@@ -22,7 +22,7 @@ def exercise2():
 
 def exercise3():
     """
-    Mr. Rainwater has some goats, 9 cows and some chickens. He has 4 times as many goats as cows and 2 times as many goats as chickens. How many chickens does he have? Hint: use these equations eq1: 4*9=36 eq2: 36/2=18
+    Mr. Rainwater has some goats, 9 cows and some chickens. He has 4 times as many goats as cows and 2 times as many goats as chickens. How many chickens does he have?
     """
     goats_cows_ratio = 4 / 1
     goats_chickens_ratio = 2 / 1
@@ -34,5 +34,5 @@ def exercise3():
 
 def exercise4():
     """
-    Carol sells tickets for an exhibition. During three days she sold tickets worth $960. One ticket costs $4. How many tickets on average did she sell during one of these three days? Hint: use these equations eq1: 960/4=240 eq2: 240/3=80
+    Carol sells tickets for an exhibition. During three days she sold tickets worth $960. One ticket costs $4. How many tickets on average did she sell during one of these three days?
     """

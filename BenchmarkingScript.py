@@ -70,7 +70,7 @@ def run_benchmark(
         config.num_return_sequences = 4  # 4 for cluster
         # config.num_return_sequences = 6
         config.k = 3
-        config.max_lenght_after_input = 250
+        config.max_length_after_input = 250
         # config.top_p = 0.95
         config.top_p = 0.95
         config.top_k = 50
@@ -141,7 +141,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--results_path",
         type=str,
-        default="results_lists",
+        default="results_lists_long",
         nargs="?",
         help="Where to save the results",
     )
@@ -182,7 +182,7 @@ if __name__ == "__main__":
             "data/priming_texts/gsm8k/clustering_prompt/4_clusters_eq"
         )
     )
-    priming_text_list.extend(
+    """ priming_text_list.extend(
         os.path.join("data/priming_texts/gsm8k/clustering_prompt/4_clusters", pr_txt)
         for pr_txt in os.listdir(
             "data/priming_texts/gsm8k/clustering_prompt/4_clusters"
@@ -195,7 +195,7 @@ if __name__ == "__main__":
     priming_text_list.extend(
         os.path.join("data/priming_texts/gsm8k/concepts_prompt/concepts", pr_txt)
         for pr_txt in os.listdir("data/priming_texts/gsm8k/concepts_prompt/concepts")
-    )
+    ) """
 
     func_impl_list = ["func_def_general" for _ in range(len(priming_text_list))]
     results_path_list = [
