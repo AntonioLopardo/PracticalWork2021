@@ -55,12 +55,14 @@ def preproc_gen_toks(gen_toks, input_len, tokenizer, func_def_mod=False):
         # print(generated_text)
         if func_def_mod:
             print_pattern = re.compile(r"float\(([^)]+)\)")
+            # print_pattern = re.compile(r"return ([^\n]*)\n")
         else:
             print_pattern = re.compile(r"print\(([^)]+)\)")
         split_list = re.split(print_pattern, generated_text)
         if len(split_list) > 1:
             if func_def_mod:
                 output = f"{split_list[0]}float({split_list[1]})\n"
+                # output = f"{split_list[0]}return float({split_list[1]})\n"
             else:
                 output = f"{split_list[0]}print({split_list[1]})\n"
         else:
