@@ -45,4 +45,5 @@ data/MathQA/
 working_copilot.py
 
 test_prompt.txt
+test_prompt_gen.txt
 sample_seqs.txt
