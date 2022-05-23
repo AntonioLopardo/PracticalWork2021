@@ -1,0 +1,45 @@
+def exercise1():
+    """
+    To run his grocery store, Mr. Haj needs $4000 a day. This money is used to pay for orders done, delivery costs and employees' salaries. If he spends 2/5 of the total operation costs on employees' salary and 1/4 of the remaining amount on delivery costs, how much money he pays for the orders done?
+    """
+    # How much money does Mr. Haj spend on employees' salary?
+    money_per_day = 4000
+    employees_money = money_per_day * 2 / 5
+
+    # How much money does Mr. Haj have left after paying the employees?
+    money_left = money_per_day - employees_money
+
+    # How much money does Mr. Haj spend on delivery costs?
+    delivery_costs = money_left * 1 / 4
+
+    # How much money does Mr. Haj pay for the orders done?
+    orders_money = money_left - delivery_costs
+    return float(orders_money)
+
+
+def exercise2():
+    """
+    Sue works in a factory and every 30 minutes, a machine she oversees produces 30 cans of soda. How many cans of soda can one machine produce in 8 hours?
+    """
+    # How many sets of 30 minutes are there in 8 hours?
+    sets_in_hour = 2
+    sets_in_8_hours = sets_in_hour * 8
+
+    # How many cans of soda can one machine produce in 8 hours?
+    cans_per_set = 30
+    cans_per_machine = cans_per_set * sets_in_8_hours
+    return float(cans_per_machine)
+
+
+def exercise3():
+    """
+    Mr. Rainwater has some goats, 9 cows and some chickens. He has 4 times as many goats as cows and 2 times as many goats as chickens. How many chickens does he have?
+    """
+    # How many goats does Mr. Rainwater have?
+    goats_cows_ratio = 4 / 1
+    nr_goats = 9 * goats_cows_ratio
+
+    # How many chickens does he have?
+    goats_chickens_ratio = 2 / 1
+    nr_chickens = nr_goats / goats_chickens_ratio
+    return float(nr_chickens)
