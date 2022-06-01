@@ -40,7 +40,7 @@ def sample_n_for_prompting(self, nr_entries=1, ex_number=4, inc_eq=False):
             re.findall(r"#### \w+", self.data[rand_index]["answer"])[0][5:]
         )
         sample_steps = [
-            f"# {step.split(' **')[0]}"
+            f" {step.split(' **')[0]}"
             for step in self.data[rand_index]["answer"].split("\n")
         ][:-1]
         sample_steps_list.append(sample_steps)

@@ -1,0 +1,44 @@
+def exercise1():
+    """
+    To run his grocery store, Mr. Haj needs $4000 a day. This money is used to pay for orders done, delivery costs and employees' salaries. If he spends 2/5 of the total operation costs on employees' salary and 1/4 of the remaining amount on delivery costs
+    """
+    money_per_day = 4000
+    employees_money = money_per_day * 2 / 5
+
+    money_left = money_per_day - employees_money
+
+    delivery_costs = money_left * 1 / 4
+
+    # How much money does Mr. Haj pay for the orders done?
+    orders_money = money_left - delivery_costs
+    return float(orders_money)
+
+
+def exercise2():
+    """
+    Max likes to collect model trains.  He asks for one for every birthday of his, and asks for two each Christmas.  Max always gets the gifts he asks for, and asks for these same gifts every year for 5 years.  At the end of the 5 years, his parents give him double the number of trains he already has.
+    """
+    trains_per_year = 3
+
+    trains_total = trains_per_year * 5
+    
+    trains_from_parents = trains_total * 2
+    
+    # How many trains does Max have now?
+    trains_now = trains_total + trains_from_parents
+    return float(trains_now)
+
+
+def exercise3():
+    """
+    Martha gets prize points every time she shops at her local grocery store. She gets 50 points per $10 spent, plus a 250 point bonus if she spends more than $100. Martha buys 3 pounds of beef for $11 each, 8 pounds of fruits and vegetables for $4/pound, 3 jars of spices for $6 each, and other groceries totaling $37.
+    """
+    beef_cost = 11 * 3
+
+    fruits_vegetables_cost = 4 * 8
+
+    spices_cost = 6 * 3
+
+    # How much does Martha spend?
+    total_spending = beef_cost + fruits_vegetables_cost + spices_cost + 37
+    return float(total_spending)

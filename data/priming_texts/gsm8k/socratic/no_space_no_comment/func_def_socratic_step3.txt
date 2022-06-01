@@ -1,0 +1,30 @@
+def exercise1():
+    """
+    To run his grocery store, Mr. Haj needs $4000 a day. This money is used to pay for orders done, delivery costs and employees' salaries. If he spends 2/5 of the total operation costs on employees' salary and 1/4 of the remaining amount on delivery costs, how much money does Mr. Haj spend on delivery costs?
+    """
+    money_per_day = 4000
+    employees_money = money_per_day * 2 / 5
+    money_left = money_per_day - employees_money
+    delivery_costs = money_left * 1 / 4
+    return flaot(delivery_costs)
+
+
+def exercise2():
+    """
+    Max likes to collect model trains.  He asks for one for every birthday of his, and asks for two each Christmas.  Max always gets the gifts he asks for, and asks for these same gifts every year for 5 years.  At the end of the 5 years, his parents give him double the number of trains he already has. How many trains does Max get from his parents?
+    """
+    trains_per_year = 3
+    trains_total = trains_per_year * 5
+    trains_from_parents = trains_total * 2
+    return float(trains_from_parents)
+
+
+def exercise3():
+    """
+    Several birds were sitting in the branches of a crape myrtle tree.  There were three times more cardinals than bluebirds, but half as many swallows as bluebirds. If there were 2 swallows, what is the total number of birds in the crape myrtle tree?
+    """
+    swallows = 2
+    bluebirds = swallows * 2
+    cardinals = bluebirds * 3
+    birds_total = bluebirds + cardinals + swallows
+    return float(birds_total)

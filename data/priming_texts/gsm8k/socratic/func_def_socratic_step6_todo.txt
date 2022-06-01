@@ -1,0 +1,50 @@
+def exercise1():
+    """
+    To run his grocery store, Mr. Haj needs $4000 a day. This money is used to pay for orders done, delivery costs and employees' salaries. If he spends 2/5 of the total operation costs on employees' salary and 1/4 of the remaining amount on delivery costs, how much money he pays for the orders done?
+    """
+    # How much money does Mr. Haj spend on employees' salary?
+    money_per_day = 4000
+    employees_money = money_per_day * 2 / 5
+
+    # How much money does Mr. Haj have left after paying the employees?
+    money_left = money_per_day - employees_money
+
+    # How much money does Mr. Haj spend on delivery costs?
+    delivery_costs = money_left * 1 / 4
+
+    # How much money does Mr. Haj pay for the orders done?
+    orders_money = money_left - delivery_costs
+    return float(orders_money)
+
+
+def exercise2():
+    """
+    Sue works in a factory and every 30 minutes, a machine she oversees produces 30 cans of soda. How many cans of soda can one machine produce in 8 hours?
+    """
+    # How many sets of 30 minutes are there in 8 hours?
+    sets_in_hour = 2
+    sets_in_8_hours = sets_in_hour * 8
+
+    # How many cans of soda can one machine produce in 8 hours?
+    cans_per_set = 30
+    cans_per_machine = cans_per_set * sets_in_8_hours
+    return float(cans_per_machine)
+
+
+def exercise3():
+    """
+    Martha gets prize points every time she shops at her local grocery store. She gets 50 points per $10 spent, plus a 250 point bonus if she spends more than $100. Martha buys 3 pounds of beef for $11 each, 8 pounds of fruits and vegetables for $4/pound, 3 jars of spices for $6 each, and other groceries totaling $37. How many points does Martha get?
+    """
+    # How much does the beef cost? ** First find the total cost of the beef: $11/pound * 3 pounds = $<<11*3=33>>33
+
+    # How much does the fruits and vegetables cost? ** Then find the total cost of the fruits and vegetables: $4/pound * 8 pounds = $<<4*8=32>>32
+
+    # How much do the spices cost? ** Then find the total cost of the spices: $6/jar * 3 jars = $<<6*3=18>>18
+
+    # How much does Martha spend? ** Now add the cost of all the items to find Martha's total spending: $33 + $32 + $18 + $37 = $<<33+32+18+37=120>>120
+
+    # How many points does Martha get per dollar? ** Now divide 50 points by $10 to find now many points Martha gets per dollar: 50 points / $10 = <<50/10=5>>5 points/dollar
+
+    # How many points does Martha get before the bonus? ** Now multiply this exchange rate by Martha's total spending to find how many points she gets before the bonus: $120 * 5 points/dollar = <<120*5=600>>600 points
+    
+    # How many points does Martha get after the bonus? ** Finally, add the 250 point bonus Martha gets for spending more than $100: 600 points + 250 points = 850 points
