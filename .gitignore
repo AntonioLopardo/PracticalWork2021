@@ -46,5 +46,5 @@ working_copilot.py
 
 test_prompt.txt
 test_prompt_gen.txt
-test_prompt_gen_tokens.txt
+test_preproc_gen_tokens.txt
 sample_seqs.txt
