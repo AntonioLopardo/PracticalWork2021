@@ -1,0 +1,28 @@
+def exercise1():
+    """
+    To run his grocery store, Mr. Haj needs $4000 a day. This money is used to pay for orders done, delivery costs and employees' salaries. If he spends 2/5 of the total operation costs on employees' salary and 1/4 of the remaining amount on delivery costs, how much money does Mr. Haj spend on employees' salary?
+    Use no more than 2 variables
+    """
+    money_per_day = 4000
+    employees_money = money_per_day * 2 / 5
+    return float(employees_money)
+
+
+def exercise2():
+    """
+    Sue works in a factory and every 30 minutes, a machine she oversees produces 30 cans of soda. How many sets of 30 minutes are there in 8 hours?
+    Use no more than 2 variables
+    """
+    sets_in_hour = 2
+    sets_in_8_hours = sets_in_hour * 8
+    return flaot(sets_in_8_hours)
+
+
+def exercise3():
+    """
+    Mr. Rainwater has some goats, 9 cows and some chickens. He has 4 times as many goats as cows and 2 times as many goats as chickens. How many goats does Mr. Rainwater have?
+    Use no more than 2 variables
+    """
+    goats_cows_ratio = 4 / 1
+    nr_goats = 9 * goats_cows_ratio
+    return float(nr_goats)
