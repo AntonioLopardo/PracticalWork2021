@@ -69,7 +69,7 @@ def run_benchmark(
         config = lu.codegen_gen_args()
         config.num_return_sequences = 4  # 4 for cluster
         # config.num_return_sequences = 6
-        config.k = 3
+        config.k = 1
         config.max_length_after_input = 250
         # config.top_p = 0.95
         config.top_p = 0.95
@@ -104,11 +104,12 @@ def run_benchmark(
             priming_text_save = priming_text_path.split("/")[-1]
 
             with open(
-                f"{results_path}/{priming_text_save}_{func_impl_path}.pkl", "wb"
+                f"{results_path}/{priming_text_save}_{func_impl_path}_pass@1.pkl", "wb"
             ) as f:
                 pickle.dump(pass_at_k_list, f)
             with open(
-                f"{results_path}/{priming_text_save}_{func_impl_path}_config.pkl", "wb"
+                f"{results_path}/{priming_text_save}_{func_impl_path}_config_pass@1.pkl",
+                "wb",
             ) as f:
                 pickle.dump(config, f)
 
@@ -163,7 +164,7 @@ if __name__ == "__main__":
         "data/priming_texts/gsm8k/codegen/func_eq_short.txt",
         "data/priming_texts/gsm8k/codegen/func_short.txt",
     ]
-
+    """
     priming_text_list.extend(
         os.path.join("data/priming_texts/gsm8k/clustering_prompt/3_clusters_eq", pr_txt)
         for pr_txt in os.listdir(
@@ -182,7 +183,7 @@ if __name__ == "__main__":
             "data/priming_texts/gsm8k/clustering_prompt/4_clusters_eq"
         )
     )
-    """ priming_text_list.extend(
+    priming_text_list.extend(
         os.path.join("data/priming_texts/gsm8k/clustering_prompt/4_clusters", pr_txt)
         for pr_txt in os.listdir(
             "data/priming_texts/gsm8k/clustering_prompt/4_clusters"
