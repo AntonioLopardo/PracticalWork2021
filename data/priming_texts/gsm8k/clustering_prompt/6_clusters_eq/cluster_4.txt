@@ -1,10 +1,33 @@
 def exercise1():
-    """Sandra has a box of apples that weighs 120 pounds.  She's going to use half the weight in apples to make applesauce.  The rest will be used to make apple pies.  She needs 4 pounds of apples per pie.  How many pies will she be able to make? Hint: use these equations eq1: 120/2=60 eq2: 120-60=60 eq3: 60/4=15"""
+    """
+    Annie brought 20 brownies to school.  She gave half of them to the school administrator to put in the faculty lounge.  Of the remaining brownies, she gave half to her best friend, Carl, and another two to her friend, Simon.  How many brownies did she have left? Hint: use these equations eq1: 20/2=10 eq2: 20-10=10 eq3: 10/2=5 eq4: 10-5=5 eq5: 5-2=3
+    """
+    total = 20
+    admin = total / 2
+    remaining = total - admin
+    carl = remaining / 2
+    remaining = remaining - carl
+    remaining = remaining - 2
+    return float(remaining)
 
 
 def exercise2():
-    """Mary wants to bake 10 apple pies for a charity event. Each pie needs 8 apples and she already harvested 50 apples from the trees in her garden. How many more apples does she need to buy to make all 10 pies? Hint: use these equations eq1: 10*8=80 eq2: 80-50=30"""
+    """
+    Martha collected 90 cans while Diego collected 10 more than half the cans collected by Martha. If both of them should collect a total of 150 cans for their project, how many more cans do they need to collect? Hint: use these equations eq1: 90/2=45 eq2: 45+10=55 eq3: 90+55=145 eq4: 150-145=5
+    """
+    martha_cans = 90
+    diego_cans = martha_cans/2 + 10
+    total_cans = 150
+    cans_needed = total_cans - diego_cans - martha_cans
+    return float(cans_needed)
 
 
 def exercise3():
-    """Pat is having a picnic with her family. She has 42 cookies. She also has 63 pieces of candy and 21 brownies. There are 7 people in her family. If each person gets the same number of each dessert, how much will each person get? Hint: use these equations eq1: 42/7=6 eq2: 63/7=9 eq3: 21/7=3 eq4: 6+9+3=18"""
+    """
+    Mary brought 50 stickers to class. She gave 4 stickers to each of her 5 friends. She gave everyone else in class two stickers each. If she has 8 stickers left over, how many students are in the class, including Mary? Hint: use these equations eq1: 50-8=42 eq2: 4*5=20 eq3: 42-20=22 eq4: 22/2=11 eq5: 1+5+11=17
+    """
+    mary_stickers = 50
+    stickers_friends = 4 * 5
+    stickers_class = mary_stickers - stickers_friends - 8
+    students = 1 + 5 + stickers_class / 2
+    return float(students)

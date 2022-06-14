@@ -1,0 +1,32 @@
+def exercise1():
+    """
+    Michael has two brothers. His oldest brother is 1 year older than twice Michael's age when Michael was a year younger. His younger brother is 5 years old, which is a third of the age of the older brother. What is their combined age?
+    """
+    age_younger_brother = 5
+    age_older_brother = 3 * age_younger_brother
+    michael_age = (age_older_brother - 1)/2
+    total = michael_age + age_older_brother + age_younger_brother
+    return float(total)
+
+
+def exercise2():
+    """
+    The age of Gladys is equal to twice the sum of the ages of Billy and Lucas. Billy is 3 times younger than Gladys who is 30 years old now. How old will Lucas be three years from now?
+    """
+    age_gladys = 30
+    age_billy = age_gladys/3
+    age_lucas = age_gladys/2 - age_billy
+    age_lucas_three_years_later = age_lucas + 3
+    return float(age_lucas_three_years_later)
+
+
+def exercise3():
+    """
+    Susan, Arthur, Tom and, Bob are siblings. Arthur is 2 years older than Susan, and Tom is 3 years younger than Bob. If Bob is 11 years old, and Susan is 15 years old, how old are all four family members in total?
+    """
+    age_bob = 11
+    age_susan = 15
+    age_arthur = age_susan + 2
+    age_tom = age_bob - 3
+    total = age_bob + age_susan + age_arthur + age_tom
+    return float(total)

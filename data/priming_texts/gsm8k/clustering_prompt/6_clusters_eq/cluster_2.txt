@@ -1,10 +1,32 @@
 def exercise1():
-    """Amelia has $60 to spend on her dinner at a restaurant. The first course costs $15 and the second course $5 more. The cost of the dessert is 25% of the price of the second course. How much money will Amelia have left after buying all those meals? Hint: use these equations eq1: 15+5=20 eq2: 25/100*20=5 eq3: 60-15-20-5=20"""
+    """
+    Michael has two brothers. His oldest brother is 1 year older than twice Michael's age when Michael was a year younger. His younger brother is 5 years old, which is a third of the age of the older brother. What is their combined age? Hint: use these equations eq1: 3*5=15 eq2: 5+15+8=28
+    """
+    age_younger_brother = 5
+    age_older_brother = 3 * age_younger_brother
+    michael_age = (age_older_brother - 1)/2
+    total = michael_age + age_older_brother + age_younger_brother
+    return float(total)
 
 
 def exercise2():
-    """Hannah sold 40 pieces of cookies for $0.8 each and 30 cupcakes for $2 each. She used the money to buy 2 sets of measuring spoons for $6.5 each. How much money does she have left? Hint: use these equations eq1: 40*0.8=32 eq2: 30*2=60 eq3: 32+60=92 eq4: 2*6.5=13 eq5: 92-13=79"""
+    """
+    The age of Gladys is equal to twice the sum of the ages of Billy and Lucas. Billy is 3 times younger than Gladys who is 30 years old now. How old will Lucas be three years from now? Hint: use these equations eq1: 30/3=10 eq2: 30/2=15 eq3: 15-10=5 eq4: 5+3=8
+    """
+    age_gladys = 30
+    age_billy = age_gladys/3
+    age_lucas = age_gladys/2 - age_billy
+    age_lucas_three_years_later = age_lucas + 3
+    return float(age_lucas_three_years_later)
 
 
 def exercise3():
-    """Andy and Bob went to the canteen to buy snacks. They spent the same amount. Andy bought a can of soda at $1 and two hamburgers at $2 each.  Bob ordered two sandwiches for $3 and a can of fruit drink.  How much did Bob's fruit drink cost? Hint: use these equations eq1: 2*2=4 eq2: 1+4=5 eq3: 5-3=2"""
+    """
+    Susan, Arthur, Tom and, Bob are siblings. Arthur is 2 years older than Susan, and Tom is 3 years younger than Bob. If Bob is 11 years old, and Susan is 15 years old, how old are all four family members in total? Hint: use these equations eq1: 15+2=17 eq2: 11-3=8 eq3: 11+15+17+8=51
+    """
+    age_bob = 11
+    age_susan = 15
+    age_arthur = age_susan + 2
+    age_tom = age_bob - 3
+    total = age_bob + age_susan + age_arthur + age_tom
+    return float(total)

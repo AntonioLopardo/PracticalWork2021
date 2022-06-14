@@ -1,0 +1,31 @@
+def exercise1():
+    """
+    John runs a telethon to raise money.  For the first 12 hours, he generates $5000 per hour.  The remaining 14 hours, he generates 20% more per hour.  How much total money does he make?
+    """
+    rate_first_part = 5000
+    money_first_part = 12*rate_first_part
+    rate_second_part = rate_first_part*1.2
+    money_second_part = 14*rate_second_part
+    total_money = money_first_part + money_second_part
+    return float(total_money)
+
+
+def exercise2():
+    """
+    Carrie works for $8 an hour and 35 hours a week at her job. It’s been a month since she started working there. She has saved up all of her money because she wants to buy a bike for $400. How much money will she have left over after she buys her bike?
+    """
+    weekly_salary = 8*35
+    monthly_salary = weekly_salary*4
+    bike_price = 400
+    money_left = monthly_salary - bike_price
+    return float(money_left)
+
+
+def exercise3():
+    """
+    Jamie earns $10 an hour by delivering flyers. She delivers flyers 2 days each week. It takes her 3 hours each time she delivers flyers. After delivering flyers for 6 weeks, how much money will she have earned?
+    """
+    weekly_hours = 2*3
+    weekly_salary = weekly_hours*10
+    money_earned = weekly_salary*6
+    return float(money_earned)

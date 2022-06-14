@@ -1,0 +1,26 @@
+def exercise1():
+    """
+    Sandra has a box of apples that weighs 120 pounds.  She's going to use half the weight in apples to make applesauce.  The rest will be used to make apple pies.  She needs 4 pounds of apples per pie.  How many pies will she be able to make?
+    """
+    apples_for_pies = 120/2
+    nr_pies = apples_for_pies/4
+    return float(nr_pies)
+
+
+def exercise2():
+    """
+    Mary wants to bake 10 apple pies for a charity event. Each pie needs 8 apples and she already harvested 50 apples from the trees in her garden. How many more apples does she need to buy to make all 10 pies?
+    """
+    total_apples = 10*8
+    apples_needed = total_apples - 50
+    return float(apples_needed)
+
+
+def exercise3():
+    """
+    To eat to when she gets full, Michaela needs 20 oranges. Cassandra needs twice as many oranges as Michaela to eat until she gets full. If they picked 90 oranges from the farm today, how many oranges would remain after they've both eaten until they were full?
+    """
+    michaela_oranges = 20
+    cassandra_oranges = michaela_oranges*2
+    oranges_left = 90 - cassandra_oranges - michaela_oranges
+    return float(oranges_left)

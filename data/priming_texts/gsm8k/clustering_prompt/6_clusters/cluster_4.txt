@@ -1,0 +1,33 @@
+def exercise1():
+    """
+    Annie brought 20 brownies to school.  She gave half of them to the school administrator to put in the faculty lounge.  Of the remaining brownies, she gave half to her best friend, Carl, and another two to her friend, Simon.  How many brownies did she have left?
+    """
+    total = 20
+    admin = total / 2
+    remaining = total - admin
+    carl = remaining / 2
+    remaining = remaining - carl
+    remaining = remaining - 2
+    return float(remaining)
+
+
+def exercise2():
+    """
+    Martha collected 90 cans while Diego collected 10 more than half the cans collected by Martha. If both of them should collect a total of 150 cans for their project, how many more cans do they need to collect?
+    """
+    martha_cans = 90
+    diego_cans = martha_cans/2 + 10
+    total_cans = 150
+    cans_needed = total_cans - diego_cans - martha_cans
+    return float(cans_needed)
+
+
+def exercise3():
+    """
+    Mary brought 50 stickers to class. She gave 4 stickers to each of her 5 friends. She gave everyone else in class two stickers each. If she has 8 stickers left over, how many students are in the class, including Mary?
+    """
+    mary_stickers = 50
+    stickers_friends = 4 * 5
+    stickers_class = mary_stickers - stickers_friends - 8
+    students = 1 + 5 + stickers_class / 2
+    return float(students)

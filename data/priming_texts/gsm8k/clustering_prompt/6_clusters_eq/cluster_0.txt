@@ -1,10 +1,34 @@
 def exercise1():
-    """Adam goes to school every day. On Monday he had 6 lessons of 30 minutes each, and on Tuesday he had 3 lessons of 1 hour each. On Wednesday, Adam spent twice as much time at school as on Tuesday. How much time in total did Adam spend at school during these 3 days, in hours? Hint: use these equations eq1: 6*30=180 eq2: 2*3=6 eq3: 3+3+6=12"""
+    """
+    Adam goes to school every day. On Monday he had 6 lessons of 30 minutes each, and on Tuesday he had 3 lessons of 1 hour each. On Wednesday, Adam spent twice as much time at school as on Tuesday. How much time in total did Adam spend at school during these 3 days, in hours? Hint: use these equations eq1: 6*30=180 eq2: 2*3=6 eq3: 3+3+6=12
+    """
+    monday_minutes = 6 * 30
+    monday_hours = monday_minutes / 60
+    tuesday_hours = 3 * 1
+    wednesday_hours = 2 * tuesday_hours
+    total_hours = monday_hours + tuesday_hours + wednesday_hours
+    return float(total_time)
 
 
 def exercise2():
-    """To get to work, Ryan bikes one day a week takes the bus three times a week and gets a ride from a friend once a week. It takes him thirty minutes to bike to work. The bus takes ten minutes longer since it stops at every bus stop for other passengers. His friend driving him is the fastest and cuts two-thirds off his biking time. How many minutes does he spend every week commuting to work? Hint: use these equations eq1: 10+30=40 eq2: 40*3=120 eq3: 2/3*30=20 eq4: 30-20=10 eq5: 120+10+30=160"""
+    """
+    To get to work, Ryan bikes one day a week takes the bus three times a week and gets a ride from a friend once a week. It takes him thirty minutes to bike to work. The bus takes ten minutes longer since it stops at every bus stop for other passengers. His friend driving him is the fastest and cuts two-thirds off his biking time. How many minutes does he spend every week commuting to work? Hint: use these equations eq1: 10+30=40 eq2: 40*3=120 eq3: 2/3*30=20 eq4: 30-20=10 eq5: 120+10+30=160
+    """
+    daily_biking_time = 30
+    weekly_biking_time = daily_biking_time * 1
+    daily_bus_time = daily_biking_time + 10
+    weekly_bus_time = daily_bus_time * 3
+    daily_friend_time = daily_biking_time * (2/3)
+    weekly_friend_time = daily_friend_time * 1
+    total_time = weekly_biking_time + weekly_bus_time + weekly_friend_time
+    return float(total_time)
+
 
 
 def exercise3():
     """Jeff committed to run for an hour a day during weekdays. On Thursday, he cut short his run by 20 minutes but was able to jog 10 minutes more on Friday. How many minutes was he able to run for that week? Hint: use these equations eq1: 60*3=180 eq2: 60-20=40 eq3: 60+10=70 eq4: 180+40+70=290"""
+    minutes_per_day = 60
+    minutes_thursday = minutes_per_day - 20
+    minutes_friday = minutes_per_day + 10
+    total_minutes = minutes_thursday + minutes_friday + minutes_per_day*3
+    return float(total_minutes)

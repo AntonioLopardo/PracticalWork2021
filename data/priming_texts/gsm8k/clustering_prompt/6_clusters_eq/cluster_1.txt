@@ -1,10 +1,30 @@
 def exercise1():
-    """Robert, a sales agent, earns a basic salary of $1250 per month and,  10% commission on his monthly sales. Last month, his total sales were $23600. He allocated 20% of his total earnings to savings and the rest of the money to his monthly expenses. How much were his monthly expenses last month? Hint: use these equations eq1: 23600*10/100=2360 eq2: 1250+2360=3610 eq3: 3610*20/100=722 eq4: 3610-722=2888"""
+    """
+    Amelia has $60 to spend on her dinner at a restaurant. The first course costs $15 and the second course $5 more. The cost of the dessert is 25% of the price of the second course. How much money will Amelia have left after buying all those meals? Hint: use these equations eq1: 15+5=20 eq2: 25/100*20=5 eq3: 60-15-20-5=20
+    """
+    total = 60
+    first = 15
+    second = first + 5
+    dessert = second * 0.25
+    left = total - first - second - dessert
+    return float(left)
 
 
 def exercise2():
-    """Carrie works for $8 an hour and 35 hours a week at her job. It’s been a month since she started working there. She has saved up all of her money because she wants to buy a bike for $400. How much money will she have left over after she buys her bike? Hint: use these equations eq1: 8*35=280 eq2: 280*4=1120 eq3: 1120-400=720"""
+    """
+    4 friends went to buy from a clothes shop. Every item was 50% off.  All four friends decided to buy a t-shirt. The original price of the t-shirt was 20 dollars. How much money did they spend in total? Hint: use these equations eq1: 20*0.5=10 eq2: 4*10=40
+    """
+    tshirt_price = 20
+    discount = 0.5
+    total = tshirt_price * 4 * discount
+    return float(total)
 
 
 def exercise3():
-    """Andrea buys herself a pony for her 30th birthday. She pays $500/month to rent a pasture for it, $10 a day for food, and $60/lesson for two lessons a week. How much does she spend on her pony in a year? Hint: use these equations eq1: 10*365=3650 eq2: 60*2=120 eq3: 120*52=6240 eq4: 500*12=6000 eq5: 6000+6240+3650=15890"""
+    """
+    Mildred and Candice went to the market. Mildred spent $25 while Candice spent $35. If their mom gave them $100 to spend, how much will be left with them after spending? Hint: use these equations eq1: 25+35=60 eq2: 100-60=40
+    """
+    Mildred = 25
+    Candice = 35
+    total = 100 - (Mildred + Candice)
+    return float(total)
