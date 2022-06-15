@@ -22,7 +22,18 @@ def get_num_operands_instep(step):
     for i, eq in enumerate(split_list):
         num_operands += len(re.split(op_patter, eq))
 
+    num_operands -= 1
+
+    if num_operands < 1:
+        num_operands = 1
     return num_operands
+
+
+def get_list_of_num_operands(steps_list):
+    num_operands_list = [0]
+    for i, step in enumerate(steps_list):
+        num_operands_list.append(num_operands_list[i] + get_num_operands_instep(step))
+    return num_operands_list[1:]
 
 
 def sample_n_for_prompting(self, nr_entries=1, ex_number=4, inc_eq=False):
@@ -51,10 +62,20 @@ def sample_n_for_prompting(self, nr_entries=1, ex_number=4, inc_eq=False):
         sample_a_list.append(
             re.findall(r"#### \w+", self.data[rand_index]["answer"])[0][5:]
         )
+        num_operands_list = get_list_of_num_operands(
+            self.data[rand_index]["answer"].split("\n")
+        )
+        """
         sample_steps = [
-            f" {step.split(' **')[0]}\n    Use no more than {get_num_operands_instep(step)} variables\n    "
+            f" {step.split(' **')[0]}\n    Use no more than {get_num_operands_instep(step)} variables"
             for step in self.data[rand_index]["answer"].split("\n")
         ][:-1]
+        """
+        sample_steps = [
+            f" {step.split(' **')[0]}\n    Use no more than {num_operands_list[i]} variables"
+            for i, step in enumerate(self.data[rand_index]["answer"].split("\n"))
+        ][:-1]
+
         sample_steps_list.append(sample_steps)
 
     return sample_q_list, sample_steps_list, sample_a_list
