@@ -18,6 +18,7 @@ gsm8k_path = "data/grade-school-math/grade_school_math/data/train.jsonl"
 gsm8k_socratic_path = (
     "data/grade-school-math/grade_school_math/data/train_socratic.jsonl"
 )
+gsm8k_test_path = "data/grade-school-math/grade_school_math/data/test.jsonl"
 singleEq_path = "data/TACL2015/questions.json"
 
 
@@ -48,6 +49,16 @@ def init_dataset_from_name(
         )
     elif datatset_name == "gsm8k":
         dataset_path = gsm8k_path
+        dataset = gsm8k_dataset(
+            dataset_path,
+            primingtext_path,
+            "gsm8k",
+            sample_func,
+            preprocess_sol_func,
+            generate_prompt_func,
+        )
+    elif datatset_name == "gsm8k-test":
+        dataset_path = gsm8k_test_path
         dataset = gsm8k_dataset(
             dataset_path,
             primingtext_path,

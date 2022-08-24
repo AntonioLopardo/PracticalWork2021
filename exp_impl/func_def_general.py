@@ -26,7 +26,7 @@ def sample_n_for_prompting(self, nr_entries=1, ex_number=4, inc_eq=False):
                 + '\n    """'
             )
         sample_a_list.append(
-            re.findall(r"#### \w+", self.data[rand_index]["answer"])[0][5:]
+            re.findall(r"#### [-\w]+", self.data[rand_index]["answer"])[0][5:]
         )
 
     return sample_q_list, sample_a_list

@@ -25,6 +25,7 @@ def run_benchmark(
     results_path,
     model=None,
     tokenizer=None,
+    full_test=False,
 ):
 
     # priming_text_path = "data/priming_texts/gsm8k/codegen/func_eq_short.txt"  # for codegen
@@ -41,12 +42,20 @@ def run_benchmark(
             "gsm8k", primingtext_path=priming_text_path
         )
     else:
-        current_dataset = dh.init_dataset_from_name(
-            "gsm8k",
-            primingtext_path=priming_text_path,
-            sample_func=exp_impl.sample_n_for_prompting,
-            generate_prompt_func=exp_impl.generate_prompt,
-        )
+        if full_test:
+            current_dataset = dh.init_dataset_from_name(
+                "gsm8k-test",
+                primingtext_path=priming_text_path,
+                sample_func=exp_impl.sample_n_for_prompting,
+                generate_prompt_func=exp_impl.generate_prompt,
+            )
+        else:
+            current_dataset = dh.init_dataset_from_name(
+                "gsm8k",
+                primingtext_path=priming_text_path,
+                sample_func=exp_impl.sample_n_for_prompting,
+                generate_prompt_func=exp_impl.generate_prompt,
+            )
 
     tu.set_all_seeds()
     # tu.set_all_seeds_alt()
@@ -56,7 +65,14 @@ def run_benchmark(
             100, inc_eq=True
         )
     else:
-        sample_q_list, sample_a_list = current_dataset.sample_n_for_prompting(100)
+        if full_test:
+            test_set_size = len(current_dataset.data)
+            sample_q_list, sample_a_list = current_dataset.sample_n_for_prompting(
+                nr_entries=test_set_size
+            )
+
+        else:
+            sample_q_list, sample_a_list = current_dataset.sample_n_for_prompting(100)
 
     with open("test_prompt.txt", "w") as f:
         f.write(current_dataset.generate_prompt(sample_q_list[0]))
@@ -161,7 +177,7 @@ if __name__ == "__main__":
     print(colored("Running Benchmark", "green"))
 
     priming_text_list = [
-        "data/priming_texts/gsm8k/codegen/func_eq_short.txt",
+        # "data/priming_texts/gsm8k/codegen/func_eq_short.txt",
         "data/priming_texts/gsm8k/codegen/func_short.txt",
     ]
     """
@@ -200,7 +216,7 @@ if __name__ == "__main__":
 
     func_impl_list = ["func_def_general" for _ in range(len(priming_text_list))]
     results_path_list = [
-        os.path.join("results_lists", pt_dir.split("/")[-2])
+        os.path.join("results_lists", pt_dir.split("/")[-2], "full_test")
         for pt_dir in priming_text_list
     ]
 
@@ -214,4 +230,5 @@ if __name__ == "__main__":
             results_path,
             model=model,
             tokenizer=tokenizer,
+            full_test=True,
         )
