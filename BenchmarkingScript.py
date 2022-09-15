@@ -10,9 +10,9 @@ import importlib
 import argparse
 import pickle
 
-import dataset_handler as dh
-import loading_utils as lu
-import testing_utils as tu
+import utils.dataset_handler as dh
+import utils.loading_utils as lu
+import utils.testing_utils as tu
 
 gptj_model = "EleutherAI/gpt-j-6B"
 codeparrot_model = "lvwerra/codeparrot"
@@ -139,7 +139,7 @@ if __name__ == "__main__":
         type=str,
         default="codegen",
         nargs="?",
-        help="Whihc model to train: tucker",
+        help="Which model to train: tucker",
     )
     parser.add_argument(
         "--func_impl_path",
@@ -180,39 +180,6 @@ if __name__ == "__main__":
         # "data/priming_texts/gsm8k/codegen/func_eq_short.txt",
         "data/priming_texts/gsm8k/codegen/func_short.txt",
     ]
-    """
-    priming_text_list.extend(
-        os.path.join("data/priming_texts/gsm8k/clustering_prompt/3_clusters_eq", pr_txt)
-        for pr_txt in os.listdir(
-            "data/priming_texts/gsm8k/clustering_prompt/3_clusters_eq"
-        )
-    )
-    priming_text_list.extend(
-        os.path.join("data/priming_texts/gsm8k/clustering_prompt/3_clusters", pr_txt)
-        for pr_txt in os.listdir(
-            "data/priming_texts/gsm8k/clustering_prompt/3_clusters"
-        )
-    )
-    priming_text_list.extend(
-        os.path.join("data/priming_texts/gsm8k/clustering_prompt/4_clusters_eq", pr_txt)
-        for pr_txt in os.listdir(
-            "data/priming_texts/gsm8k/clustering_prompt/4_clusters_eq"
-        )
-    )
-    priming_text_list.extend(
-        os.path.join("data/priming_texts/gsm8k/clustering_prompt/4_clusters", pr_txt)
-        for pr_txt in os.listdir(
-            "data/priming_texts/gsm8k/clustering_prompt/4_clusters"
-        )
-    )
-    priming_text_list.extend(
-        os.path.join("data/priming_texts/gsm8k/concepts_prompt/concepts_eq", pr_txt)
-        for pr_txt in os.listdir("data/priming_texts/gsm8k/concepts_prompt/concepts_eq")
-    )
-    priming_text_list.extend(
-        os.path.join("data/priming_texts/gsm8k/concepts_prompt/concepts", pr_txt)
-        for pr_txt in os.listdir("data/priming_texts/gsm8k/concepts_prompt/concepts")
-    ) """
 
     func_impl_list = ["func_def_general" for _ in range(len(priming_text_list))]
     results_path_list = [
